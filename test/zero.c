@@ -5,7 +5,7 @@ int a();
 
 START_TEST (test_zero)
 {
-  ck_assert_int_eq(a(), 3);
+  ck_assert_int_eq(a(), 2);
 }
 END_TEST
 

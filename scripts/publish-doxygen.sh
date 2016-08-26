@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Settings
-REPO_PATH="https://rayslava:${GIT_TOKEN}@github.com/rayslava/chatsync.git"
+REPO_PATH="https://rayslava:${GIT_TOKEN}@github.com/rayslava/pforth.git"
 HTML_PATH=doc/html
 COMMIT_USER="Documentation Builder"
 COMMIT_EMAIL="travis@travis-ci.org"
@@ -16,7 +16,7 @@ set -x
 # Prepare configuration and README file
 sed -ie "/PROJECT_NUMBER/s/=.*$/= ${CHANGESET}/" Doxyfile
 sed -ie '1s/$/ {#mainpage}/' README.md
-sed -ie '/Build Status/s#.*#!\[Build Status\](https://travis-ci.org/rayslava/chatsync.svg?branch=master) !\[Coverage Status\](https://coveralls.io/repos/rayslava/chatsync/badge.png)#' README.md
+sed -ie '/Build Status/s#.*#!\[Build Status\](https://travis-ci.org/rayslava/pforth.svg?branch=master) !\[Coverage Status\](https://coveralls.io/repos/rayslava/pforth/badge.png)#' README.md
 
 # rm all the files through git to prevent stale files.
 cd ${HTML_PATH}
@@ -34,4 +34,3 @@ git config user.email "${COMMIT_EMAIL}"
 git commit -m "Automated documentation build for changeset ${CHANGESET}."
 git push origin gh-pages
 cd -
-
