@@ -1,7 +1,7 @@
 BINARY=pforth
 JOBS=$(shell grep -c '^processor' /proc/cpuinfo)
 
-all: stylecheck doxygen asan tsan clang release clang-release analyzed
+all: stylecheck doxygen asan lsan msan clang release clang-release analyzed
 
 doxygen:
 	doxygen Doxyfile
@@ -64,6 +64,9 @@ stylecheck:
 
 stylefix:
 	uncrustify -c uncrustify.cfg src/*.c src/*.h test/*.c --replace
+
+coverage:
+	$(call build-dir, $@) && cmake .. -DCOVERAGE=True && $(MAKE) -j $(JOBS) coverage
 
 deploy: debug release clang clang-release analyzed memcheck dockerbuild/$(BINARY).tar.gz
 	cd dockerbuild && docker run -v "$(shell pwd)/dockerbuild:/mnt/host" $(BINARY)-deploy /bin/bash -c 'cd /root && tar xfz /mnt/host/$(BINARY).tar.gz && cd $(BINARY) && mkdir build && cd build && cmake -DSTATIC=True -DCMAKE_BUILD_TYPE=RelWithDebInfo .. && make $(BINARY) -j $(JOBS) && cp $(BINARY) /mnt/host'

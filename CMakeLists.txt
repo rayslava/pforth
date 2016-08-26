@@ -13,6 +13,8 @@ set(SOURCE_FILES
   src/interp.c
   )
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS On)
+
 macro(create_test name files)
   message("-- Creating test '${name}' of ${files}")
 
