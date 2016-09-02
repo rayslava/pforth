@@ -1,26 +1,31 @@
+#include <pforth.h>
 #include <stdlib.h>
 #include <check.h>
 
-int a();
+void pforth_init();
+void push_uint32_t(uint32_t value);
+int32_t pop_int32_t();
 
-START_TEST (test_zero)
+START_TEST (test_push_pop)
 {
-  ck_assert_int_eq(a(), 2);
+  push_uint32_t(0xfefefefe);
+  uint32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 0xfefefefe);
 }
 END_TEST
 
 
-Suite * zero_suite(void)
+Suite * stack_suite(void)
 {
   Suite* s;
   TCase* tc_core;
 
-  s = suite_create("Money");
+  s = suite_create("stack");
 
   /* Core test case */
   tc_core = tcase_create("Core");
 
-  tcase_add_test(tc_core, test_zero);
+  tcase_add_test(tc_core, test_push_pop);
   suite_add_tcase(s, tc_core);
 
   return s;
@@ -32,9 +37,10 @@ int main(void)
   Suite* s;
   SRunner* sr;
 
-  s = zero_suite();
+  s = stack_suite();
   sr = srunner_create(s);
 
+  pforth_init();
   srunner_run_all(sr, CK_NORMAL);
   number_failed = srunner_ntests_failed(sr);
   srunner_free(sr);

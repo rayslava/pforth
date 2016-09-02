@@ -11,6 +11,8 @@ set(CMAKE_MODULE_PATH
 
 set(SOURCE_FILES
   src/interp.c
+  src/pforth.c
+  src/words.c
   )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS On)
@@ -106,7 +108,8 @@ include_directories(
 include(CTest)
 enable_testing()
 
-create_test(zero test/zero.c)
+create_test(stack test/stack.c)
+create_test(math test/math.c)
 
 if (COVERAGE)
   setup_target_for_coverage(coverage zero_test src coverage)

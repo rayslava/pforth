@@ -48,10 +48,10 @@ memcheck-binary = \
 memcheck: debug release
 	$(call build-dir, $@) && cmake .. -DCMAKE_BUILD_TYPE=Debug && $(MAKE) -j $(JOBS)
 
-memcheck-zero: memcheck
-	cd memcheck-build && $(call memcheck-binary,zero_test)
+memcheck-stack: memcheck
+	cd memcheck-build && $(call memcheck-binary,stack_test)
 
-valgrind: memcheck-zero
+valgrind: memcheck-stack
 
 dockerimage:
 	cd dockerbuild && (docker images | grep $(BINARY)-deploy) || docker build -t $(BINARY)-deploy .
