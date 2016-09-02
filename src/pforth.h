@@ -28,3 +28,13 @@ extern uint8_t* data_stack_top;
 extern void* return_stack_top;
 
 void pforth_init();
+
+/**
+   djb2 hash function
+
+   Hope it'll be more or less unique to create hash table for FORTH words
+
+   \param str null-terminated input string
+   \returns uint32_t hash
+ */
+uint32_t hash(const unsigned char* str);

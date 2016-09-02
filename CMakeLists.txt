@@ -110,17 +110,20 @@ enable_testing()
 
 create_test(stack test/stack.c)
 create_test(math test/math.c)
+create_test(interp test/interp.c)
 
 if (COVERAGE)
   setup_target_for_coverage(math_coverage math_test src coverage)
   setup_target_for_coverage(stack_coverage stack_test src coverage)
+  setup_target_for_coverage(interp_coverage interp_test src coverage)
   ADD_CUSTOM_TARGET(coverage
-    DEPENDS math_coverage stack_coverage)
+    DEPENDS math_coverage stack_coverage interp_coverage)
 endif()
 
 if (COVERALLS)
     setup_target_for_coveralls(math_coveralls math_test src coveralls)
     setup_target_for_coveralls(stack_coveralls stack_test src coveralls)
+    setup_target_for_coveralls(interp_coveralls interp_test src coveralls)
     ADD_CUSTOM_TARGET(coveralls
-      DEPENDS math_coveralls stack_coveralls)
+      DEPENDS math_coveralls stack_coveralls interp_coveralls)
 endif()

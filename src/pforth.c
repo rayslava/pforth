@@ -32,3 +32,13 @@ void pforth_init() {
   data_stack_top = malloc(sizeof(uint8_t) * 1024);
   return_stack_top = malloc(sizeof(uint8_t) * 1024);
 }
+
+uint32_t hash(const unsigned char* str)
+{
+  unsigned long hash = 5381;
+  int c;
+
+  while ((c = *str++))
+    hash = ((hash << 5) + hash) + c;
+  return hash;
+}
