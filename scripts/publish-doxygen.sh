@@ -32,5 +32,7 @@ git add .
 git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
 git commit -m "Automated documentation build for changeset ${CHANGESET}."
+set +x
 git push origin gh-pages
+set -x
 cd -

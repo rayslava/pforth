@@ -1,0 +1,51 @@
+sudo: required
+dist: trusty
+language: cpp
+compiler:
+    - clang
+    - gcc
+before_install:
+    - sudo add-apt-repository --yes ppa:h-rayflood/llvm
+    - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+    - sudo add-apt-repository --yes ppa:yjwong/cmake
+    - sudo add-apt-repository --yes 'deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main'
+    - wget -O - http://llvm.org/apt/llvm-snapshot.gpg.key | sudo apt-key add -
+    - sudo apt-get -qq update
+    - sudo apt-get -qq --yes --force-yes install libclang-3.8-dev clang-3.8 gcc-5 g++-5 check valgrind lcov cmake cmake-data build-essential libtool autotools-dev automake checkinstall check git yasm
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 40 --slave /usr/bin/g++ g++ /usr/bin/g++-5
+    - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 40
+    - sudo update-alternatives --config gcc
+    - sudo update-alternatives --config gcov
+    - export LD_LIBRARY_PATH=/usr/lib/llvm-3.8/lib/
+    - export PATH=/usr/lib/llvm-3.8/bin:$PATH
+    - sudo pip install cpp-coveralls
+    - cd $(mktemp -d)
+    - wget 'http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.11.src.tar.gz'
+    - tar xf doxygen-1.8.11.src.tar.gz
+    - cd doxygen-1.8.11 && mkdir build && cd build
+    - cmake -G "Unix Makefiles" ..
+    - make -j3
+    - sudo make install
+    - cd $TRAVIS_BUILD_DIR
+matrix:
+    include:
+        - compiler: gcc
+          env: CMAKE_BUILD_TYPE="Release"
+        - compiler: gcc
+          env:
+              - DOCS="yes"
+              - CMAKE_BUILD_TYPE="Debug"
+              - secure: "30nZ1NxYJB229F5yF19Zw3dFQEZxRN8aR6uS78zsvDwEidc73nRBE2AFIlthTlznq5bjnAM4f0/MW8d9mjtBRGEPDHPRDYfurvyNc9RcOsTNAhWNH74RWldCI01V1My1Ao87hRgDlKHGqOn/tdJwMugQDXjmxRSZP4KWGvHQnZAjPGkF/vXHg28CDeWQkNGUprhuhEDBn8AtoAE5V/fixeqNM6K93Xf3lIKB9PsxuL+L2ILYOk3R7WimewX66TvGVXuVyeGVxE9Fse+7AvQiVGqwSNZScJkpYus2W3qzvoRZButUYb9D6m+YenjfUuz8kVoby8KtvJoPVghVzvmj5mya70EekaitDZhRazbi0kUlj2BrbTnvLM5IcNYMufqM0nbtxkwMdxrWRMjh1tUxzxeh8Y3yyRmyGv+JN44AIZfqRsIlSyEKVswJIbddloZYPLPrqJes8ZQb1BpSBBUXqE31xilZ4IAdDlRCH2BMs1XJ4udWujOfA010Sv3ECpPHId0TpwTuflTfSRx2/KQQbguJ9ejssX55HceQOkuVGYIQpqw/etIWMCuo0/xnCkICsjNQnFLDitSxgteMLp7DsgPYcxYa/2DBardslqTH4OAnbhVEClTmsWmaJ1jD/smP4tg1xUOf3xWv439pR1lYW0JQhFM3gQjQuplG/A50r6A="
+        - compiler: gcc
+          env: COVERAGE="true" CMAKE_BUILD_TYPE="Debug"
+script:
+    - mkdir build
+    - cd build
+    - cmake .. -DCOVERALLS=${COVERAGE} -DSTATIC=${STATIC} -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} -DTRAVIS_BUILD=True
+    - make VERBOSE=1
+    - ctest -V
+    - if [ "x$VALGRIND" != "x" ]; then (valgrind --tool=memcheck --track-origins=yes --leak-check=full --trace-children=yes --show-reachable=yes ./unit_tests 2>/tmp/unit-test-valg-unit_tests.log)</dev/null && sed '/in use/!d;s/.*exit:.*\s\([[:digit:]]\+\)\sblocks.*/\1/' /tmp/unit-test-valg-unit_tests.log | { read lines; test $$lines -eq 1 || cat /tmp/unit-test-valg-unit_tests.log; }; fi
+    - if [ "x$COVERAGE" != "x" ]; then make V=1 VERBOSE=1 coveralls; fi
+after_success:
+    - if [ "x$COVERAGE" != "x" ]; then bash coveralls-upload || coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*" ; fi
+    - if [ "x$DOCS" != "x" ]; then cd .. && bash scripts/publish-doxygen.sh; fi

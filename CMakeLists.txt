@@ -46,7 +46,7 @@ endmacro(create_test)
 
 include(ConfigSafeGuards)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(CHECK REQUIRED check>=0.10.0)
+pkg_check_modules(CHECK REQUIRED check>=0.9.10)
 
 if (DEFINED CHECK_INCLUDE_DIRS)
   include_directories(${CHECK_INCLUDE_DIRS})
@@ -112,9 +112,15 @@ create_test(stack test/stack.c)
 create_test(math test/math.c)
 
 if (COVERAGE)
-  setup_target_for_coverage(coverage zero_test src coverage)
+  setup_target_for_coverage(math_coverage math_test src coverage)
+  setup_target_for_coverage(stack_coverage stack_test src coverage)
+  ADD_CUSTOM_TARGET(coverage
+    DEPENDS math_coverage stack_coverage)
 endif()
 
 if (COVERALLS)
-  setup_target_for_coveralls(coveralls unit_tests src)
+    setup_target_for_coveralls(math_coveralls math_test src coveralls)
+    setup_target_for_coveralls(stack_coveralls stack_test src coveralls)
+    ADD_CUSTOM_TARGET(coveralls
+      DEPENDS math_coveralls stack_coveralls)
 endif()
