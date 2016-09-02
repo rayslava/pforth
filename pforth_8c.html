@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">b32185fd5eeb2843486cb079bd58bc7a0ffd5b17</span>
+   &#160;<span id="projectnumber">f9a6210ba02d5a7c5a18fe517733a244f53ce08c</span>
    </div>
   </td>
  </tr>
@@ -122,6 +122,8 @@ Functions</h2></td></tr>
 <tr class="separator:a6f100f7e689b38682b30e14ce51aabfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2872ba7ae4b9ec08684e10d5c7211b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6">pforth_init</a> ()</td></tr>
 <tr class="separator:ab2872ba7ae4b9ec08684e10d5c7211b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f4283d8378b653650aada598cac4f21"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#a6f4283d8378b653650aada598cac4f21">hash</a> (const unsigned char *str)</td></tr>
+<tr class="separator:a6f4283d8378b653650aada598cac4f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -166,6 +168,31 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6f4283d8378b653650aada598cac4f21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t hash </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>djb2 hash function</p>
+<p>Hope it'll be more or less unique to create hash table for FORTH words</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>null-terminated input string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t hash </dd></dl>
 
 </div>
 </div>
@@ -267,7 +294,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8c.html">pforth.c</a></li>
-    <li class="footer">Generated on Fri Sep 2 2016 12:08:36 for pforth by
+    <li class="footer">Generated on Fri Sep 2 2016 13:55:58 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

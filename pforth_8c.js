@@ -2,6 +2,7 @@ var pforth_8c =
 [
     [ "create_word", "pforth_8c.html#a9220b232802589fad5b89bdb9dd6cd76", null ],
     [ "destroy_word", "pforth_8c.html#a665082ed0734991528d989f851756e6e", null ],
+    [ "hash", "pforth_8c.html#a6f4283d8378b653650aada598cac4f21", null ],
     [ "increase_dictionary", "pforth_8c.html#a6f100f7e689b38682b30e14ce51aabfd", null ],
     [ "pforth_init", "pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6", null ],
     [ "data_stack_top", "pforth_8c.html#a159fb3ba31844b2d551900969fd5d598", null ],
