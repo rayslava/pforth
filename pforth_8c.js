@@ -1,13 +1,10 @@
 var pforth_8c =
 [
-    [ "create_word", "pforth_8c.html#a9220b232802589fad5b89bdb9dd6cd76", null ],
-    [ "destroy_word", "pforth_8c.html#a665082ed0734991528d989f851756e6e", null ],
-    [ "hash", "pforth_8c.html#a6f4283d8378b653650aada598cac4f21", null ],
-    [ "increase_dictionary", "pforth_8c.html#a6f100f7e689b38682b30e14ce51aabfd", null ],
+    [ "pforth_deinit", "pforth_8c.html#abc79d748d687bdb5ce82b5fd9a784ea7", null ],
     [ "pforth_init", "pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6", null ],
+    [ "pforth_word_alloc", "pforth_8c.html#adb946f90e0ef5959a6b1f22c88a927ce", null ],
+    [ "pforth_word_copy", "pforth_8c.html#aedc19940161835e3b56ec004dffe5b2b", null ],
+    [ "pforth_word_free", "pforth_8c.html#a8086e2c87824b9b855151abbb2b0b528", null ],
     [ "data_stack_top", "pforth_8c.html#a159fb3ba31844b2d551900969fd5d598", null ],
-    [ "dictionary", "pforth_8c.html#a28315580c7c97866091349af17b1af3d", null ],
-    [ "dictionary_length", "pforth_8c.html#ae8426a47f91786faf61c1495ff93fc32", null ],
-    [ "dictionary_size", "pforth_8c.html#aad7ee3d5505c65cface8e1ad831891ee", null ],
     [ "return_stack_top", "pforth_8c.html#a6bfabdfca73c31e4c5f0733c39eaf154", null ]
 ];

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">f9a6210ba02d5a7c5a18fe517733a244f53ce08c</span>
+   &#160;<span id="projectnumber">bdfd9c5c65346959e67c332bef9e6c9c1dd3a1eb</span>
    </div>
   </td>
  </tr>
@@ -115,14 +115,46 @@ $(document).ready(function(){initNavTree('struct__pforth__word.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
+<tr class="memitem:a345a0ae00d24d1812bc14490185d9e6a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__pforth__word.html#a345a0ae00d24d1812bc14490185d9e6a">text_code</a></td></tr>
+<tr class="separator:a345a0ae00d24d1812bc14490185d9e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e2cab29f920ec5ecf77580039823abc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__pforth__word.html#a1e2cab29f920ec5ecf77580039823abc">size</a></td></tr>
 <tr class="separator:a1e2cab29f920ec5ecf77580039823abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeed9d78bed7f358fe7b1b24955d06310"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__pforth__word.html#aeed9d78bed7f358fe7b1b24955d06310">location</a></td></tr>
-<tr class="separator:aeed9d78bed7f358fe7b1b24955d06310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memItemLeft" >union {</td></tr>
+<tr class="memitem:af4dcf823640033f3da3ea9db1521f508"><td class="memItemLeft" >&#160;&#160;&#160;void *&#160;&#160;&#160;<a class="el" href="struct__pforth__word.html#aeed9d78bed7f358fe7b1b24955d06310">location</a></td></tr>
+<tr class="separator:af4dcf823640033f3da3ea9db1521f508"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091fc6adecdeed3c3b2cfb5a347a9073"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a>&#160;&#160;&#160;<a class="el" href="struct__pforth__word.html#ad5d18e24e03c8a3608e6d59fe40360d4">function</a></td></tr>
+<tr class="separator:a091fc6adecdeed3c3b2cfb5a347a9073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="separator:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The single FORTH word description </p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a0ed896bf329f9a8446e7181d8f0f4a34"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... } </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad5d18e24e03c8a3608e6d59fe40360d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> _pforth_word::function</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function to call when compiling the word </p>
+
+</div>
+</div>
 <a class="anchor" id="aeed9d78bed7f358fe7b1b24955d06310"></a>
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +164,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Binary location to jump to </p>
+<p>Binary location to jump to. NULL if not compiled </p>
 
 </div>
 </div>
@@ -145,7 +177,21 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Code size </p>
+<p>Code size (for binary code in <code>location/<code>function</code>)</code> </p>
+
+</div>
+</div>
+<a class="anchor" id="a345a0ae00d24d1812bc14490185d9e6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* _pforth_word::text_code</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ASCII representation of word.</p>
+<p>The actual program. <code>NULL</code> for native words. </p>
 
 </div>
 </div>
@@ -158,7 +204,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct__pforth__word.html">_pforth_word</a></li>
-    <li class="footer">Generated on Fri Sep 2 2016 13:55:58 for pforth by
+    <li class="footer">Generated on Thu Sep 8 2016 15:46:50 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

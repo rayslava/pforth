@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">f9a6210ba02d5a7c5a18fe517733a244f53ce08c</span>
+   &#160;<span id="projectnumber">bdfd9c5c65346959e67c332bef9e6c9c1dd3a1eb</span>
    </div>
   </td>
  </tr>
@@ -85,15 +85,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
       <li><a href="#index__"><span>_</span></a></li>
-      <li><a href="#index_a"><span>a</span></a></li>
-      <li><a href="#index_c"><span>c</span></a></li>
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
-      <li class="current"><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li class="current"><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -147,46 +148,44 @@ $(document).ready(function(){initNavTree('globals.html','');});
 </ul>
 
 
-<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>a()
-: <a class="el" href="interp_8c.html#a7d685daeab4bf18d5f1add89c0587704">interp.c</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
-<li>create_word()
-: <a class="el" href="pforth_8c.html#a9220b232802589fad5b89bdb9dd6cd76">pforth.c</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>data_stack_top
 : <a class="el" href="pforth_8c.html#a159fb3ba31844b2d551900969fd5d598">pforth.c</a>
 , <a class="el" href="pforth_8h.html#a159fb3ba31844b2d551900969fd5d598">pforth.h</a>
 </li>
-<li>destroy_word()
-: <a class="el" href="pforth_8c.html#a665082ed0734991528d989f851756e6e">pforth.c</a>
+<li>dict_create()
+: <a class="el" href="pforth_8h.html#abdb3c064fa36716390a35de3362337d2">pforth.h</a>
+, <a class="el" href="dict_8c.html#abdb3c064fa36716390a35de3362337d2">dict.c</a>
 </li>
-<li>dictionary
-: <a class="el" href="pforth_8c.html#a28315580c7c97866091349af17b1af3d">pforth.c</a>
-, <a class="el" href="pforth_8h.html#a28315580c7c97866091349af17b1af3d">pforth.h</a>
+<li>dict_entry
+: <a class="el" href="pforth_8h.html#a8e9467259d3713ecf10a018a3118f111">pforth.h</a>
 </li>
-<li>DICTIONARY_INCREASE_STEP
-: <a class="el" href="pforth_8h.html#a1d6be7353bf6f745680ee8299c99bc1f">pforth.h</a>
+<li>dict_free()
+: <a class="el" href="dict_8c.html#a39c3c5ba955f137f9d45f2b74ad71fb2">dict.c</a>
+, <a class="el" href="pforth_8h.html#a39c3c5ba955f137f9d45f2b74ad71fb2">pforth.h</a>
 </li>
-<li>dictionary_length
-: <a class="el" href="pforth_8c.html#ae8426a47f91786faf61c1495ff93fc32">pforth.c</a>
-, <a class="el" href="pforth_8h.html#ae8426a47f91786faf61c1495ff93fc32">pforth.h</a>
+<li>dict_get()
+: <a class="el" href="dict_8c.html#a35bc11dcdb7f8313d4b9007d6f381e1a">dict.c</a>
+, <a class="el" href="pforth_8h.html#a35bc11dcdb7f8313d4b9007d6f381e1a">pforth.h</a>
 </li>
-<li>dictionary_size
-: <a class="el" href="pforth_8c.html#aad7ee3d5505c65cface8e1ad831891ee">pforth.c</a>
+<li>dict_newkv()
+: <a class="el" href="dict_8c.html#a0f2566c59135a6fecbc78e07376f0160">dict.c</a>
+</li>
+<li>dict_set()
+: <a class="el" href="pforth_8h.html#a39602d64b884e528e02436e36f8ac0e4">pforth.h</a>
+, <a class="el" href="dict_8c.html#a39602d64b884e528e02436e36f8ac0e4">dict.c</a>
+</li>
+<li>dict_t
+: <a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">pforth.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>eval()
+: <a class="el" href="interp_8c.html#a8fd84db5516a541e4fc17a3487f5bddc">interp.c</a>
+, <a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">pforth.h</a>
+</li>
 <li>EVAL
 : <a class="el" href="words_8c.html#aa0f8200acd4827bc9d2df09270b66c38">words.c</a>
 </li>
@@ -210,16 +209,12 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>hash()
-: <a class="el" href="pforth_8c.html#a6f4283d8378b653650aada598cac4f21">pforth.c</a>
-, <a class="el" href="pforth_8h.html#a6f4283d8378b653650aada598cac4f21">pforth.h</a>
+: <a class="el" href="dict_8c.html#a47c0f9c788a293ca27e41bbd0fe3b2bb">dict.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>increase_dictionary()
-: <a class="el" href="pforth_8c.html#a6f100f7e689b38682b30e14ce51aabfd">pforth.c</a>
-</li>
 <li>init()
 : <a class="el" href="main_8c.html#a02fd73d861ef2e4aabb38c0c9ff82947">main.c</a>
 </li>
@@ -270,18 +265,37 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
-<li>PF_SUCCESS
-: <a class="el" href="pforth_8h.html#a999fb60ddd7708344a16c5e95717ea18">pforth.h</a>
+<li>pforth_deinit()
+: <a class="el" href="pforth_8c.html#abc79d748d687bdb5ce82b5fd9a784ea7">pforth.c</a>
+, <a class="el" href="pforth_8h.html#abc79d748d687bdb5ce82b5fd9a784ea7">pforth.h</a>
 </li>
 <li>pforth_init()
-: <a class="el" href="pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6">pforth.c</a>
-, <a class="el" href="pforth_8h.html#ab2872ba7ae4b9ec08684e10d5c7211b6">pforth.h</a>
+: <a class="el" href="pforth_8h.html#ab2872ba7ae4b9ec08684e10d5c7211b6">pforth.h</a>
+, <a class="el" href="pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6">pforth.c</a>
 </li>
 <li>pforth_word
 : <a class="el" href="pforth_8h.html#a14bec72d4898383371637a4770dce45c">pforth.h</a>
 </li>
+<li>pforth_word_alloc()
+: <a class="el" href="pforth_8c.html#adb946f90e0ef5959a6b1f22c88a927ce">pforth.c</a>
+, <a class="el" href="pforth_8h.html#adb946f90e0ef5959a6b1f22c88a927ce">pforth.h</a>
+</li>
+<li>pforth_word_copy()
+: <a class="el" href="pforth_8c.html#aedc19940161835e3b56ec004dffe5b2b">pforth.c</a>
+, <a class="el" href="pforth_8h.html#aedc19940161835e3b56ec004dffe5b2b">pforth.h</a>
+</li>
+<li>pforth_word_dup()
+: <a class="el" href="pforth_8h.html#a5b50d3329cd6b647f87d9f1a4eceb7f5">pforth.h</a>
+</li>
+<li>pforth_word_free()
+: <a class="el" href="pforth_8c.html#a8086e2c87824b9b855151abbb2b0b528">pforth.c</a>
+, <a class="el" href="pforth_8h.html#a8086e2c87824b9b855151abbb2b0b528">pforth.h</a>
+</li>
 <li>pforth_word_ptr
 : <a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth.h</a>
+</li>
+<li>PFORTH_WORD_RUN
+: <a class="el" href="pforth_8h.html#a18b586ef5d87a09c4306f2ead631b60a">pforth.h</a>
 </li>
 <li>pop_int32_t()
 : <a class="el" href="main_8c.html#afb304f7a626d7e39f84a18fff4ac38bb">main.c</a>
@@ -290,7 +304,8 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="words_8c.html#ab342b67c65f5a29670e8bbb5b5e3ca16">words.c</a>
 </li>
 <li>push_int32_t()
-: <a class="el" href="main_8c.html#ad75bece0dd48b3cc9c511a03378c5bc2">main.c</a>
+: <a class="el" href="interp_8c.html#ad75bece0dd48b3cc9c511a03378c5bc2">interp.c</a>
+, <a class="el" href="main_8c.html#ad75bece0dd48b3cc9c511a03378c5bc2">main.c</a>
 </li>
 <li>PUSH_POP_WORD
 : <a class="el" href="words_8c.html#a52b6119642378b1ee55848397f6fcec5">words.c</a>
@@ -310,12 +325,36 @@ $(document).ready(function(){initNavTree('globals.html','');});
 , <a class="el" href="pforth_8h.html#a6bfabdfca73c31e4c5f0733c39eaf154">pforth.h</a>
 </li>
 </ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>strndup()
+: <a class="el" href="interp_8c.html#a192b3847a17275976b0c8cc154776f40">interp.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>upcase()
+: <a class="el" href="interp_8c.html#ab3fde9000cf2dd4f798ad52473d77a52">interp.c</a>
+</li>
+<li>upstring()
+: <a class="el" href="interp_8c.html#a84b92abfb914c4fa41ef0588770439d5">interp.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>word_function
+: <a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">pforth.h</a>
+</li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Sep 2 2016 13:55:58 for pforth by
+    <li class="footer">Generated on Thu Sep 8 2016 15:46:50 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
