@@ -17,10 +17,11 @@ int main() {
   _add_int32_t();
   printf("Result: %d\n", pop_int32_t());
 
-  dict_t* dict = dict_create(1);
+  dict_t* dict = dict_create(50);
   pforth_word_ptr word = pforth_word_alloc();
   word->function = _add_int32_t;
   dict_set(dict, "ADD", word);
+  dict_set(dict, "+",	word);
 
   char val[] = "Test-test";
   word->text_code = val;
@@ -44,7 +45,15 @@ int main() {
   eval(dict, "  5 10 20 add add   ");
   printf("Result: %d\n", pop_int32_t());
 
-  dict_free(dict, 1);
+  char word_numbers[] = "5 10 20";
+  pforth_word_ptr numbers_word = pforth_word_alloc();
+  numbers_word->text_code = word_numbers;
+  dict_set(dict, "NUMS", numbers_word);
+
+  eval(dict, "nums + +");
+  printf("Result: %d\n", pop_int32_t());
+
+  dict_free(dict, 50);
   pforth_deinit();
   return 0;
 }

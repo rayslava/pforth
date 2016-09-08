@@ -77,6 +77,26 @@ START_TEST(eval_add2_test)
 }
 END_TEST
 
+START_TEST(eval_recursion_test)
+{
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = &_add_int32_t;
+  dict_set(dict, "+", word);
+
+  char word_numbers[] = "5 10 20";
+  pforth_word_ptr numbers_word = pforth_word_alloc();
+  numbers_word->text_code = word_numbers;
+  dict_set(dict, "NUMS", numbers_word);
+
+  eval(dict, "nums + +");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 35);
+  dict_free(dict, 20);
+  free(dict);
+}
+END_TEST
+
 Suite* interp_suite(void)
 {
   Suite* s;
@@ -91,6 +111,7 @@ Suite* interp_suite(void)
   tcase_add_test(tc_core, add_test);
   tcase_add_test(tc_core, eval_add_test);
   tcase_add_test(tc_core, eval_add2_test);
+  tcase_add_test(tc_core, eval_recursion_test);
   suite_add_tcase(s, tc_core);
 
   return s;

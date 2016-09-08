@@ -47,8 +47,12 @@ void eval(dict_t* dict, const char* line) {
 
     /* Try to call the word */
     pforth_word_ptr word;
-    if ((word = dict_get(dict, token)) != NULL)
-      word->function();
+    if ((word = dict_get(dict, token)) != NULL) {
+      if (word->location)
+        word->function();
+      else
+        eval(dict, word->text_code);
+    }
   next:
     if (*begin == 0)
       break;

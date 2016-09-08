@@ -5,7 +5,10 @@ uint8_t* data_stack_top; /**< The global data stack top pointer for the FORTH ma
 void* return_stack_top;
 
 pforth_word_ptr pforth_word_alloc() {
-  pforth_word_ptr new_word = calloc(1, sizeof(pforth_word));
+  pforth_word_ptr new_word = malloc(sizeof(pforth_word));
+  new_word->text_code = NULL;
+  new_word->location = NULL;
+  new_word->size = 0;
   return new_word;
 }
 
@@ -36,12 +39,14 @@ pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_p
       return NULL;
     }
     memcpy(dest->text_code, src->text_code, text_len);
-    dest->location = malloc(dest->size);
-    if (dest->location == NULL) {
-      free(dest->text_code);
-      return NULL;
+    if (dest->size) {
+      dest->location = malloc(dest->size);
+      if (dest->location == NULL) {
+        free(dest->text_code);
+        return NULL;
+      }
+      memcpy(dest->location, src->location, dest->size);
     }
-    memcpy(dest->location, src->location, dest->size);
   } else {
     /* Native word */
     dest->text_code = NULL;
