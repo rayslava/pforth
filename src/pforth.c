@@ -1,31 +1,19 @@
+#include <string.h>
 #include "pforth.h"
-
-pforth_word_ptr* dictionary;
-uint32_t dictionary_size;
-uint32_t dictionary_length;
 
 uint8_t* data_stack_top; /**< The global data stack top pointer for the FORTH machine */
 void* return_stack_top;
 
-pforth_word_ptr create_word(uint8_t size) {
-  pforth_word_ptr new_word = malloc(sizeof(pforth_word));
-  new_word->location = malloc(size);
-  dictionary[dictionary_length] = new_word;
-  dictionary_length++;
+pforth_word_ptr pforth_word_alloc() {
+  pforth_word_ptr new_word = calloc(1, sizeof(pforth_word));
   return new_word;
 }
 
-int destroy_word(uint16_t id) {
-  pforth_word_ptr word = dictionary[id];
-  free(word->location);
+void pforth_word_free(const pforth_word_ptr word) {
+  if (word->location && word->text_code != NULL)
+    free(word->location);
+  free(word->text_code);
   free(word);
-  return PF_SUCCESS;
-}
-
-int increase_dictionary() {
-  dictionary_size += DICTIONARY_INCREASE_STEP;
-  dictionary = realloc(dictionary, dictionary_size);
-  return dictionary_size;
 }
 
 void pforth_init() {
@@ -33,12 +21,31 @@ void pforth_init() {
   return_stack_top = malloc(sizeof(uint8_t) * 1024);
 }
 
-uint32_t hash(const unsigned char* str)
-{
-  unsigned long hash = 5381;
-  int c;
+void pforth_deinit() {
+  free(data_stack_top);
+  free(return_stack_top);
+}
 
-  while ((c = *str++))
-    hash = ((hash << 5) + hash) + c;
-  return hash;
+pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_ptr src) {
+  dest->size = src->size;
+  /* Created word */
+  if (src->text_code) {
+    const int text_len = strlen(src->text_code);
+    dest->text_code = malloc(text_len);
+    if (dest->text_code == NULL) {
+      return NULL;
+    }
+    memcpy(dest->text_code, src->text_code, text_len);
+    dest->location = malloc(dest->size);
+    if (dest->location == NULL) {
+      free(dest->text_code);
+      return NULL;
+    }
+    memcpy(dest->location, src->location, dest->size);
+  } else {
+    /* Native word */
+    dest->text_code = NULL;
+    dest->location = src->location;
+  }
+  return dest;
 }

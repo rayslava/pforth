@@ -6,7 +6,7 @@ void pforth_init();
 void push_uint32_t(uint32_t value);
 int32_t pop_int32_t();
 
-START_TEST (test_push_pop)
+START_TEST(test_push_pop)
 {
   push_uint32_t(0xfefefefe);
   uint32_t r = pop_int32_t();
@@ -15,7 +15,7 @@ START_TEST (test_push_pop)
 END_TEST
 
 
-Suite * stack_suite(void)
+Suite* stack_suite(void)
 {
   Suite* s;
   TCase* tc_core;
@@ -44,5 +44,6 @@ int main(void)
   srunner_run_all(sr, CK_NORMAL);
   number_failed = srunner_ntests_failed(sr);
   srunner_free(sr);
+  pforth_deinit();
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

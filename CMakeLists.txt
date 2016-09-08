@@ -13,6 +13,7 @@ set(SOURCE_FILES
   src/interp.c
   src/pforth.c
   src/words.c
+  src/dict.c
   )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS On)

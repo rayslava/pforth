@@ -1,8 +1,9 @@
 #include <stdio.h>
-#include "pforth.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#include "pforth.h"
 
 void push_int32_t(int32_t value);
 int32_t pop_int32_t();
@@ -15,14 +16,35 @@ int main() {
   push_int32_t(10);
   _add_int32_t();
   printf("Result: %d\n", pop_int32_t());
-  unsigned char str[8];
-  time_t t;
-  /* Intializes random number generator */
-  srand((unsigned) time(&t));
-  for (int i = 0; i < 20; i++) {
-    for (int c = 0; c < 8; c++)
-      str[c] = rand() % 26 + 'a';
-    printf("#%02d std: %8s hash: %08x\n", i, str, hash(str));
-  }
+
+  dict_t* dict = dict_create(1);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = _add_int32_t;
+  dict_set(dict, "ADD", word);
+
+  char val[] = "Test-test";
+  word->text_code = val;
+  word->size = 5;
+  dict_set(dict, "test",  word);
+  dict_set(dict, "test2", word);
+  dict_set(dict, "test3", word);
+  dict_set(dict, "test4", word);
+
+  printf("%s\n", dict_get(dict, "test")->text_code);
+  printf("%s\n", dict_get(dict, "test2")->text_code);
+  printf("%s\n", dict_get(dict, "test3")->text_code);
+  printf("%s\n", dict_get(dict, "test4")->text_code);
+  push_int32_t( 5);
+  push_int32_t(10);
+
+  pforth_word_ptr w = dict_get(dict, "ADD");
+  w->function();
+  printf("Result: %d\n", pop_int32_t());
+
+  eval(dict, "  5 10 20 add add   ");
+  printf("Result: %d\n", pop_int32_t());
+
+  dict_free(dict, 1);
+  pforth_deinit();
   return 0;
 }

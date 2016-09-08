@@ -93,18 +93,16 @@ FUNCTION(SETUP_TARGET_FOR_COVERAGE _targetname _testrunner _sourcedir _outputnam
     COMMAND ${_testrunner} ${ARGV3}
 
     # Capturing lcov counters and generating report
-    COMMAND ${LCOV_PATH} --directory ${CMAKE_CURRENT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/${_testrunner}.dir/src --capture --output-file ${_outputname}.info
+    COMMAND ${LCOV_PATH} --directory ${CMAKE_CURRENT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/ --capture --output-file ${_outputname}.info
     COMMAND ${LCOV_PATH} --remove ${_outputname}.info 'tests/*' '/usr/*' --output-file ${_outputname}.info.cleaned
     COMMAND ${GENHTML_PATH} -o ${_outputname} ${_outputname}.info.cleaned
     COMMAND ${CMAKE_COMMAND} -E remove ${_outputname}.info ${_outputname}.info.cleaned
 
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Resetting code coverage counters to zero.\nProcessing code coverage counters and generating report."
-    COMMAND find ./CMakeFiles/ \\\( -name '*.gcno' -o -name '*.gcda' \\\) -delete
     COMMAND ${GCOVR_PATH} --exclude-unreachable-branches --verbose --gcov-exclude='test/*' -r ${CMAKE_SOURCE_DIR} -e '${CMAKE_SOURCE_DIR}/test/' -x -o ${_outputname}.xml
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Running gcovr to produce Cobertura code coverage report."
-
     )
 
   # Show info where to find the report

@@ -7,7 +7,7 @@ void push_int32_t(int32_t value);
 int32_t pop_int32_t();
 void _add_int32_t();
 
-START_TEST (add)
+START_TEST(add)
 {
   push_int32_t(10);
   push_int32_t(5);
@@ -18,7 +18,7 @@ START_TEST (add)
 END_TEST
 
 
-Suite * math_suite(void)
+Suite* math_suite(void)
 {
   Suite* s;
   TCase* tc_core;
@@ -47,5 +47,6 @@ int main(void)
   srunner_run_all(sr, CK_NORMAL);
   number_failed = srunner_ntests_failed(sr);
   srunner_free(sr);
+  pforth_deinit();
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

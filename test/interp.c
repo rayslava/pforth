@@ -1,20 +1,83 @@
-#include <pforth.h>
 #include <stdlib.h>
 #include <check.h>
+#include "pforth.h"
 
 void pforth_init();
+void _add_int32_t();
+void push_int32_t(int32_t value);
+int32_t pop_int32_t();
 
-START_TEST (hash_test)
+START_TEST(hash_test)
 {
-  const unsigned char printf_line[] = "printf";
-  const unsigned char print_line[] = "print";
-  ck_assert_uint_eq(hash(printf_line), 0x156b2bb8);
-  ck_assert_uint_eq(hash(print_line),  0x102a0912);
+  static int a = 0;
+  void* i = &a;
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  char val[] = "Test-test";
+  word->text_code = val;
+  word->location = i;
+  word->size = 5;
+  dict_set(dict, "test", word);
+  ck_assert_str_eq(dict_get(dict, "test")->text_code, val);
+  ck_assert_int_eq(dict_get(dict, "test")->size, 5);
+  dict_free(dict, 20);
+  free(dict);
 }
 END_TEST
 
+START_TEST(add_test)
+{
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = &_add_int32_t;
+  dict_set(dict, "test", word);
 
-Suite * interp_suite(void)
+  push_int32_t(5);
+  push_int32_t(10);
+
+  dict_get(dict, "test")->function();
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 15);
+  pforth_word_free(word);
+  dict_free(dict, 20);
+  free(dict);
+}
+END_TEST
+
+START_TEST(eval_add_test)
+{
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = &_add_int32_t;
+  dict_set(dict, "ADD", word);
+
+  push_int32_t(5);
+  push_int32_t(10);
+
+  eval(dict, "add");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 15);
+  dict_free(dict, 20);
+  free(dict);
+}
+END_TEST
+
+START_TEST(eval_add2_test)
+{
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = &_add_int32_t;
+  dict_set(dict, "+", word);
+
+  eval(dict, "5 10 20 + +");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 35);
+  dict_free(dict, 20);
+  free(dict);
+}
+END_TEST
+
+Suite* interp_suite(void)
 {
   Suite* s;
   TCase* tc_core;
@@ -25,6 +88,9 @@ Suite * interp_suite(void)
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, hash_test);
+  tcase_add_test(tc_core, add_test);
+  tcase_add_test(tc_core, eval_add_test);
+  tcase_add_test(tc_core, eval_add2_test);
   suite_add_tcase(s, tc_core);
 
   return s;
@@ -43,5 +109,6 @@ int main(void)
   srunner_run_all(sr, CK_NORMAL);
   number_failed = srunner_ntests_failed(sr);
   srunner_free(sr);
+  pforth_deinit();
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

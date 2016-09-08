@@ -50,7 +50,7 @@ void _drop(size_t size) {
    Creates function named push_TYPE with argument of TYPE
    The result for int32_t will be
    \code
-   void pop_int32_t (int32_t);
+   void push_int32_t (int32_t);
    \endcode
 
    The resulting function will use #_push for data placement
@@ -66,9 +66,9 @@ void _drop(size_t size) {
    Generator for native math words
 
    Creates function named NAME for operation OP with arguments of TYPE
-   The result for \s int32_t, \s add, \s + will be
+   The result for \p int32_t, \p add, \p + will be
    \code
-   void add_int32_t(int32_t a , int32_t b) {
+   void _add_int32_t(int32_t a , int32_t b) {
      push_int32_t (a + b);
    }
    \endcode
@@ -96,20 +96,20 @@ void _drop(size_t size) {
 #define PUSH_POP_WORDS(...) PUSH_POP_WORD(__VA_ARGS__)
 
 #define EVAL0(...) __VA_ARGS__
-#define EVAL1(...) EVAL0 (EVAL0 (EVAL0 (__VA_ARGS__)))
-#define EVAL2(...) EVAL1 (EVAL1 (EVAL1 (__VA_ARGS__)))
-#define EVAL3(...) EVAL2 (EVAL2 (EVAL2 (__VA_ARGS__)))
-#define EVAL4(...) EVAL3 (EVAL3 (EVAL3 (__VA_ARGS__)))
-#define  EVAL(...) EVAL4 (EVAL4 (EVAL4 (__VA_ARGS__)))
+#define EVAL1(...) EVAL0(EVAL0(EVAL0(__VA_ARGS__)))
+#define EVAL2(...) EVAL1(EVAL1(EVAL1(__VA_ARGS__)))
+#define EVAL3(...) EVAL2(EVAL2(EVAL2(__VA_ARGS__)))
+#define EVAL4(...) EVAL3(EVAL3(EVAL3(__VA_ARGS__)))
+#define  EVAL(...) EVAL4(EVAL4(EVAL4(__VA_ARGS__)))
 #define MAP_END(...)
 #define MAP_OUT
 #define MAP_GET_END() 0, MAP_END
 #define MAP_NEXT0(test, next, ...) next MAP_OUT
-#define MAP_NEXT1(test, next) MAP_NEXT0 (test, next, 0)
-#define MAP_NEXT(test, next) MAP_NEXT1 (MAP_GET_END test, next)
-#define MAP0(f, x, peek, ...) f(x) MAP_NEXT (peek, MAP1) (f, peek, __VA_ARGS__)
-#define MAP1(f, x, peek, ...) f(x) MAP_NEXT (peek, MAP0) (f, peek, __VA_ARGS__)
-#define MAP(f, ...) EVAL (MAP1 (f, __VA_ARGS__, (), 0))
+#define MAP_NEXT1(test, next) MAP_NEXT0(test, next, 0)
+#define MAP_NEXT(test, next) MAP_NEXT1(MAP_GET_END test, next)
+#define MAP0(f, x, peek, ...) f(x) MAP_NEXT(peek, MAP1) (f, peek, __VA_ARGS__)
+#define MAP1(f, x, peek, ...) f(x) MAP_NEXT(peek, MAP0) (f, peek, __VA_ARGS__)
+#define MAP(f, ...) EVAL(MAP1(f, __VA_ARGS__, (), 0))
 
 #define M_CONC(A, B) M_CONC_(A, B)
 #define M_CONC_(A, B) A ## B

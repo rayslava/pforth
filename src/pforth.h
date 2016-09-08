@@ -1,40 +1,120 @@
+#pragma once
 #include <stdint.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <string.h>
-
-#define PF_SUCCESS 0
+#include <stdio.h>
 
 /**
-   The dictionary will be increased by this value when not enough memory
-   for new words
+   Type of function to be called from the word.
  */
-#define DICTIONARY_INCREASE_STEP 32
+typedef void (* word_function)();
 
 /**
- * The single FORTH word description
+   The single FORTH word description
  */
 struct _pforth_word {
-  uint8_t size;        /**< Code size */
-  void*   location;    /**< Binary location to jump to */
+  /**
+     ASCII representation of word.
+
+     The actual program.
+     \p NULL for native words.
+   */
+  char* text_code;
+  uint8_t size;               /**< Code size (for binary code in \p location/\p function) */
+  union {
+    void* location;           /**< Binary location to jump to. NULL if not compiled  */
+    word_function function;   /**< Function to call when compiling the word */
+  };
 };
 
 typedef struct _pforth_word pforth_word;
 typedef pforth_word * pforth_word_ptr;
 
-extern pforth_word_ptr* dictionary;
-extern uint32_t dictionary_length;
-
 extern uint8_t* data_stack_top;
 extern void* return_stack_top;
 
+struct _dict_entry {
+  char* key;
+  pforth_word_ptr word;
+  struct _dict_entry* next;
+};
+
+typedef struct _dict_entry dict_entry;
+
+struct dict_s {
+  int size;
+  struct _dict_entry** table;
+};
+
+typedef struct dict_s dict_t;
+
+dict_t* dict_create(uint32_t size);
+void dict_free(dict_t* dict, uint32_t size);
+void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value);
+pforth_word_ptr dict_get(dict_t* dict, const char* key);
+
+/**
+   Init the FORTH machine.
+
+   Allocate stacks, create dictionary.
+ */
 void pforth_init();
 
 /**
-   djb2 hash function
+   Free the FORTH machine internal structures.
 
-   Hope it'll be more or less unique to create hash table for FORTH words
-
-   \param str null-terminated input string
-   \returns uint32_t hash
+   Deallocate stacks, remove dictionary.
  */
-uint32_t hash(const unsigned char* str);
+void pforth_deinit();
+
+/**
+   Copy the word from \p src to \p dest
+
+   The \p dest must be allocated beforehand.
+
+   \param src source word
+   \param dest destination buffer
+   \return pointer to the buffer (equal to \p dest)
+   \return \p NULL if not enough memory
+ */
+pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_ptr src);
+
+/**
+   Create a duplicate of the word \p src
+
+   The memory is allocated inside and must be freed in caller
+
+   \param src source word
+   \return pointer to new word
+   \return \p NULL if not enough memory
+ */
+pforth_word_ptr pforth_word_dup(const pforth_word_ptr src);
+
+/**
+   Allocate memory for new word
+
+   \return pointer to new word
+   \return \p NULL if not enough memory
+ */
+pforth_word_ptr pforth_word_alloc();
+
+/**
+   Free the word structure
+
+   \param word the word to free
+ */
+void pforth_word_free(const pforth_word_ptr word);
+
+/**
+   Call the word function.
+ */
+#define PFORTH_WORD_RUN(w) { word_function f = *(word->function); f(); }
+
+/**
+   Evaluate the FORTH line
+
+   \param dict the dictionary to use
+   \param line the FORTH line
+ */
+void eval(dict_t* dict, const char* line);
