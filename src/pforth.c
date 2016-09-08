@@ -34,7 +34,7 @@ pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_p
   /* Created word */
   if (src->text_code) {
     const int text_len = strlen(src->text_code);
-    dest->text_code = malloc(text_len);
+    dest->text_code = calloc(1, text_len + 1);
     if (dest->text_code == NULL) {
       return NULL;
     }
