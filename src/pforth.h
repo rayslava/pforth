@@ -118,3 +118,9 @@ void pforth_word_free(const pforth_word_ptr word);
    \param line the FORTH line
  */
 void eval(dict_t* dict, const char* line);
+
+#ifdef DEBUG
+#define DBG(fmt, ...) fprintf(stderr, "%s:%d: " fmt, __FILE__, __LINE__, __VA_ARGS__);
+#else
+#define DBG(fmt, ...) {}
+#endif

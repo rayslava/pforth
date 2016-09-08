@@ -21,26 +21,48 @@ void upstring(char* line) {
 }
 
 void eval(dict_t* dict, const char* line) {
+  DBG("Line:   %s\n", line);
   const char* begin = line;
 
   while (*begin) {
+    char* token = NULL;
+    const char* end = NULL;
     while (*begin == ' ') {
       begin++;
       if (!*begin)
         goto next;
     }
     ;
+    /* Parse comments */
+    if (*begin == '(') {
+      DBG("Comment! %s\n", begin);
+      while (*begin && *begin != ')' && *begin != '\n')
+        begin++;
+      if (*begin != ')') {
+        /* TODO: Handle parse failure */
+      } else {
+        end = begin + 1;
+        goto next;
+      }
+    }
+    if (*begin == '\\') {
+      while (*begin && *begin != '\n')
+        begin++;
+      if (!*begin)
+        goto next;
+    }
     /* Token start */
-    const char* end = begin;
+    end = begin;
     while (*end && *end != ' ')
       end++;
-    char* token = strndup(begin, end - begin);
+    token = strndup(begin, end - begin);
     upstring(token);
-
+    DBG("Token:  %s\n", token);
     /* Now our need to detect what token is */
     char* err = NULL;
     long int num = strtol(token, &err, 10);
     if (!*err) {
+      DBG("Push:   %ld\n", num);
       push_int32_t(num);
       goto next;
     }
