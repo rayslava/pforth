@@ -3,6 +3,7 @@ var pforth_8h =
     [ "_pforth_word", "struct__pforth__word.html", "struct__pforth__word" ],
     [ "_dict_entry", "struct__dict__entry.html", "struct__dict__entry" ],
     [ "dict_s", "structdict__s.html", "structdict__s" ],
+    [ "DBG", "pforth_8h.html#a7da75c1a7622f6d0cf57c81626853e9b", null ],
     [ "PFORTH_WORD_RUN", "pforth_8h.html#a18b586ef5d87a09c4306f2ead631b60a", null ],
     [ "dict_entry", "pforth_8h.html#a8e9467259d3713ecf10a018a3118f111", null ],
     [ "dict_t", "pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583", null ],
