@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include <check.h>
+#include <stdio.h>
+#include <unistd.h>
+
 #include "pforth.h"
+
+#define MAX_LEN 40
 
 void pforth_init();
 char* strndup(const char* src, size_t len);
@@ -172,6 +177,31 @@ START_TEST(eval_comment_test)
 }
 END_TEST
 
+START_TEST(emit_test)
+{
+  char buffer[MAX_LEN + 1] = {0};
+  int out_pipe[2];
+  int saved_stdout;
+
+  saved_stdout = dup(STDOUT_FILENO);
+  if (pipe(out_pipe) != 0) exit(1);
+  dup2(out_pipe[1], STDOUT_FILENO);
+  close(out_pipe[1]);
+
+  eval(forth_dict, "10 .");
+  fflush(stdout);
+  read(out_pipe[0], buffer, MAX_LEN);
+  ck_assert_str_eq(buffer, "10");
+
+  eval(forth_dict, "48 EMIT 49 EMIT 50 EMIT");
+  fflush(stdout);
+  read(out_pipe[0], buffer, MAX_LEN);
+  ck_assert_str_eq(buffer, "012");
+
+  dup2(saved_stdout, STDOUT_FILENO);
+}
+END_TEST
+
 Suite* interp_suite(void)
 {
   Suite* s;
@@ -191,10 +221,12 @@ Suite* interp_suite(void)
   tcase_add_test(tc_core, eval_add2_test);
   tcase_add_test(tc_core, eval_recursion_test);
   tcase_add_test(tc_core, eval_comment_test);
+  tcase_add_test(tc_core, emit_test);
   suite_add_tcase(s, tc_core);
 
   return s;
 }
+
 
 int main(void)
 {
