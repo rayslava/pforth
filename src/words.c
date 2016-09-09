@@ -5,6 +5,7 @@
 #undef _MATH_OP
 #undef _COMPARE_OP
 #undef _TRUE_OP
+#undef _EMIT
 
 /**
    Push the data to global data stack and move the #data_stack_top forward
@@ -131,6 +132,23 @@ void _drop(size_t size) {
     return pop_ ## TYPE() == -1 ? 1 : 0;                           \
   }
 
+#undef _EMIT
+#define _EMIT(TYPE)     \
+  void M_CONC(_, M_CONC(emit, M_CONC(_, TYPE))) () { \
+    TYPE number = M_CONC(pop, M_CONC(_, TYPE))();    \
+    char c = LO(number); \
+    DBG("EMIT %c\n", c); \
+    PRINT("%c", c) \
+  }
+
+#undef _DOT
+#define _DOT(TYPE)      \
+  void M_CONC(_, M_CONC(dot, M_CONC(_, TYPE))) () { \
+    TYPE number = M_CONC(pop, M_CONC(_, TYPE))();    \
+    DBG("PRINT %d\n", number);                       \
+    PRINT("%d", number) \
+  }
+
 #include "generators_run.h"
 
 #undef _MATH_OP
@@ -150,6 +168,13 @@ void _drop(size_t size) {
 #undef _TRUE_OP
 #define _TRUE_OP(TYPE)
 
+_EMIT(FORTH_TYPE)
+_DOT(FORTH_TYPE)
+
+#define _DEF_TYPE_OP(op) M_CONC(_, M_CONC(op, M_CONC(_, FORTH_TYPE)))
+
 void register_precompiled() {
    #include "generators_run.h"
+  register_native("EMIT", &_DEF_TYPE_OP(emit));
+  register_native(".",	  &_DEF_TYPE_OP(dot));
 }

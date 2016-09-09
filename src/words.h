@@ -50,6 +50,12 @@ _EMBED_DECORATE(void _drop(size_t size))
 #define _TRUE_OP(TYPE) \
   _EMBED_DECORATE(int M_CONC(_, M_CONC(true, M_CONC(_, TYPE))) ())
 
+#define _EMIT(TYPE) \
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(emit, M_CONC(_, TYPE))))
+
+#define _DOT(TYPE) \
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(dot, M_CONC(_, TYPE))))
+
 #define PUSH_POP_WORD(TYPE) PUSH_WORD(TYPE) POP_WORD(TYPE)
 #define PUSH_POP_WORDS(...) PUSH_POP_WORD(__VA_ARGS__)
 

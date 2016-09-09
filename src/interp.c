@@ -22,15 +22,15 @@ void eval(dict_t* dict, const char* line) {
   DBG("Line:   %s\n", line);
   const char* begin = line;
 
-  while (*begin) {
+  while (begin && *begin) {
     char* token = NULL;
     const char* end = NULL;
     while (*begin == ' ') {
       begin++;
-      if (!*begin)
+      if (!*begin || *begin == '\n')   /* Trailing whitespaces */
         goto next;
-    }
-    ;
+    };
+
     /* Parse comments */
     if (*begin == '(') {
       DBG("Comment! %s\n", begin);
@@ -43,6 +43,7 @@ void eval(dict_t* dict, const char* line) {
         goto next;
       }
     }
+
     if (*begin == '\\') {
       while (*begin && *begin != '\n')
         begin++;
@@ -52,12 +53,22 @@ void eval(dict_t* dict, const char* line) {
 
     /* Token start */
     end = begin;
-    while (*end && *end != ' ')
+    while (*end && *end != ' ' && *end != '\n')
       end++;
+
     token = strndup(begin, end - begin);
     upstring(token);
+
+    if (strlen(token) == 0 && *end == '\n') {
+      ++end;
+      goto next;
+    }
+
     DBG("Token:  %s\n", token);
+
     /* Now our need to detect what token is */
+
+    /* Number */
     char* err = NULL;
     long int num = strtol(token, &err, 10);
     if (!*err) {

@@ -12,6 +12,11 @@
 #define DBG(fmt, ...) {}
 #endif
 
+#define PRINT(fmt, ...) fprintf(stdout, fmt, __VA_ARGS__);
+
+#define LO(x) ((unsigned char) ((x) & 0xFF))
+#define HI(x) ((unsigned char) (((x) >> 8) & 0xFF))
+
 /**
    Maximal dictionary size
  */

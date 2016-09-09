@@ -28,6 +28,21 @@ START_TEST(replace_test)
 }
 END_TEST
 
+START_TEST(newline_test)
+{
+  eval(forth_dict, "5 3 >");
+  ck_assert_int_eq(TRUE, 1);
+
+  eval(forth_dict, "5 3 >\n");
+  ck_assert_int_eq(TRUE, 1);
+
+  eval(forth_dict, "5 3 +\n\n");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 8);
+}
+END_TEST
+
+
 START_TEST(hash_test)
 {
   static int a = 0;
@@ -169,6 +184,7 @@ Suite* interp_suite(void)
 
   tcase_add_test(tc_core, replace_test);
   tcase_add_test(tc_core, hash_test);
+  tcase_add_test(tc_core, newline_test);
   tcase_add_test(tc_core, add_test);
   tcase_add_test(tc_core, eval_empty);
   tcase_add_test(tc_core, eval_add_test);
