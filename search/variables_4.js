@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next',['next',['../struct__dict__entry.html#aee5aaa132608ed3993042083ffa5915c',1,'_dict_entry']]]
+  ['location',['location',['../struct__pforth__word.html#aeed9d78bed7f358fe7b1b24955d06310',1,'_pforth_word']]]
 ];

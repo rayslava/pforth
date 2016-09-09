@@ -2,9 +2,9 @@ var indexSectionsWithContent =
 {
   0: "_defghiklmnprstuw",
   1: "_d",
-  2: "dgimpw",
-  3: "_dehmprsu",
-  4: "dfklnrstw",
+  2: "dgimptw",
+  3: "_defhlmprsu",
+  4: "dfiklnrstw",
   5: "dpw",
   6: "_defhilmpt"
 };

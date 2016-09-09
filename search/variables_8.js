@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['word',['word',['../struct__dict__entry.html#a7f98cff94016d1acd2b3299bd896980d',1,'_dict_entry']]]
+  ['table',['table',['../structdict__s.html#ad48ce54d63d8baddeaae6322474fc827',1,'dict_s']]],
+  ['text_5fcode',['text_code',['../struct__pforth__word.html#a345a0ae00d24d1812bc14490185d9e6a',1,'_pforth_word']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>pforth: src/generators_run.h Source File</title>
+<title>pforth: src/token.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('generators__run_8h_source.html','');});
+$(document).ready(function(){initNavTree('token_8h.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -103,22 +103,67 @@ $(document).ready(function(){initNavTree('generators__run_8h_source.html','');})
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">generators_run.h</div>  </div>
+<div class="title">token.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="generators__run_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<a class="code" href="words_8h.html#ab737f5c10b510e43a4b84ffa421c409a">MAP</a>(<a class="code" href="words_8h.html#aa913a4d4e4bed493af4e9faf320c13e0">PUSH_POP_WORDS</a>, <a class="code" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>)</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<a class="code" href="words_8h.html#ab737f5c10b510e43a4b84ffa421c409a">MAP</a>(<a class="code" href="words_8h.html#a0abd1b91e2df49e34685c6cbfb98f643">_FIVE_MATH_OPS</a>,  <a class="code" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>)</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<a class="code" href="words_8h.html#ab737f5c10b510e43a4b84ffa421c409a">MAP</a>(<a class="code" href="words_8h.html#ada46dee9081e0067bfa8d6fd88f337fb">_COMPARISON_OPS</a>, <a class="code" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>)</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<a class="code" href="words_8h.html#ab737f5c10b510e43a4b84ffa421c409a">MAP</a>(<a class="code" href="words_8c.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a>,        <a class="code" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>)</div><div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="generators__run_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d">    5</a></span>&#160;<span class="preprocessor">#define TRUE M_CONC(_true_, FORTH_TYPE) ()</span></div><div class="ttc" id="words_8h_html_a0abd1b91e2df49e34685c6cbfb98f643"><div class="ttname"><a href="words_8h.html#a0abd1b91e2df49e34685c6cbfb98f643">_FIVE_MATH_OPS</a></div><div class="ttdeci">#define _FIVE_MATH_OPS(TYPE)</div><div class="ttdef"><b>Definition:</b> words.h:32</div></div>
-<div class="ttc" id="words_8h_html_ada46dee9081e0067bfa8d6fd88f337fb"><div class="ttname"><a href="words_8h.html#ada46dee9081e0067bfa8d6fd88f337fb">_COMPARISON_OPS</a></div><div class="ttdeci">#define _COMPARISON_OPS(TYPE)</div><div class="ttdef"><b>Definition:</b> words.h:42</div></div>
-<div class="ttc" id="pforth_8h_html_a1621834236723fc94ccec48a1e527dab"><div class="ttname"><a href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a></div><div class="ttdeci">#define INT_TYPE_LIST</div><div class="ttdef"><b>Definition:</b> pforth.h:33</div></div>
-<div class="ttc" id="words_8c_html_a39d020a431adbc6061f03e733ed09555"><div class="ttname"><a href="words_8c.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a></div><div class="ttdeci">#define _TRUE_OP(TYPE)</div><div class="ttdef"><b>Definition:</b> words.c:169</div></div>
-<div class="ttc" id="words_8h_html_ab737f5c10b510e43a4b84ffa421c409a"><div class="ttname"><a href="words_8h.html#ab737f5c10b510e43a4b84ffa421c409a">MAP</a></div><div class="ttdeci">#define MAP(f,...)</div><div class="ttdef"><b>Definition:</b> words.h:76</div></div>
-<div class="ttc" id="words_8h_html_aa913a4d4e4bed493af4e9faf320c13e0"><div class="ttname"><a href="words_8h.html#aa913a4d4e4bed493af4e9faf320c13e0">PUSH_POP_WORDS</a></div><div class="ttdeci">#define PUSH_POP_WORDS(...)</div><div class="ttdef"><b>Definition:</b> words.h:60</div></div>
-</div><!-- fragment --></div><!-- contents -->
+
+<p><a href="token_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a75b6479fa27cbb1bcf30b2ef2633bf3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="token_8h.html#a75b6479fa27cbb1bcf30b2ef2633bf3b">IF_TOKEN</a>&#160;&#160;&#160;&quot;IF&quot;</td></tr>
+<tr class="separator:a75b6479fa27cbb1bcf30b2ef2633bf3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d5cc61c69d51276259ee2de46366f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="token_8h.html#ad1d5cc61c69d51276259ee2de46366f8">ELSE_TOKEN</a>&#160;&#160;&#160;&quot;ELSE&quot;</td></tr>
+<tr class="separator:ad1d5cc61c69d51276259ee2de46366f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac49f861ab2140d026e33c9356e5d8288"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="token_8h.html#ac49f861ab2140d026e33c9356e5d8288">THEN_TOKEN</a>&#160;&#160;&#160;&quot;THEN&quot;</td></tr>
+<tr class="separator:ac49f861ab2140d026e33c9356e5d8288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="ad1d5cc61c69d51276259ee2de46366f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ELSE_TOKEN&#160;&#160;&#160;&quot;ELSE&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a75b6479fa27cbb1bcf30b2ef2633bf3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IF_TOKEN&#160;&#160;&#160;&quot;IF&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac49f861ab2140d026e33c9356e5d8288"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define THEN_TOKEN&#160;&#160;&#160;&quot;THEN&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="generators__run_8h.html">generators_run.h</a></li>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="token_8h.html">token.h</a></li>
     <li class="footer">Generated on Fri Sep 9 2016 14:24:05 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>

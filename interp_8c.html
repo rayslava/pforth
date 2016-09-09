@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">c2bc7cb3e6fe4736413a315bd379c7ca47bbecb1</span>
+   &#160;<span id="projectnumber">35f0138d49fded4baf60fe5e4e85bb7b605782be</span>
    </div>
   </td>
  </tr>
@@ -104,12 +104,14 @@ $(document).ready(function(){initNavTree('interp_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">interp.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="pforth_8h_source.html">pforth.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="token_8h_source.html">token.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -117,10 +119,19 @@ Functions</h2></td></tr>
 <tr class="separator:a192b3847a17275976b0c8cc154776f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3fde9000cf2dd4f798ad52473d77a52"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#ab3fde9000cf2dd4f798ad52473d77a52">upcase</a> (char c)</td></tr>
 <tr class="separator:ab3fde9000cf2dd4f798ad52473d77a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11aaba5fb0761932993cfc20e40cc8ab"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a11aaba5fb0761932993cfc20e40cc8ab">lowcase</a> (char c)</td></tr>
+<tr class="separator:a11aaba5fb0761932993cfc20e40cc8ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84b92abfb914c4fa41ef0588770439d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a84b92abfb914c4fa41ef0588770439d5">upstring</a> (char *line)</td></tr>
 <tr class="separator:a84b92abfb914c4fa41ef0588770439d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d3652d90900b61e315b261f405f7f8f"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a3d3652d90900b61e315b261f405f7f8f">find_token</a> (const char *haystack, const char *needle)</td></tr>
+<tr class="separator:a3d3652d90900b61e315b261f405f7f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a8fd84db5516a541e4fc17a3487f5bddc">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line)</td></tr>
 <tr class="separator:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3a3c20b22c6592743aa7f8e16d4b484c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a3a3c20b22c6592743aa7f8e16d4b484c">if_depth</a></td></tr>
+<tr class="separator:a3a3c20b22c6592743aa7f8e16d4b484c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a8fd84db5516a541e4fc17a3487f5bddc"></a>
@@ -154,6 +165,48 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d3652d90900b61e315b261f405f7f8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* find_token </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>haystack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>needle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a11aaba5fb0761932993cfc20e40cc8ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char lowcase </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -215,13 +268,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a3a3c20b22c6592743aa7f8e16d4b484c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int if_depth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="interp_8c.html">interp.c</a></li>
-    <li class="footer">Generated on Fri Sep 9 2016 12:36:44 for pforth by
+    <li class="footer">Generated on Fri Sep 9 2016 14:24:05 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

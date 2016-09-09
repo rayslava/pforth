@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['table',['table',['../structdict__s.html#ad48ce54d63d8baddeaae6322474fc827',1,'dict_s']]],
-  ['text_5fcode',['text_code',['../struct__pforth__word.html#a345a0ae00d24d1812bc14490185d9e6a',1,'_pforth_word']]]
+  ['size',['size',['../struct__pforth__word.html#a1e2cab29f920ec5ecf77580039823abc',1,'_pforth_word::size()'],['../structdict__s.html#a9aef29d0157ba1e37f74e945861acdf1',1,'dict_s::size()']]]
 ];
