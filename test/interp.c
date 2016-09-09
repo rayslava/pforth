@@ -190,15 +190,43 @@ START_TEST(emit_test)
 
   eval(forth_dict, "10 .");
   fflush(stdout);
-  read(out_pipe[0], buffer, MAX_LEN);
+  int r = read(out_pipe[0], buffer, MAX_LEN);
   ck_assert_str_eq(buffer, "10");
 
   eval(forth_dict, "48 EMIT 49 EMIT 50 EMIT");
   fflush(stdout);
-  read(out_pipe[0], buffer, MAX_LEN);
+  r = read(out_pipe[0], buffer, MAX_LEN);
   ck_assert_str_eq(buffer, "012");
 
   dup2(saved_stdout, STDOUT_FILENO);
+}
+END_TEST
+
+START_TEST(if_tests)
+{
+  eval(forth_dict, "0 1 2 > IF 1 THEN");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
+  eval(forth_dict, "0 2 1 > IF 1 THEN");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 1);
+
+  eval(forth_dict, "2 1 > IF 1 ELSE 0 THEN");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 1);
+
+  eval(forth_dict, "1 2 > IF 1 ELSE 0 THEN");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
+  eval(forth_dict, "0 1 2 > IF 1 then");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
+  eval(forth_dict, "1 2 > IF 1 else 0 THEN");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
 }
 END_TEST
 
@@ -222,6 +250,7 @@ Suite* interp_suite(void)
   tcase_add_test(tc_core, eval_recursion_test);
   tcase_add_test(tc_core, eval_comment_test);
   tcase_add_test(tc_core, emit_test);
+  tcase_add_test(tc_core, if_tests);
   suite_add_tcase(s, tc_core);
 
   return s;

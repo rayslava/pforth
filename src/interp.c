@@ -1,4 +1,5 @@
 #include "pforth.h"
+#include "token.h"
 
 char* strndup(const char* src, size_t len) {
   char* result = calloc(1, len + 1);
@@ -12,11 +13,58 @@ char upcase(char c) {
   return c;
 }
 
+char lowcase(char c) {
+  if (c >= 'A' && c <= 'Z')
+    c -= 'A' - 'a';
+  return c;
+}
+
 void upstring(char* line) {
   char* c = line;
   while ((*c = upcase(*c)))
     c++;
 }
+
+/* Slow but working implemenation of strcasestr */
+const char* find_token(const char* haystack, const char* needle) {
+  if (haystack == NULL || needle == NULL) return NULL;
+  const char* haystack_pos = haystack;
+  const char* haystack_pos_last;
+  const char* needle_pos;
+  char haystack_char;
+  char needle_char;
+  int found = 0;
+
+  while (*haystack_pos != 0) {
+    found = 1;
+    if (*haystack_pos != *needle) {
+      haystack_char = lowcase(*haystack_pos);
+      needle_char = lowcase(*needle);
+
+      if (haystack_char == needle_char)
+        found = 1;
+    }
+
+    if (found) {
+      haystack_pos_last = haystack_pos;
+      needle_pos = needle;
+      while (*haystack_pos_last != 0) {
+        haystack_char = lowcase(*haystack_pos_last);
+        needle_char = lowcase(*needle_pos);
+        if (haystack_char != needle_char)
+          break;
+        needle_pos++;
+        if (*needle_pos == 0)
+          return haystack_pos_last - (needle_pos - needle - 0x01);
+        haystack_pos_last++;
+      }
+    }
+    haystack_pos++;
+  }
+  return NULL;
+}
+
+static int if_depth;
 
 void eval(dict_t* dict, const char* line) {
   DBG("Line:   %s\n", line);
@@ -37,7 +85,7 @@ void eval(dict_t* dict, const char* line) {
       while (*begin && *begin != ')' && *begin != '\n')
         begin++;
       if (*begin != ')') {
-        /* TODO: Handle parse failure */
+        goto error;
       } else {
         end = begin + 1;
         goto next;
@@ -77,6 +125,40 @@ void eval(dict_t* dict, const char* line) {
       goto next;
     }
 
+    /* Conditional: IF */
+    if ((strcmp(token, IF_TOKEN)) == 0) {
+      if_depth++;
+      const char* then_pos = NULL;
+      const char* else_pos = NULL;
+      else_pos = find_token(end, ELSE_TOKEN);
+      if ((then_pos = find_token(end, THEN_TOKEN)) == NULL)
+        goto error;
+
+      if (!TRUE) {
+        /* Condition is false */
+        if (else_pos && else_pos < then_pos) {
+          /* Jump to else if there's one */
+          end = else_pos + strlen(ELSE_TOKEN);
+          goto next;
+        } else {
+          /* Jump to then */
+          end = then_pos + strlen(THEN_TOKEN);
+          goto next;
+        }
+      } else {
+        /* Condition is true */
+        goto next;
+      }
+    }
+
+    /* Conditional: THEN */
+    if ((strcmp(token, THEN_TOKEN)) == 0) {
+      if (!if_depth)
+        goto error;
+      if_depth--;
+      goto next;
+    }
+
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
@@ -92,13 +174,14 @@ void eval(dict_t* dict, const char* line) {
         goto next;
       }
     }
+  error:
     DBG("Cant parse:   %s!\n", token);
     free(token);
     break;
   next:
+    free(token);
     if (*begin == 0)
       break;
-    free(token);
     begin = end;
   }
 }
