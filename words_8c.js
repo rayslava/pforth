@@ -1,13 +1,20 @@
 var words_8c =
 [
-    [ "_FIVE_MATH_OPS", "words_8c.html#a84e2849ebf821a7ee7a0f957d2c41ed9", null ],
+    [ "_COMPARE_OP", "words_8c.html#a2ad68d84344e9c2f40f662d440ea8f5a", null ],
+    [ "_COMPARISON_OPS", "words_8c.html#ada46dee9081e0067bfa8d6fd88f337fb", null ],
+    [ "_EMBED_DECORATE", "words_8c.html#a9836b0e8e3e009f31c6fdcb3d1dde161", null ],
+    [ "_FIVE_MATH_OPS", "words_8c.html#a0abd1b91e2df49e34685c6cbfb98f643", null ],
     [ "_MATH_OP", "words_8c.html#a48f91adc47113e6a1ca729243a73f380", null ],
+    [ "_POST_DEC", "words_8c.html#a2ced905dd685eb6d9c0214796019d673", null ],
+    [ "_PRE_DEC", "words_8c.html#a523d98bd807957519cbb55a90265c4ff", null ],
+    [ "_TRUE_OP", "words_8c.html#a39d020a431adbc6061f03e733ed09555", null ],
     [ "EVAL", "words_8c.html#aa0f8200acd4827bc9d2df09270b66c38", null ],
     [ "EVAL0", "words_8c.html#a76421d17f805532a446837964bd56b24", null ],
     [ "EVAL1", "words_8c.html#aad4f105758560e2d030fb28e39acea6f", null ],
     [ "EVAL2", "words_8c.html#a1da5ee0b8ba77ab31d29e01e5dd4d9aa", null ],
     [ "EVAL3", "words_8c.html#aee8e56918d51b5dab93d8c6d8266814b", null ],
     [ "EVAL4", "words_8c.html#a5d9eb883e12b6ce5401726db89588f81", null ],
+    [ "FORTH_TYPE", "words_8c.html#a04c37343a5533f01ba6e940f6ace28c0", null ],
     [ "INT_TYPE_LIST", "words_8c.html#a1621834236723fc94ccec48a1e527dab", null ],
     [ "M_CONC", "words_8c.html#ac5459b1069a7a247192aed6c893587ba", null ],
     [ "M_CONC_", "words_8c.html#ab4fef82e3553809bea94254b556c1428", null ],
@@ -24,6 +31,7 @@ var words_8c =
     [ "PUSH_POP_WORD", "words_8c.html#a52b6119642378b1ee55848397f6fcec5", null ],
     [ "PUSH_POP_WORDS", "words_8c.html#aa913a4d4e4bed493af4e9faf320c13e0", null ],
     [ "PUSH_WORD", "words_8c.html#ae382a8ce948bac18616dd84f41fea71f", null ],
+    [ "TRUE", "words_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d", null ],
     [ "_drop", "words_8c.html#af9ce42616fdadcc4b4cf5214af81bedf", null ],
     [ "_push", "words_8c.html#a50088bb9c54c8a2469dabde72dee7006", null ]
 ];

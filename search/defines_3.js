@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['int_5ftype_5flist',['INT_TYPE_LIST',['../words_8c.html#a1621834236723fc94ccec48a1e527dab',1,'words.c']]]
+  ['forth_5ftype',['FORTH_TYPE',['../words_8c.html#a04c37343a5533f01ba6e940f6ace28c0',1,'words.c']]]
 ];
