@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">b85835cf91bfd6fba2af3c7e4dab02a5fc5499a7</span>
+   &#160;<span id="projectnumber">c2bc7cb3e6fe4736413a315bd379c7ca47bbecb1</span>
    </div>
   </td>
  </tr>
@@ -125,6 +125,10 @@ Macros</h2></td></tr>
 <tr class="separator:a2ad68d84344e9c2f40f662d440ea8f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d020a431adbc6061f03e733ed09555"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a>(TYPE)</td></tr>
 <tr class="separator:a39d020a431adbc6061f03e733ed09555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cc2653e43425c60f1f5e99ae934054"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#ab7cc2653e43425c60f1f5e99ae934054">_EMIT</a>(TYPE)      </td></tr>
+<tr class="separator:ab7cc2653e43425c60f1f5e99ae934054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1dda0e3362b758dc00673d8314bc4f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#ac1dda0e3362b758dc00673d8314bc4f9">_DOT</a>(TYPE)        </td></tr>
+<tr class="separator:ac1dda0e3362b758dc00673d8314bc4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd25067d3882d2e654986eb7af76456f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#acd25067d3882d2e654986eb7af76456f">_MATH_OP</a>(TYPE,  NAME,  OP)    &#160;&#160;&#160;<a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">register_native</a>(#OP, &amp;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>))));</td></tr>
 <tr class="separator:acd25067d3882d2e654986eb7af76456f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ad68d84344e9c2f40f662d440ea8f5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE,  NAME,  OP)&#160;&#160;&#160;<a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">register_native</a>(#OP, &amp;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>))));</td></tr>
@@ -135,6 +139,8 @@ Macros</h2></td></tr>
 <tr class="separator:ae382a8ce948bac18616dd84f41fea71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d020a431adbc6061f03e733ed09555"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a>(TYPE)</td></tr>
 <tr class="separator:a39d020a431adbc6061f03e733ed09555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08740c751e77a696fde39840aa90c1b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8c.html#a08740c751e77a696fde39840aa90c1b4">_DEF_TYPE_OP</a>(op)&#160;&#160;&#160;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(op, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>)))</td></tr>
+<tr class="separator:a08740c751e77a696fde39840aa90c1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -175,7 +181,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(<span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())     \</div><div class="line">  void <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                    \</div><div class="line">    TYPE b = pop_ ## TYPE();        \</div><div class="line">    TYPE a = pop_ ## TYPE();        \</div><div class="line">    DBG(<span class="stringliteral">&quot;COMP_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b ? -1 : 0); \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:72</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(<span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())     \</div><div class="line">  void <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                    \</div><div class="line">    TYPE b = pop_ ## TYPE();        \</div><div class="line">    TYPE a = pop_ ## TYPE();        \</div><div class="line">    DBG(<span class="stringliteral">&quot;COMP_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b ? -1 : 0); \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:78</div></div>
 <div class="ttc" id="words_8h_html_a9836b0e8e3e009f31c6fdcb3d1dde161"><div class="ttname"><a href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a></div><div class="ttdeci">#define _EMBED_DECORATE(FUNC)</div><div class="ttdef"><b>Definition:</b> words.h:15</div></div>
 </div><!-- fragment --><p>Generator for comparison words</p>
 <p>Creates function named NAME for operation OP with arguments of TYPE The result for <code>int32_t</code>, <code>ge</code>, <code>&gt;=</code> will be </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;void _ge_int32_t() {</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  int32_t a = pop_int32();</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  int32_t b = pop_int32();</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  push_int32_t (a &gt;= b ? -1 : 0);</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}</div></div><!-- fragment --><p>The resulting function will use push_TYPE for data placement</p>
@@ -232,6 +238,57 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a08740c751e77a696fde39840aa90c1b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _DEF_TYPE_OP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">op</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(op, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac1dda0e3362b758dc00673d8314bc4f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _DOT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(dot, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () { \</div><div class="line">    TYPE number = <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(pop, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))();    \</div><div class="line">    DBG(<span class="stringliteral">&quot;PRINT %d\n&quot;</span>, number);                       \</div><div class="line">    PRINT(<span class="stringliteral">&quot;%d&quot;</span>, number) \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:78</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="ab7cc2653e43425c60f1f5e99ae934054"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _EMIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TYPE</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(emit, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () { \</div><div class="line">    TYPE number = <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(pop, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))();    \</div><div class="line">    char c = <a class="code" href="pforth_8h.html#ab7f6bf8df35486f1d7c1ea59b71aa448">LO</a>(number); \</div><div class="line">    DBG(<span class="stringliteral">&quot;EMIT %c\n&quot;</span>, c); \</div><div class="line">    PRINT(<span class="stringliteral">&quot;%c&quot;</span>, c) \</div><div class="line">  }</div><div class="ttc" id="pforth_8h_html_ab7f6bf8df35486f1d7c1ea59b71aa448"><div class="ttname"><a href="pforth_8h.html#ab7f6bf8df35486f1d7c1ea59b71aa448">LO</a></div><div class="ttdeci">#define LO(x)</div><div class="ttdef"><b>Definition:</b> pforth.h:17</div></div>
+<div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:78</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a48f91adc47113e6a1ca729243a73f380"></a>
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +318,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    TYPE a = pop_ ## TYPE();     \</div><div class="line">    TYPE b = pop_ ## TYPE();     \</div><div class="line">    DBG(<span class="stringliteral">&quot;MATH_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b);       \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:72</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    TYPE a = pop_ ## TYPE();     \</div><div class="line">    TYPE b = pop_ ## TYPE();     \</div><div class="line">    DBG(<span class="stringliteral">&quot;MATH_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b);       \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:78</div></div>
 </div><!-- fragment --><p>Generator for native math words</p>
 <p>Creates function named NAME for operation OP with arguments of TYPE The result for <code>int32_t</code>, <code>add</code>, <code>+</code> will be </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;void _add_int32_t() {</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  int32_t a = pop_int32();</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  int32_t b = pop_int32();</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  push_int32_t (a &gt;= b ? -1 : 0);</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}</div></div><!-- fragment --><p>The resulting function will use push_TYPE for data placement</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -330,7 +387,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(<span class="keyword">true</span>, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    return pop_ ## TYPE() == -1 ? 1 : 0;                           \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:72</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(<span class="keyword">true</span>, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    return pop_ ## TYPE() == -1 ? 1 : 0;                           \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:78</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -528,7 +585,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="words_8c.html">words.c</a></li>
-    <li class="footer">Generated on Fri Sep 9 2016 11:29:10 for pforth by
+    <li class="footer">Generated on Fri Sep 9 2016 12:36:44 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

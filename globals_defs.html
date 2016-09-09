@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">b85835cf91bfd6fba2af3c7e4dab02a5fc5499a7</span>
+   &#160;<span id="projectnumber">c2bc7cb3e6fe4736413a315bd379c7ca47bbecb1</span>
    </div>
   </td>
  </tr>
@@ -88,7 +88,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li class="current"><a href="#index_t"><span>t</span></a></li>
@@ -134,15 +136,26 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 <li>_COMPARISON_OPS
 : <a class="el" href="words_8h.html#ada46dee9081e0067bfa8d6fd88f337fb">words.h</a>
 </li>
+<li>_DEF_TYPE_OP
+: <a class="el" href="words_8c.html#a08740c751e77a696fde39840aa90c1b4">words.c</a>
+</li>
+<li>_DOT
+: <a class="el" href="words_8c.html#ac1dda0e3362b758dc00673d8314bc4f9">words.c</a>
+, <a class="el" href="words_8h.html#ab4894e1b539f4cccb3e44a1e46d0c345">words.h</a>
+</li>
 <li>_EMBED_DECORATE
 : <a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">words.h</a>
+</li>
+<li>_EMIT
+: <a class="el" href="words_8c.html#ab7cc2653e43425c60f1f5e99ae934054">words.c</a>
+, <a class="el" href="words_8h.html#a8e3bcefb1245e098a8e3f62404baee2b">words.h</a>
 </li>
 <li>_FIVE_MATH_OPS
 : <a class="el" href="words_8h.html#a0abd1b91e2df49e34685c6cbfb98f643">words.h</a>
 </li>
 <li>_MATH_OP
-: <a class="el" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">words.h</a>
-, <a class="el" href="words_8c.html#a48f91adc47113e6a1ca729243a73f380">words.c</a>
+: <a class="el" href="words_8c.html#a48f91adc47113e6a1ca729243a73f380">words.c</a>
+, <a class="el" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">words.h</a>
 </li>
 <li>_POST_DEC
 : <a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">words.h</a>
@@ -199,9 +212,23 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 </ul>
 
 
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>HI
+: <a class="el" href="pforth_8h.html#a464086719dcbec3a5447a3e76dd2e935">pforth.h</a>
+</li>
+</ul>
+
+
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
 <li>INT_TYPE_LIST
 : <a class="el" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">pforth.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>LO
+: <a class="el" href="pforth_8h.html#ab7f6bf8df35486f1d7c1ea59b71aa448">pforth.h</a>
 </li>
 </ul>
 
@@ -251,6 +278,9 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 : <a class="el" href="words_8c.html#ab342b67c65f5a29670e8bbb5b5e3ca16">words.c</a>
 , <a class="el" href="words_8h.html#ab342b67c65f5a29670e8bbb5b5e3ca16">words.h</a>
 </li>
+<li>PRINT
+: <a class="el" href="pforth_8h.html#ab854488bd762fe2fd3293666ae7253ee">pforth.h</a>
+</li>
 <li>PUSH_POP_WORD
 : <a class="el" href="words_8h.html#a52b6119642378b1ee55848397f6fcec5">words.h</a>
 </li>
@@ -258,8 +288,8 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 : <a class="el" href="words_8h.html#aa913a4d4e4bed493af4e9faf320c13e0">words.h</a>
 </li>
 <li>PUSH_WORD
-: <a class="el" href="words_8c.html#ae382a8ce948bac18616dd84f41fea71f">words.c</a>
-, <a class="el" href="words_8h.html#ae382a8ce948bac18616dd84f41fea71f">words.h</a>
+: <a class="el" href="words_8h.html#ae382a8ce948bac18616dd84f41fea71f">words.h</a>
+, <a class="el" href="words_8c.html#ae382a8ce948bac18616dd84f41fea71f">words.c</a>
 </li>
 </ul>
 
@@ -275,7 +305,7 @@ $(document).ready(function(){initNavTree('globals_defs.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Sep 9 2016 11:29:10 for pforth by
+    <li class="footer">Generated on Fri Sep 9 2016 12:36:44 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

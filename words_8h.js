@@ -2,7 +2,9 @@ var words_8h =
 [
     [ "_COMPARE_OP", "words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a", null ],
     [ "_COMPARISON_OPS", "words_8h.html#ada46dee9081e0067bfa8d6fd88f337fb", null ],
+    [ "_DOT", "words_8h.html#ab4894e1b539f4cccb3e44a1e46d0c345", null ],
     [ "_EMBED_DECORATE", "words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161", null ],
+    [ "_EMIT", "words_8h.html#a8e3bcefb1245e098a8e3f62404baee2b", null ],
     [ "_FIVE_MATH_OPS", "words_8h.html#a0abd1b91e2df49e34685c6cbfb98f643", null ],
     [ "_MATH_OP", "words_8h.html#a48f91adc47113e6a1ca729243a73f380", null ],
     [ "_POST_DEC", "words_8h.html#a2ced905dd685eb6d9c0214796019d673", null ],

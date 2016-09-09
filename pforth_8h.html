@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">b85835cf91bfd6fba2af3c7e4dab02a5fc5499a7</span>
+   &#160;<span id="projectnumber">c2bc7cb3e6fe4736413a315bd379c7ca47bbecb1</span>
    </div>
   </td>
  </tr>
@@ -135,6 +135,12 @@ Data Structures</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a7da75c1a7622f6d0cf57c81626853e9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a7da75c1a7622f6d0cf57c81626853e9b">DBG</a>(fmt, ...)&#160;&#160;&#160;{}</td></tr>
 <tr class="separator:a7da75c1a7622f6d0cf57c81626853e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab854488bd762fe2fd3293666ae7253ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#ab854488bd762fe2fd3293666ae7253ee">PRINT</a>(fmt, ...)&#160;&#160;&#160;fprintf(stdout, fmt, __VA_ARGS__);</td></tr>
+<tr class="separator:ab854488bd762fe2fd3293666ae7253ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7f6bf8df35486f1d7c1ea59b71aa448"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#ab7f6bf8df35486f1d7c1ea59b71aa448">LO</a>(x)&#160;&#160;&#160;((unsigned char) ((x) &amp; 0xFF))</td></tr>
+<tr class="separator:ab7f6bf8df35486f1d7c1ea59b71aa448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a464086719dcbec3a5447a3e76dd2e935"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a464086719dcbec3a5447a3e76dd2e935">HI</a>(x)&#160;&#160;&#160;((unsigned char) (((x) &gt;&gt; 8) &amp; 0xFF))</td></tr>
+<tr class="separator:a464086719dcbec3a5447a3e76dd2e935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d66a9c79d916ee0036d9971f1a60894"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a2d66a9c79d916ee0036d9971f1a60894">FORTH_DICT_SIZE</a>&#160;&#160;&#160;1000</td></tr>
 <tr class="separator:a2d66a9c79d916ee0036d9971f1a60894"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c37343a5533f01ba6e940f6ace28c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;&#160;&#160;int32_t</td></tr>
@@ -246,6 +252,22 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a464086719dcbec3a5447a3e76dd2e935"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HI</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;((unsigned char) (((x) &gt;&gt; 8) &amp; 0xFF))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a1621834236723fc94ccec48a1e527dab"></a>
 <div class="memitem">
 <div class="memproto">
@@ -256,6 +278,22 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Comma separated list of types to generate math operations for </p>
+
+</div>
+</div>
+<a class="anchor" id="ab7f6bf8df35486f1d7c1ea59b71aa448"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LO</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;((unsigned char) ((x) &amp; 0xFF))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -273,6 +311,32 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Call the word function. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab854488bd762fe2fd3293666ae7253ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRINT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fmt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;fprintf(stdout, fmt, __VA_ARGS__);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -711,7 +775,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8h.html">pforth.h</a></li>
-    <li class="footer">Generated on Fri Sep 9 2016 11:29:10 for pforth by
+    <li class="footer">Generated on Fri Sep 9 2016 12:36:44 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
