@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <check.h>
 
-void pforth_init();
-void push_int32_t(uint32_t value);
-int32_t pop_int32_t();
-
 START_TEST(test_push_pop)
 {
   push_int32_t(0xfefefefe);
@@ -13,7 +9,6 @@ START_TEST(test_push_pop)
   ck_assert_int_eq(r, 0xfefefefe);
 }
 END_TEST
-
 
 Suite* stack_suite(void)
 {

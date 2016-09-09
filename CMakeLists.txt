@@ -55,8 +55,9 @@ endif()
 
 set(STANDARD "-std=c11")
 
-set(CMAKE_C_FLAGS         "${CMAKE_C_FLAGS} -Wall -Wno-unknown-pragmas -Wno-sign-compare -Wwrite-strings -Wno-unused ${STANDARD} -Wextra -pedantic -Werror -pthread ")
+set(CMAKE_C_FLAGS         "${CMAKE_C_FLAGS} -Wall -Wno-unknown-pragmas -Wno-sign-compare -Wwrite-strings -Wno-unused ${STANDARD} -Wextra -pedantic -Werror")
 set(CMAKE_C_FLAGS_PROFILED "${CMAKE_C_FLAGS} -pg")
+set(AUX_LIBS "-lpthread")
 
 if (STATIC)
   set(CMAKE_C_FLAGS         "${CMAKE_C_FLAGS} -static -Wl,--whole-archive -lpthread -Wl,--no-whole-archive -fPIC -fPIE")

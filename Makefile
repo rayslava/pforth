@@ -16,7 +16,7 @@ release: debug
 	$(call build-dir, $@) && cmake .. -DCMAKE_BUILD_TYPE=Release && $(MAKE) -j $(JOBS) && ctest -j $(JOBS)
 
 static-release:
-	$(call build-dir, $@) && cmake .. -DCMAKE_BUILD_TYPE=Release -DSTATIC=True && $(MAKE) $(BINARY) -j $(JOBS)
+	$(call build-dir, $@) && cmake .. -DCMAKE_BUILD_TYPE=Release -DSTATIC=True && $(MAKE) -j $(JOBS) && ctest -j $(JOBS)
 
 asan:
 	$(call build-dir, $@) && cmake .. -DCMAKE_CXX_FLAGS="-fsanitize=address" -DCMAKE_BUILD_TYPE=RelWithDebInfo && $(MAKE) -j $(JOBS) && ctest -j $(JOBS)
@@ -60,10 +60,10 @@ dockerbuild/$(BINARY).tar.gz:
 	git archive --format=tar.gz -o dockerbuild/$(BINARY).tar.gz --prefix=$(BINARY)/ HEAD
 
 stylecheck:
-	uncrustify -c uncrustify.cfg src/*.c src/*.h test/*.c --check
+	uncrustify -c uncrustify.cfg src/*.c src/*.h test/*.c --check -l c
 
 stylefix:
-	uncrustify -c uncrustify.cfg src/*.c src/*.h test/*.c --replace
+	uncrustify -c uncrustify.cfg src/*.c src/*.h test/*.c --replace -l c
 
 coverage:
 	$(call build-dir, $@) && cmake .. -DCOVERAGE=True && $(MAKE) -j $(JOBS) && $(MAKE) clean && $(MAKE) -j 1 coverage

@@ -4,13 +4,29 @@
 
 void pforth_init();
 char* strndup(const char* src, size_t len);
-void push_int32_t(int32_t value);
-void _add_int32_t();
-void _gt_int32_t();
-void _eq_int32_t();
-int32_t pop_int32_t();
-int _true_int32_t();
-#define TRUE _true_int32_t()
+
+START_TEST(replace_test)
+{
+  dict_t* dict = dict_create(20);
+  pforth_word_ptr word = pforth_word_alloc();
+  word->function = &_gt_int32_t;
+  dict_set(dict, ">", word);
+
+  eval(dict, "5 3 >");
+  int32_t r = pop_int32_t();
+  ck_assert_int_eq(r, -1);
+
+  word->function = &_lt_int32_t;
+  dict_set(dict, ">", word);
+
+  eval(dict, "5 3 >");
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
+  dict_free(dict, 20);
+  free(dict);
+}
+END_TEST
 
 START_TEST(hash_test)
 {
@@ -141,34 +157,6 @@ START_TEST(eval_comment_test)
 }
 END_TEST
 
-START_TEST(eval_gt_test)
-{
-  dict_t* dict = dict_create(50);
-  pforth_word_ptr word = pforth_word_alloc();
-  word->function = &_gt_int32_t;
-  dict_set(dict, ">", word);
-
-  word = pforth_word_alloc();
-  word->function = &_eq_int32_t;
-  dict_set(dict, "=", word);
-
-  eval(dict, "5 3 >");
-  ck_assert_int_eq(TRUE, 1);
-
-  eval(dict, "3 5 >");
-  ck_assert_int_eq(TRUE, 0);
-
-  eval(dict, "1 2 =");
-  ck_assert_int_eq(TRUE, 0);
-
-  eval(dict, "1 1 =");
-  ck_assert_int_eq(TRUE, 1);
-
-  dict_free(dict, 50);
-  free(dict);
-}
-END_TEST
-
 Suite* interp_suite(void)
 {
   Suite* s;
@@ -179,6 +167,7 @@ Suite* interp_suite(void)
   /* Core test case */
   tc_core = tcase_create("Core");
 
+  tcase_add_test(tc_core, replace_test);
   tcase_add_test(tc_core, hash_test);
   tcase_add_test(tc_core, add_test);
   tcase_add_test(tc_core, eval_empty);
@@ -186,7 +175,6 @@ Suite* interp_suite(void)
   tcase_add_test(tc_core, eval_add2_test);
   tcase_add_test(tc_core, eval_recursion_test);
   tcase_add_test(tc_core, eval_comment_test);
-  tcase_add_test(tc_core, eval_gt_test);
   suite_add_tcase(s, tc_core);
 
   return s;

@@ -1,7 +1,5 @@
 #include "pforth.h"
 
-void push_int32_t(uint32_t value);
-
 char* strndup(const char* src, size_t len) {
   char* result = calloc(1, len + 1);
   strncpy(result, src, len);
@@ -51,6 +49,7 @@ void eval(dict_t* dict, const char* line) {
       if (!*begin)
         goto next;
     }
+
     /* Token start */
     end = begin;
     while (*end && *end != ' ')
@@ -70,15 +69,21 @@ void eval(dict_t* dict, const char* line) {
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
+      DBG("Word:   %s\n", token);
       if (word->location) {
         DBG("Exec:   %s word from %p\n", token, word->location);
         word->function();
+        goto next;
       }
       else {
         DBG("Eval:   %s word from '%s'\n", token, word->text_code);
         eval(dict, word->text_code);
+        goto next;
       }
     }
+    DBG("Cant parse:   %s!\n", token);
+    free(token);
+    break;
   next:
     if (*begin == 0)
       break;

@@ -5,6 +5,28 @@
 #include <string.h>
 #include <stdio.h>
 
+
+#ifdef DEBUG
+#define DBG(fmt, ...) fprintf(stderr, "%s:%d: " fmt, __FILE__, __LINE__, __VA_ARGS__);
+#else
+#define DBG(fmt, ...) {}
+#endif
+
+/**
+   Maximal dictionary size
+ */
+#define FORTH_DICT_SIZE 1000
+
+/**
+   Default data stack type definition
+ */
+#define FORTH_TYPE int32_t
+
+/**
+   Comma separated list of types to generate math operations for
+ */
+#define INT_TYPE_LIST FORTH_TYPE
+
 /**
    Type of function to be called from the word.
  */
@@ -53,6 +75,8 @@ dict_t* dict_create(uint32_t size);
 void dict_free(dict_t* dict, uint32_t size);
 void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value);
 pforth_word_ptr dict_get(dict_t* dict, const char* key);
+
+extern dict_t* forth_dict;
 
 /**
    Init the FORTH machine.
@@ -119,8 +143,6 @@ void pforth_word_free(const pforth_word_ptr word);
  */
 void eval(dict_t* dict, const char* line);
 
-#ifdef DEBUG
-#define DBG(fmt, ...) fprintf(stderr, "%s:%d: " fmt, __FILE__, __LINE__, __VA_ARGS__);
-#else
-#define DBG(fmt, ...) {}
-#endif
+void register_native(const char* op, word_function f);
+
+#include "words.h"
