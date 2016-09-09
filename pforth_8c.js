@@ -5,6 +5,8 @@ var pforth_8c =
     [ "pforth_word_alloc", "pforth_8c.html#adb946f90e0ef5959a6b1f22c88a927ce", null ],
     [ "pforth_word_copy", "pforth_8c.html#aedc19940161835e3b56ec004dffe5b2b", null ],
     [ "pforth_word_free", "pforth_8c.html#a8086e2c87824b9b855151abbb2b0b528", null ],
+    [ "register_native", "pforth_8c.html#aab5eba54d00bcd589050e20c6153f4e1", null ],
     [ "data_stack_top", "pforth_8c.html#a159fb3ba31844b2d551900969fd5d598", null ],
+    [ "forth_dict", "pforth_8c.html#a5116d76b336a8bf6e1c0ca87ac2a5930", null ],
     [ "return_stack_top", "pforth_8c.html#a6bfabdfca73c31e4c5f0733c39eaf154", null ]
 ];

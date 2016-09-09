@@ -4,6 +4,9 @@ var pforth_8h =
     [ "_dict_entry", "struct__dict__entry.html", "struct__dict__entry" ],
     [ "dict_s", "structdict__s.html", "structdict__s" ],
     [ "DBG", "pforth_8h.html#a7da75c1a7622f6d0cf57c81626853e9b", null ],
+    [ "FORTH_DICT_SIZE", "pforth_8h.html#a2d66a9c79d916ee0036d9971f1a60894", null ],
+    [ "FORTH_TYPE", "pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0", null ],
+    [ "INT_TYPE_LIST", "pforth_8h.html#a1621834236723fc94ccec48a1e527dab", null ],
     [ "PFORTH_WORD_RUN", "pforth_8h.html#a18b586ef5d87a09c4306f2ead631b60a", null ],
     [ "dict_entry", "pforth_8h.html#a8e9467259d3713ecf10a018a3118f111", null ],
     [ "dict_t", "pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583", null ],
@@ -21,6 +24,8 @@ var pforth_8h =
     [ "pforth_word_copy", "pforth_8h.html#aedc19940161835e3b56ec004dffe5b2b", null ],
     [ "pforth_word_dup", "pforth_8h.html#a5b50d3329cd6b647f87d9f1a4eceb7f5", null ],
     [ "pforth_word_free", "pforth_8h.html#a8086e2c87824b9b855151abbb2b0b528", null ],
+    [ "register_native", "pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1", null ],
     [ "data_stack_top", "pforth_8h.html#a159fb3ba31844b2d551900969fd5d598", null ],
+    [ "forth_dict", "pforth_8h.html#a5116d76b336a8bf6e1c0ca87ac2a5930", null ],
     [ "return_stack_top", "pforth_8h.html#a6bfabdfca73c31e4c5f0733c39eaf154", null ]
 ];
