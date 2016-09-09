@@ -1,11 +1,12 @@
-#include <pforth.h>
+#include "pforth.h"
 #include <stdlib.h>
 #include <check.h>
-
-void pforth_init();
 void push_int32_t(int32_t value);
-int32_t pop_int32_t();
 void _add_int32_t();
+void _gt_int32_t();
+int32_t pop_int32_t();
+int _true_int32_t();
+void pforth_init();
 
 START_TEST(add)
 {
@@ -16,7 +17,6 @@ START_TEST(add)
   ck_assert_int_eq(r, 15);
 }
 END_TEST
-
 
 Suite* math_suite(void)
 {

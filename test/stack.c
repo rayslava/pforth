@@ -3,12 +3,12 @@
 #include <check.h>
 
 void pforth_init();
-void push_uint32_t(uint32_t value);
+void push_int32_t(uint32_t value);
 int32_t pop_int32_t();
 
 START_TEST(test_push_pop)
 {
-  push_uint32_t(0xfefefefe);
+  push_int32_t(0xfefefefe);
   uint32_t r = pop_int32_t();
   ck_assert_int_eq(r, 0xfefefefe);
 }

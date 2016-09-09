@@ -12,8 +12,8 @@ set(CMAKE_MODULE_PATH
 set(SOURCE_FILES
   src/interp.c
   src/pforth.c
-  src/words.c
   src/dict.c
+  src/words.c
   )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS On)
@@ -25,15 +25,11 @@ macro(create_test name files)
     ${files}
     )
 
-  set(test_files
-    "\${${name}_TEST_FILES}"
-    )
-
   add_executable(
     ${name}_test
     ${SOURCE_FILES}
     ${CHECK_SOURCES}
-    ${test_files}
+    ${${name}_TEST_FILES}
     )
 
   target_link_libraries(

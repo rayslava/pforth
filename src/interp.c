@@ -1,6 +1,6 @@
 #include "pforth.h"
 
-void push_int32_t(int32_t value);
+void push_int32_t(uint32_t value);
 
 char* strndup(const char* src, size_t len) {
   char* result = calloc(1, len + 1);
@@ -70,10 +70,14 @@ void eval(dict_t* dict, const char* line) {
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
-      if (word->location)
+      if (word->location) {
+        DBG("Exec:   %s word from %p\n", token, word->location);
         word->function();
-      else
+      }
+      else {
+        DBG("Eval:   %s word from '%s'\n", token, word->text_code);
         eval(dict, word->text_code);
+      }
     }
   next:
     if (*begin == 0)
