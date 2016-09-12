@@ -139,6 +139,44 @@ void eval(dict_t* dict, const char* line) {
       goto next;
     }
 
+    /* New word definition */
+    if (*begin == ':') {
+      begin++;
+      while (*begin && *begin == ' ')
+        begin++;
+
+      if (!*begin)   /* EOL when looking for word name */
+        goto error;
+
+      end = begin;
+      while (*end && *end != ' ')
+        end++;
+
+      if (!*end)   /* No actual line */
+        goto error;
+
+      char* word_key = strndup(begin, end - begin);
+      pforth_word_ptr new_word;
+      if ((new_word = pforth_word_alloc()) == NULL) {
+        /* Not enough memory */
+        free(word_key);
+        goto error;
+      }
+      pforth_word_ptr dict_word = dict_set(dict, word_key, new_word);
+      free(word_key);
+      pforth_word_free(new_word);
+      begin = end + 1;
+      while (*end && *end != ';')
+        end++;
+
+      if (!*end)
+        goto error;
+
+      dict_word->text_code = strndup(begin, end - begin);
+      end++;
+      goto next;
+    }
+
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
