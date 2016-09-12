@@ -16,6 +16,11 @@ set(SOURCE_FILES
   src/words.c
   )
 
+add_custom_target(FORTH_CORE
+  COMMAND xxd -i core.fs | awk '{ if (/_len/) {$$5=$$5+1\"\;\"} ;if (/[0-9a-f]$$/) { print $$0 \", 0x00\" } else print ; }' > core_fs.h
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
+  SOURCES ${CMAKE_SOURCE_DIR}/src/core.fs)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS On)
 
 macro(create_test name files)
@@ -96,7 +101,7 @@ if (STATIC)
 endif()
 
 add_executable(${CMAKE_PROJECT_NAME} src/main.c ${SOURCE_FILES})
-
+add_dependencies(${CMAKE_PROJECT_NAME} FORTH_CORE)
 enable_testing()
 
 include_directories(
@@ -123,5 +128,5 @@ if (COVERALLS)
     setup_target_for_coveralls(stack_coveralls stack_test src coveralls)
     setup_target_for_coveralls(interp_coveralls interp_test src coveralls)
     ADD_CUSTOM_TARGET(coveralls
-      DEPENDS math_coveralls stack_coveralls interp_coveralls)
+      DEPENDS math_coveralls stack_coveralls interp_coveralls FORTH_CORE)
 endif()

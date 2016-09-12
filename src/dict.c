@@ -40,6 +40,7 @@ void dict_free(dict_t* dict, uint32_t size) {
   for (uint32_t i = 0; i < size; ++i) {
     dict_entry* head = dict->table[i];
     while (head) {
+      DBG("Freeing %20s @%p\n", head->key, (void *) head);
       dict_entry* next = head->next;
       pforth_word_free(head->word);
       free(head->key);
@@ -47,6 +48,7 @@ void dict_free(dict_t* dict, uint32_t size) {
       head = next;
     }
   }
+  free(dict->table);
 }
 
 /**
@@ -113,8 +115,9 @@ dict_entry* dict_newkv(const char* key, const pforth_word_ptr value) {
    \param dict dictionary to use
    \param key FORTH word in ASCII form
    \param value pointer to pforth_word struct with the word.
+   \return pointer to the newly created word
  */
-void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value) {
+pforth_word_ptr dict_set(dict_t* dict, const char* key, const pforth_word_ptr value) {
   int bin = 0;
   dict_entry* next = NULL;
   dict_entry* last = NULL;
@@ -134,6 +137,7 @@ void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value) {
     pforth_word_free(next->word);
     next->word = pforth_word_alloc();
     pforth_word_copy(next->word, value);
+    return next->word;
   } else {
     /* Not found: creating */
     dict_entry* new_item = dict_newkv(key, value);
@@ -150,6 +154,7 @@ void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value) {
       new_item->next = next;
       last->next = new_item;
     }
+    return new_item->word;
   }
 }
 

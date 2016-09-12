@@ -60,6 +60,8 @@ typedef pforth_word * pforth_word_ptr;
 
 extern uint8_t* data_stack_top;
 extern void* return_stack_top;
+uint8_t* data_stack_bottom();
+uint8_t* return_stack_bottom();
 
 struct _dict_entry {
   char* key;
@@ -78,7 +80,7 @@ typedef struct dict_s dict_t;
 
 dict_t* dict_create(uint32_t size);
 void dict_free(dict_t* dict, uint32_t size);
-void dict_set(dict_t* dict, const char* key, const pforth_word_ptr value);
+pforth_word_ptr dict_set(dict_t* dict, const char* key, const pforth_word_ptr value);
 pforth_word_ptr dict_get(dict_t* dict, const char* key);
 
 extern dict_t* forth_dict;

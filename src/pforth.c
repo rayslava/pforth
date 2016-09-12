@@ -5,6 +5,13 @@ uint8_t* data_stack_top; /**< The global data stack top pointer for the FORTH ma
 void* return_stack_top;
 dict_t* forth_dict;
 
+static uint8_t* _data_stack_bottom; /**< The global data stack bottom  */
+uint8_t* data_stack_bottom() {return _data_stack_bottom; }
+
+static uint8_t* _return_stack_bottom; /**< The global return stack bottom  */
+uint8_t* return_stack_bottom() {return _return_stack_bottom; }
+
+
 pforth_word_ptr pforth_word_alloc() {
   pforth_word_ptr new_word = malloc(sizeof(pforth_word));
   new_word->text_code = NULL;
@@ -22,14 +29,15 @@ void pforth_word_free(const pforth_word_ptr word) {
 
 void pforth_init() {
   data_stack_top = malloc(sizeof(uint8_t) * 1024);
+  _data_stack_bottom = data_stack_top;
   return_stack_top = malloc(sizeof(uint8_t) * 1024);
   forth_dict = dict_create(FORTH_DICT_SIZE);
   register_precompiled();
 }
 
 void pforth_deinit() {
-  //  free(data_stack_top);
-  //  free(return_stack_top);
+  free(data_stack_bottom());
+  free(return_stack_bottom());
   dict_free(forth_dict, FORTH_DICT_SIZE);
 }
 
@@ -64,4 +72,5 @@ void register_native(const char* op, word_function f) {
   word->function = f;
   DBG("Precompiled: %10s @ %p\n", op, word->location);
   dict_set(forth_dict, op, word);
+  pforth_word_free(word);
 }

@@ -51,7 +51,16 @@ memcheck: debug release
 memcheck-stack: memcheck
 	cd memcheck-build && $(call memcheck-binary,stack_test)
 
-valgrind: memcheck-stack
+memcheck-pforth: memcheck
+	cd memcheck-build && $(call memcheck-binary,pforth)
+
+memcheck-math: memcheck
+	cd memcheck-build && $(call memcheck-binary,math_test)
+
+memcheck-interp: memcheck
+	cd memcheck-build && $(call memcheck-binary,interp_test)
+
+valgrind: memcheck-stack memcheck-pforth memcheck-math memcheck-interp
 
 dockerimage:
 	cd dockerbuild && (docker images | grep $(BINARY)-deploy) || docker build -t $(BINARY)-deploy .
