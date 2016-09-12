@@ -43,7 +43,7 @@ macro(create_test name files)
     ${AUX_LIBS}
     )
 
-  add_test(${name} ${name}_test)
+  add_test(${name} ${name}_test DEPENDS FORTH_CORE)
 endmacro(create_test)
 
 include(ConfigSafeGuards)
@@ -114,19 +114,22 @@ enable_testing()
 create_test(stack test/stack.c)
 create_test(math test/math.c)
 create_test(interp test/interp.c)
+create_test(words test/words.c)
 
 if (COVERAGE)
   setup_target_for_coverage(math_coverage math_test src coverage)
   setup_target_for_coverage(stack_coverage stack_test src coverage)
   setup_target_for_coverage(interp_coverage interp_test src coverage)
+  setup_target_for_coverage(words_coverage words_test src coverage)
   ADD_CUSTOM_TARGET(coverage
-    DEPENDS math_coverage stack_coverage interp_coverage)
+    DEPENDS math_coverage stack_coverage interp_coverage words_coverage FORTH_CORE)
 endif()
 
 if (COVERALLS)
     setup_target_for_coveralls(math_coveralls math_test src coveralls)
     setup_target_for_coveralls(stack_coveralls stack_test src coveralls)
     setup_target_for_coveralls(interp_coveralls interp_test src coveralls)
+    setup_target_for_coverage(words_coverage words_test src coveralls)
     ADD_CUSTOM_TARGET(coveralls
-      DEPENDS math_coveralls stack_coveralls interp_coveralls FORTH_CORE)
+      DEPENDS math_coveralls stack_coveralls interp_coveralls words_coverage FORTH_CORE)
 endif()
