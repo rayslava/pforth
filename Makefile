@@ -60,7 +60,10 @@ memcheck-math: memcheck
 memcheck-interp: memcheck
 	cd memcheck-build && $(call memcheck-binary,interp_test)
 
-valgrind: memcheck-stack memcheck-pforth memcheck-math memcheck-interp
+memcheck-words: memcheck
+	cd memcheck-build && $(call memcheck-binary,words_test)
+
+valgrind: memcheck-stack memcheck-pforth memcheck-math memcheck-interp memcheck-words
 
 dockerimage:
 	cd dockerbuild && (docker images | grep $(BINARY)-deploy) || docker build -t $(BINARY)-deploy .

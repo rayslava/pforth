@@ -31,6 +31,7 @@ void pforth_init() {
   data_stack_top = malloc(sizeof(uint8_t) * 1024);
   _data_stack_bottom = data_stack_top;
   return_stack_top = malloc(sizeof(uint8_t) * 1024);
+  _return_stack_bottom = return_stack_top;
   forth_dict = dict_create(FORTH_DICT_SIZE);
   register_precompiled();
 }
@@ -39,6 +40,7 @@ void pforth_deinit() {
   free(data_stack_bottom());
   free(return_stack_bottom());
   dict_free(forth_dict, FORTH_DICT_SIZE);
+  free(forth_dict);
 }
 
 pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_ptr src) {
