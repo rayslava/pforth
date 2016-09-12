@@ -25,43 +25,43 @@ void upstring(char* line) {
     c++;
 }
 
-/* Slow but working implemenation of strcasestr */
-const char* find_token(const char* haystack, const char* needle) {
-  if (haystack == NULL || needle == NULL) return NULL;
-  const char* haystack_pos = haystack;
-  const char* haystack_pos_last;
-  const char* needle_pos;
-  char haystack_char;
-  char needle_char;
-  int found = 0;
-
-  while (*haystack_pos != 0) {
-    found = 1;
-    if (*haystack_pos != *needle) {
-      haystack_char = lowcase(*haystack_pos);
-      needle_char = lowcase(*needle);
-
-      if (haystack_char == needle_char)
-        found = 1;
+int preprocess(char* line) {
+  char* pos = line;
+  while (*pos) {
+    *pos = upcase(*pos);
+    if (*pos == '.' && *(pos + 1) && *(pos + 1) == '"') {
+      /* Text literal shouldn't be changed, skip it */
+      pos += 2;
+      while (*pos && *pos != '"') pos++;
+      if (!*pos)
+        return -1; /* String literal isn't closed */
     }
 
-    if (found) {
-      haystack_pos_last = haystack_pos;
-      needle_pos = needle;
-      while (*haystack_pos_last != 0) {
-        haystack_char = lowcase(*haystack_pos_last);
-        needle_char = lowcase(*needle_pos);
-        if (haystack_char != needle_char)
-          break;
-        needle_pos++;
-        if (*needle_pos == 0)
-          return haystack_pos_last - (needle_pos - needle - 0x01);
-        haystack_pos_last++;
+    /* In-line comment */
+    if (*pos == '(') {
+      while (*pos && *pos != ')') {
+        if (*pos == '\n' || *pos == 0)
+          return -1; /* Single line comment error */
+        *pos++ = ' ';
       }
+      *pos = ' ';
     }
-    haystack_pos++;
-  }
-  return NULL;
+
+    /* Line comment */
+    if (*pos == '\\') {
+      while (*pos && *pos != '\n')
+        *pos++ = ' ';
+      continue;
+    }
+
+    if (*pos == '\n' || *pos == '\t') {
+      while (*pos && (*pos == ' ' || *pos == '\n' || *pos == '\t'))
+        *pos++ = ' ';
+      continue;
+    }
+    pos++;
+  };
+  return 0;
 }
 
 static int if_depth;
@@ -75,33 +75,13 @@ void eval(dict_t* dict, const char* line) {
     const char* end = NULL;
     while (*begin == ' ') {
       begin++;
-      if (!*begin || *begin == '\n')   /* Trailing whitespaces */
+      if (!*begin)   /* Trailing whitespaces */
         goto next;
     };
 
-    /* Parse comments */
-    if (*begin == '(') {
-      DBG("Comment! %s\n", begin);
-      while (*begin && *begin != ')' && *begin != '\n')
-        begin++;
-      if (*begin != ')') {
-        goto error;
-      } else {
-        end = begin + 1;
-        goto next;
-      }
-    }
-
-    if (*begin == '\\') {
-      while (*begin && *begin != '\n')
-        begin++;
-      if (!*begin)
-        goto next;
-    }
-
     /* Token start */
     end = begin;
-    while (*end && *end != ' ' && *end != '\n')
+    while (*end && *end != ' ')
       end++;
 
     token = strndup(begin, end - begin);
@@ -130,8 +110,8 @@ void eval(dict_t* dict, const char* line) {
       if_depth++;
       const char* then_pos = NULL;
       const char* else_pos = NULL;
-      else_pos = find_token(end, ELSE_TOKEN);
-      if ((then_pos = find_token(end, THEN_TOKEN)) == NULL)
+      else_pos = strstr(end, ELSE_TOKEN);
+      if ((then_pos = strstr(end, THEN_TOKEN)) == NULL)
         goto error;
 
       if (!TRUE) {

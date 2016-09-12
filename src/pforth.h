@@ -141,6 +141,17 @@ void pforth_word_free(const pforth_word_ptr word);
 #define PFORTH_WORD_RUN(w) { word_function f = *(word->function); f(); }
 
 /**
+    Preprocess the FORTH line.
+
+    The preprocessing is done in-place, comments and newlines are removed by
+    replacing with space characters. There's no space compression pass - it's
+    easier to do that right in eval().
+
+    \param line the line to be preprocessed.
+ */
+int preprocess(char* line);
+
+/**
    Evaluate the FORTH line
 
    \param dict the dictionary to use

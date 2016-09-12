@@ -10,6 +10,16 @@
 void pforth_init();
 char* strndup(const char* src, size_t len);
 
+START_TEST(preprocess_test)
+{
+  char l[] = "test TEst ( ) \n teeeeest        \t\t test; tEs\nT\n\\testetest\n1\n.\" aSdF\"";
+  char e[] = "TEST TEST       TEEEEEST           TEST; TES T            1 .\" aSdF\"";
+  preprocess(l);
+  ck_assert_str_eq(l, e);
+}
+END_TEST
+
+
 START_TEST(replace_test)
 {
   dict_t* dict = dict_create(20);
@@ -32,21 +42,6 @@ START_TEST(replace_test)
   free(dict);
 }
 END_TEST
-
-START_TEST(newline_test)
-{
-  eval(forth_dict, "5 3 >");
-  ck_assert_int_eq(TRUE, 1);
-
-  eval(forth_dict, "5 3 >\n");
-  ck_assert_int_eq(TRUE, 1);
-
-  eval(forth_dict, "5 3 +\n\n");
-  int32_t r = pop_int32_t();
-  ck_assert_int_eq(r, 8);
-}
-END_TEST
-
 
 START_TEST(hash_test)
 {
@@ -150,33 +145,6 @@ START_TEST(eval_recursion_test)
 }
 END_TEST
 
-START_TEST(eval_comment_test)
-{
-  dict_t* dict = dict_create(50);
-  pforth_word_ptr word = pforth_word_alloc();
-  word->function = &_add_int32_t;
-  dict_set(dict, "+", word);
-
-  char word_numbers[] = "5 10 (20) 30";
-  pforth_word_ptr numbers_word = pforth_word_alloc();
-  numbers_word->text_code = strndup(word_numbers, 12);
-  numbers_word->location = 0;
-  numbers_word->size = 0;
-  dict_set(dict, "NUMBERS", numbers_word);
-
-  eval(dict, "numbers + +");
-  int32_t r = pop_int32_t();
-  ck_assert_int_eq(r, 45);
-
-  eval(dict, "5 \\numbers + +");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 5);
-
-  dict_free(dict, 50);
-  free(dict);
-}
-END_TEST
-
 START_TEST(emit_test)
 {
   char buffer[MAX_LEN + 1] = {0};
@@ -240,15 +208,14 @@ Suite* interp_suite(void)
   /* Core test case */
   tc_core = tcase_create("Core");
 
+  tcase_add_test(tc_core, preprocess_test);
   tcase_add_test(tc_core, replace_test);
   tcase_add_test(tc_core, hash_test);
-  tcase_add_test(tc_core, newline_test);
   tcase_add_test(tc_core, add_test);
   tcase_add_test(tc_core, eval_empty);
   tcase_add_test(tc_core, eval_add_test);
   tcase_add_test(tc_core, eval_add2_test);
   tcase_add_test(tc_core, eval_recursion_test);
-  tcase_add_test(tc_core, eval_comment_test);
   tcase_add_test(tc_core, emit_test);
   tcase_add_test(tc_core, if_tests);
   suite_add_tcase(s, tc_core);
