@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['forth_5fdict',['forth_dict',['../pforth_8c.html#a5116d76b336a8bf6e1c0ca87ac2a5930',1,'forth_dict():&#160;pforth.c'],['../pforth_8h.html#a5116d76b336a8bf6e1c0ca87ac2a5930',1,'forth_dict():&#160;pforth.c']]],
-  ['function',['function',['../struct__pforth__word.html#ad5d18e24e03c8a3608e6d59fe40360d4',1,'_pforth_word']]]
+  ['core_5fcompressed_5ffs',['core_compressed_fs',['../core__fs_8h.html#a3be7472d6f09e2e43110e2765a965f16',1,'core_fs.h']]],
+  ['core_5fcompressed_5ffs_5flen',['core_compressed_fs_len',['../core__fs_8h.html#ab4e92b2ebbddea87bfbadb00d74a0181',1,'core_fs.h']]]
 ];

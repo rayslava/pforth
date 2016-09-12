@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">3c6519a9b7597baf55a0e5d1daa5e7462a636316</span>
+   &#160;<span id="projectnumber">d42fda94f2adf38bd90520e62f3c73b79cd2b44b</span>
    </div>
   </td>
  </tr>
@@ -115,6 +115,10 @@ $(document).ready(function(){initNavTree('pforth_8c.html','');});
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae3f644d57ff428ee14152f10d2cd6256"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#ae3f644d57ff428ee14152f10d2cd6256">data_stack_bottom</a> ()</td></tr>
+<tr class="separator:ae3f644d57ff428ee14152f10d2cd6256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab32fe4ed846932fad67ddf63d1979153"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#ab32fe4ed846932fad67ddf63d1979153">return_stack_bottom</a> ()</td></tr>
+<tr class="separator:ab32fe4ed846932fad67ddf63d1979153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb946f90e0ef5959a6b1f22c88a927ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth_word_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#adb946f90e0ef5959a6b1f22c88a927ce">pforth_word_alloc</a> ()</td></tr>
 <tr class="separator:adb946f90e0ef5959a6b1f22c88a927ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8086e2c87824b9b855151abbb2b0b528"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#a8086e2c87824b9b855151abbb2b0b528">pforth_word_free</a> (const <a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth_word_ptr</a> word)</td></tr>
@@ -136,8 +140,27 @@ Variables</h2></td></tr>
 <tr class="separator:a6bfabdfca73c31e4c5f0733c39eaf154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5116d76b336a8bf6e1c0ca87ac2a5930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#a5116d76b336a8bf6e1c0ca87ac2a5930">forth_dict</a></td></tr>
 <tr class="separator:a5116d76b336a8bf6e1c0ca87ac2a5930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9692cf4a0085a4d1811966c6ac2a036"><td class="memItemLeft" align="right" valign="top">static uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#ae9692cf4a0085a4d1811966c6ac2a036">_data_stack_bottom</a></td></tr>
+<tr class="separator:ae9692cf4a0085a4d1811966c6ac2a036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13ed3aa88fb33ccf233052d8ffb0ef8"><td class="memItemLeft" align="right" valign="top">static uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8c.html#ae13ed3aa88fb33ccf233052d8ffb0ef8">_return_stack_bottom</a></td></tr>
+<tr class="separator:ae13ed3aa88fb33ccf233052d8ffb0ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ae3f644d57ff428ee14152f10d2cd6256"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* data_stack_bottom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="abc79d748d687bdb5ce82b5fd9a784ea7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -278,7 +301,64 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab32fe4ed846932fad67ddf63d1979153"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* return_stack_bottom </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="ae9692cf4a0085a4d1811966c6ac2a036"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* _data_stack_bottom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The global data stack bottom </p>
+
+</div>
+</div>
+<a class="anchor" id="ae13ed3aa88fb33ccf233052d8ffb0ef8"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* _return_stack_bottom</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The global return stack bottom </p>
+
+</div>
+</div>
 <a class="anchor" id="a159fb3ba31844b2d551900969fd5d598"></a>
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +402,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8c.html">pforth.c</a></li>
-    <li class="footer">Generated on Mon Sep 12 2016 08:10:01 for pforth by
+    <li class="footer">Generated on Mon Sep 12 2016 13:12:59 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

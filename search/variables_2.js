@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['if_5fdepth',['if_depth',['../interp_8c.html#a3a3c20b22c6592743aa7f8e16d4b484c',1,'interp.c']]]
+  ['data_5fstack_5ftop',['data_stack_top',['../pforth_8c.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c'],['../pforth_8h.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c']]]
 ];

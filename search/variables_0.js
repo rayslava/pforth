@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['data_5fstack_5ftop',['data_stack_top',['../pforth_8c.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c'],['../pforth_8h.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c']]]
+  ['_5fdata_5fstack_5fbottom',['_data_stack_bottom',['../pforth_8c.html#ae9692cf4a0085a4d1811966c6ac2a036',1,'pforth.c']]],
+  ['_5freturn_5fstack_5fbottom',['_return_stack_bottom',['../pforth_8c.html#ae13ed3aa88fb33ccf233052d8ffb0ef8',1,'pforth.c']]]
 ];

@@ -1,10 +1,15 @@
 var searchData=
 [
-  ['else_5ftoken',['ELSE_TOKEN',['../token_8h.html#ad1d5cc61c69d51276259ee2de46366f8',1,'token.h']]],
-  ['eval',['eval',['../interp_8c.html#a8fd84db5516a541e4fc17a3487f5bddc',1,'eval(dict_t *dict, const char *line):&#160;interp.c'],['../pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc',1,'eval(dict_t *dict, const char *line):&#160;interp.c'],['../words_8h.html#aa0f8200acd4827bc9d2df09270b66c38',1,'EVAL():&#160;words.h']]],
-  ['eval0',['EVAL0',['../words_8h.html#a76421d17f805532a446837964bd56b24',1,'words.h']]],
-  ['eval1',['EVAL1',['../words_8h.html#aad4f105758560e2d030fb28e39acea6f',1,'words.h']]],
-  ['eval2',['EVAL2',['../words_8h.html#a1da5ee0b8ba77ab31d29e01e5dd4d9aa',1,'words.h']]],
-  ['eval3',['EVAL3',['../words_8h.html#aee8e56918d51b5dab93d8c6d8266814b',1,'words.h']]],
-  ['eval4',['EVAL4',['../words_8h.html#a5d9eb883e12b6ce5401726db89588f81',1,'words.h']]]
+  ['data_5fstack_5fbottom',['data_stack_bottom',['../pforth_8c.html#ae3f644d57ff428ee14152f10d2cd6256',1,'data_stack_bottom():&#160;pforth.c'],['../pforth_8h.html#ae3f644d57ff428ee14152f10d2cd6256',1,'data_stack_bottom():&#160;pforth.c']]],
+  ['data_5fstack_5ftop',['data_stack_top',['../pforth_8c.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c'],['../pforth_8h.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c']]],
+  ['dbg',['DBG',['../pforth_8h.html#a7da75c1a7622f6d0cf57c81626853e9b',1,'DBG():&#160;pforth.h'],['../words_8c.html#a6f93d4620a23ddda4bc714b449447a31',1,'DBG(&quot;%s\n&quot;,&quot;DROP&quot;):&#160;words.c']]],
+  ['dict_2ec',['dict.c',['../dict_8c.html',1,'']]],
+  ['dict_5fcreate',['dict_create',['../dict_8c.html#abdb3c064fa36716390a35de3362337d2',1,'dict_create(uint32_t size):&#160;dict.c'],['../pforth_8h.html#abdb3c064fa36716390a35de3362337d2',1,'dict_create(uint32_t size):&#160;dict.c']]],
+  ['dict_5fentry',['dict_entry',['../pforth_8h.html#a8e9467259d3713ecf10a018a3118f111',1,'pforth.h']]],
+  ['dict_5ffree',['dict_free',['../dict_8c.html#a39c3c5ba955f137f9d45f2b74ad71fb2',1,'dict_free(dict_t *dict, uint32_t size):&#160;dict.c'],['../pforth_8h.html#a39c3c5ba955f137f9d45f2b74ad71fb2',1,'dict_free(dict_t *dict, uint32_t size):&#160;dict.c']]],
+  ['dict_5fget',['dict_get',['../dict_8c.html#a35bc11dcdb7f8313d4b9007d6f381e1a',1,'dict_get(dict_t *dict, const char *key):&#160;dict.c'],['../pforth_8h.html#a35bc11dcdb7f8313d4b9007d6f381e1a',1,'dict_get(dict_t *dict, const char *key):&#160;dict.c']]],
+  ['dict_5fnewkv',['dict_newkv',['../dict_8c.html#a0f2566c59135a6fecbc78e07376f0160',1,'dict.c']]],
+  ['dict_5fs',['dict_s',['../structdict__s.html',1,'']]],
+  ['dict_5fset',['dict_set',['../dict_8c.html#a3a9cde229ee27b6bdc6f56729126e801',1,'dict_set(dict_t *dict, const char *key, const pforth_word_ptr value):&#160;dict.c'],['../pforth_8h.html#a3a9cde229ee27b6bdc6f56729126e801',1,'dict_set(dict_t *dict, const char *key, const pforth_word_ptr value):&#160;dict.c']]],
+  ['dict_5ft',['dict_t',['../pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583',1,'pforth.h']]]
 ];

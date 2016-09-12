@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">3c6519a9b7597baf55a0e5d1daa5e7462a636316</span>
+   &#160;<span id="projectnumber">d42fda94f2adf38bd90520e62f3c73b79cd2b44b</span>
    </div>
   </td>
  </tr>
@@ -132,13 +132,29 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <li>_drop()
 : <a class="el" href="words_8c.html#af9ce42616fdadcc4b4cf5214af81bedf">words.c</a>
 </li>
+<li>_GENERIC_WORD()
+: <a class="el" href="words_8c.html#aedd85513d2802c989a401ce96772ef6f">words.c</a>
+</li>
+<li>_POP_NUM()
+: <a class="el" href="words_8c.html#a5669adf19f24d3b1fc5c0db3dfab0009">words.c</a>
+</li>
 <li>_push()
 : <a class="el" href="words_8c.html#a50088bb9c54c8a2469dabde72dee7006">words.c</a>
+</li>
+<li>_top()
+: <a class="el" href="words_8c.html#adc24a4ca79188ef47d6e62903bc5e38d">words.c</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>data_stack_bottom()
+: <a class="el" href="pforth_8c.html#ae3f644d57ff428ee14152f10d2cd6256">pforth.c</a>
+, <a class="el" href="pforth_8h.html#ae3f644d57ff428ee14152f10d2cd6256">pforth.h</a>
+</li>
+<li>DBG()
+: <a class="el" href="words_8c.html#a6f93d4620a23ddda4bc714b449447a31">words.c</a>
+</li>
 <li>dict_create()
 : <a class="el" href="dict_8c.html#abdb3c064fa36716390a35de3362337d2">dict.c</a>
 , <a class="el" href="pforth_8h.html#abdb3c064fa36716390a35de3362337d2">pforth.h</a>
@@ -155,8 +171,8 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 : <a class="el" href="dict_8c.html#a0f2566c59135a6fecbc78e07376f0160">dict.c</a>
 </li>
 <li>dict_set()
-: <a class="el" href="dict_8c.html#a39602d64b884e528e02436e36f8ac0e4">dict.c</a>
-, <a class="el" href="pforth_8h.html#a39602d64b884e528e02436e36f8ac0e4">pforth.h</a>
+: <a class="el" href="dict_8c.html#a3a9cde229ee27b6bdc6f56729126e801">dict.c</a>
+, <a class="el" href="pforth_8h.html#a3a9cde229ee27b6bdc6f56729126e801">pforth.h</a>
 </li>
 </ul>
 
@@ -227,8 +243,11 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 , <a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">pforth.h</a>
 </li>
 <li>register_precompiled()
-: <a class="el" href="words_8c.html#abd4be76e5d12a66b0dae6c7c43b78b96">words.c</a>
-, <a class="el" href="words_8h.html#abd4be76e5d12a66b0dae6c7c43b78b96">words.h</a>
+: <a class="el" href="words_8h.html#abd4be76e5d12a66b0dae6c7c43b78b96">words.h</a>
+</li>
+<li>return_stack_bottom()
+: <a class="el" href="pforth_8c.html#ab32fe4ed846932fad67ddf63d1979153">pforth.c</a>
+, <a class="el" href="pforth_8h.html#ab32fe4ed846932fad67ddf63d1979153">pforth.h</a>
 </li>
 </ul>
 
@@ -253,7 +272,7 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Mon Sep 12 2016 08:10:01 for pforth by
+    <li class="footer">Generated on Mon Sep 12 2016 13:12:59 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
