@@ -60,6 +60,15 @@ START_TEST(core_tests)
 }
 END_TEST
 
+START_TEST(depth_tests)
+{
+  eval(forth_dict, "DEPTH");
+  ck_assert_int_eq(pop_int32_t(), 0);
+  eval(forth_dict, "1024 2048 DEPTH");
+  ck_assert_int_eq(pop_int32_t(), 2);
+}
+END_TEST
+
 Suite* math_suite(void)
 {
   Suite* s;
@@ -74,6 +83,7 @@ Suite* math_suite(void)
   tcase_add_test(tc_core, rot_tests);
   tcase_add_test(tc_core, swap_tests);
   tcase_add_test(tc_core, core_tests);
+  tcase_add_test(tc_core, depth_tests);
   suite_add_tcase(s, tc_core);
   return s;
 }

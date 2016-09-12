@@ -91,6 +91,8 @@ _GENERIC_WORD(over)
 
 _GENERIC_WORD(dot)
 
+_GENERIC_WORD(depth)
+
 #include "generators_run.h"
 
 void register_precompiled();

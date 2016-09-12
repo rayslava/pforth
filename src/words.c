@@ -251,17 +251,24 @@ _GENERIC_WORD(drop,                           \
               _drop(sizeof(FORTH_TYPE));      \
               DBG("%s\n", "DROP"))
 
+_GENERIC_WORD(depth,                           \
+              const FORTH_TYPE d =                                      \
+                (data_stack_top - data_stack_bottom()) / sizeof(FORTH_TYPE); \
+              _PUSH_NUM(d) \
+              DBG("DEPTH: %d\n", d))
+
 void register_precompiled() {
 #include "generators_run.h"
-  register_native("EMIT", &_DEF_TYPE_OP(emit));
-  register_native(".",	  &_DEF_TYPE_OP(dot));
-  register_native("DUP",  &_DEF_TYPE_OP(dup));
-  register_native("?DUP", &_DEF_TYPE_OP(qdup));
-  register_native("SWAP", &_DEF_TYPE_OP(swap));
-  register_native("ROT",  &_DEF_TYPE_OP(rot));
-  register_native("-ROT", &_DEF_TYPE_OP(mrot));
-  register_native("OVER", &_DEF_TYPE_OP(over));
-  register_native("DROP", &_DEF_TYPE_OP(drop));
+  register_native("EMIT",  &_DEF_TYPE_OP(emit));
+  register_native(".",	   &_DEF_TYPE_OP(dot));
+  register_native("DUP",   &_DEF_TYPE_OP(dup));
+  register_native("?DUP",  &_DEF_TYPE_OP(qdup));
+  register_native("SWAP",  &_DEF_TYPE_OP(swap));
+  register_native("ROT",   &_DEF_TYPE_OP(rot));
+  register_native("-ROT",  &_DEF_TYPE_OP(mrot));
+  register_native("OVER",  &_DEF_TYPE_OP(over));
+  register_native("DROP",  &_DEF_TYPE_OP(drop));
+  register_native("DEPTH", &_DEF_TYPE_OP(depth));
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
