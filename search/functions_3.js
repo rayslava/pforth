@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['find_5ftoken',['find_token',['../interp_8c.html#a3d3652d90900b61e315b261f405f7f8f',1,'interp.c']]]
+  ['hash',['hash',['../dict_8c.html#a47c0f9c788a293ca27e41bbd0fe3b2bb',1,'dict.c']]]
 ];

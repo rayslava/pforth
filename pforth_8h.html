@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">35f0138d49fded4baf60fe5e4e85bb7b605782be</span>
+   &#160;<span id="projectnumber">3c6519a9b7597baf55a0e5d1daa5e7462a636316</span>
    </div>
   </td>
  </tr>
@@ -185,6 +185,8 @@ Functions</h2></td></tr>
 <tr class="separator:adb946f90e0ef5959a6b1f22c88a927ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8086e2c87824b9b855151abbb2b0b528"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a8086e2c87824b9b855151abbb2b0b528">pforth_word_free</a> (const <a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth_word_ptr</a> word)</td></tr>
 <tr class="separator:a8086e2c87824b9b855151abbb2b0b528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf132a9afa87c83c30d74a5002ab72e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#adf132a9afa87c83c30d74a5002ab72e2">preprocess</a> (char *line)</td></tr>
+<tr class="separator:adf132a9afa87c83c30d74a5002ab72e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line)</td></tr>
 <tr class="separator:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5eba54d00bcd589050e20c6153f4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">register_native</a> (const char *op, <a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> f)</td></tr>
@@ -705,6 +707,30 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adf132a9afa87c83c30d74a5002ab72e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int preprocess </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Preprocess the FORTH line.</p>
+<p>The preprocessing is done in-place, comments and newlines are removed by replacing with space characters. There's no space compression pass - it's easier to do that right in <a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">eval()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>the line to be preprocessed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="aab5eba54d00bcd589050e20c6153f4e1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -775,7 +801,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8h.html">pforth.h</a></li>
-    <li class="footer">Generated on Fri Sep 9 2016 14:24:05 for pforth by
+    <li class="footer">Generated on Mon Sep 12 2016 08:10:01 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

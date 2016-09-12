@@ -27,6 +27,7 @@ var pforth_8h =
     [ "pforth_word_copy", "pforth_8h.html#aedc19940161835e3b56ec004dffe5b2b", null ],
     [ "pforth_word_dup", "pforth_8h.html#a5b50d3329cd6b647f87d9f1a4eceb7f5", null ],
     [ "pforth_word_free", "pforth_8h.html#a8086e2c87824b9b855151abbb2b0b528", null ],
+    [ "preprocess", "pforth_8h.html#adf132a9afa87c83c30d74a5002ab72e2", null ],
     [ "register_native", "pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1", null ],
     [ "data_stack_top", "pforth_8h.html#a159fb3ba31844b2d551900969fd5d598", null ],
     [ "forth_dict", "pforth_8h.html#a5116d76b336a8bf6e1c0ca87ac2a5930", null ],
