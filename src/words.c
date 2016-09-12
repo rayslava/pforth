@@ -20,6 +20,12 @@ void _push(void* data, size_t size) {
   data_stack_top += size;
 }
 
+FORTH_TYPE _top() {
+  FORTH_TYPE result;
+  memcpy(&result, data_stack_top - sizeof(FORTH_TYPE), sizeof(FORTH_TYPE));
+  return result;
+}
+
 /**
    Drops the size bytes data_stack.
 
@@ -28,7 +34,10 @@ void _push(void* data, size_t size) {
    \param size size of data in bytes
  */
 void _drop(size_t size) {
-  data_stack_top -= size;
+  if (data_stack_top > data_stack_bottom())
+    data_stack_top -= size;
+  else
+    DBG("The data stack is empty. %s\n", "DNIWE is here!");
 }
 
 /**
@@ -45,12 +54,16 @@ void _drop(size_t size) {
    \param TYPE the retval type for generated function
  */
 #define POP_WORD(TYPE) \
-  TYPE pop_ ## TYPE() {                                       \
-    TYPE rv = 0;                                              \
-    memcpy(&rv, data_stack_top - sizeof(TYPE), sizeof(TYPE)); \
-    _drop(sizeof(TYPE));                                      \
-    DBG("poping %d of %s\n", rv, #TYPE); \
-    return rv;                                                \
+  TYPE pop_ ## TYPE() {                                         \
+    if (!(data_stack_top > data_stack_bottom())) {              \
+      DBG("The data stack is empty. %s\n", "DNIWE is here!");   \
+      return 0;                                                 \
+    };                                                          \
+    TYPE rv = 0;                                                \
+    memcpy(&rv, data_stack_top - sizeof(TYPE), sizeof(TYPE));   \
+    _drop(sizeof(TYPE));                                        \
+    DBG("poping %d of %s\n", rv, #TYPE);                        \
+    return rv;                                                  \
   }
 
 /**
@@ -132,22 +145,24 @@ void _drop(size_t size) {
     return pop_ ## TYPE() == -1 ? 1 : 0;                           \
   }
 
-#undef _EMIT
-#define _EMIT(TYPE)     \
-  void M_CONC(_, M_CONC(emit, M_CONC(_, TYPE))) () { \
-    TYPE number = M_CONC(pop, M_CONC(_, TYPE))();    \
-    char c = LO(number); \
-    DBG("EMIT %c\n", c); \
-    PRINT("%c", c) \
+#undef _TYPED_GENERIC_WORD
+#undef _GENERIC_WORD
+
+#define _TYPED_GENERIC_WORD(TYPE, NAME, BODY)        \
+  void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) () { \
+    BODY \
   }
 
-#undef _DOT
-#define _DOT(TYPE)      \
-  void M_CONC(_, M_CONC(dot, M_CONC(_, TYPE))) () { \
-    TYPE number = M_CONC(pop, M_CONC(_, TYPE))();    \
-    DBG("PRINT %d\n", number);                       \
-    PRINT("%d", number) \
-  }
+#define _GENERIC_WORD(NAME, BODY) _TYPED_GENERIC_WORD(FORTH_TYPE, NAME, BODY)
+
+#define _TYPED_POP_NUM(TYPE, NAME) \
+  TYPE NAME = M_CONC(pop, M_CONC(_, TYPE))();
+
+#define _POP_NUM(NAME) \
+  _TYPED_POP_NUM(FORTH_TYPE, NAME)
+
+#define _PUSH_NUM(value) \
+  M_CONC(push_, FORTH_TYPE) (value);
 
 #include "generators_run.h"
 
@@ -168,13 +183,87 @@ void _drop(size_t size) {
 #undef _TRUE_OP
 #define _TRUE_OP(TYPE)
 
-_EMIT(FORTH_TYPE)
-_DOT(FORTH_TYPE)
-
 #define _DEF_TYPE_OP(op) M_CONC(_, M_CONC(op, M_CONC(_, FORTH_TYPE)))
 
+_GENERIC_WORD(emit,                    \
+              _POP_NUM(number)         \
+              char c = LO(number);     \
+              DBG("EMIT %c\n", c);     \
+              PRINT("%c", c))
+
+_GENERIC_WORD(dot,                           \
+              _POP_NUM(number)               \
+              DBG("PRINT %d\n", number);     \
+              PRINT("%d", number))
+
+_GENERIC_WORD(dup,                           \
+              _POP_NUM(number)               \
+              _PUSH_NUM(number)              \
+              _PUSH_NUM(number)              \
+              DBG("DUP %d\n", number))
+
+_GENERIC_WORD(swap,                           \
+              _POP_NUM(number1)               \
+              _POP_NUM(number2)               \
+              _PUSH_NUM(number1)             \
+              _PUSH_NUM(number2)             \
+              DBG("%d %d -> %d %d\n", number1, number2, number2, number1))
+
+_GENERIC_WORD(rot,         \
+              _POP_NUM(c)  \
+              _POP_NUM(b)  \
+              _POP_NUM(a)  \
+              _PUSH_NUM(b) \
+              _PUSH_NUM(c) \
+              _PUSH_NUM(a) \
+              DBG("%d %d %d -> %d %d %d\n",
+                  a, b, c,
+                  b, c, a))
+
+_GENERIC_WORD(mrot,        \
+              _POP_NUM(c)  \
+              _POP_NUM(b)  \
+              _POP_NUM(a)  \
+              _PUSH_NUM(c) \
+              _PUSH_NUM(a) \
+              _PUSH_NUM(b) \
+              DBG("%d %d %d -> %d %d %d\n",
+                  a, b, c,
+                  c, a, b))
+
+_GENERIC_WORD(qdup,                           \
+              if (_top()) {                   \
+  _POP_NUM(number)               \
+  _PUSH_NUM(number)              \
+  _PUSH_NUM(number)              \
+  DBG("?DUP %d\n", number)     \
+})
+
+_GENERIC_WORD(over,           \
+              FORTH_TYPE val; \
+              memcpy(&val,    \
+                     data_stack_top - 2 * sizeof(FORTH_TYPE),  \
+                     sizeof(FORTH_TYPE));                      \
+              _PUSH_NUM(val)  \
+              DBG("OVER %d\n", val))
+
+_GENERIC_WORD(drop,                           \
+              _drop(sizeof(FORTH_TYPE));      \
+              DBG("%s\n", "DROP"))
+
 void register_precompiled() {
-   #include "generators_run.h"
+#include "generators_run.h"
   register_native("EMIT", &_DEF_TYPE_OP(emit));
   register_native(".",	  &_DEF_TYPE_OP(dot));
+  register_native("DUP",  &_DEF_TYPE_OP(dup));
+  register_native("?DUP", &_DEF_TYPE_OP(qdup));
+  register_native("SWAP", &_DEF_TYPE_OP(swap));
+  register_native("ROT",  &_DEF_TYPE_OP(rot));
+  register_native("-ROT", &_DEF_TYPE_OP(mrot));
+  register_native("OVER", &_DEF_TYPE_OP(over));
+  register_native("DROP", &_DEF_TYPE_OP(drop));
+
+#include "core_fs.h"
+  preprocess((char *) core_fs);
+  eval(forth_dict, (char *) core_fs);
 }
