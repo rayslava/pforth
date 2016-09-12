@@ -264,6 +264,6 @@ void register_precompiled() {
   register_native("DROP", &_DEF_TYPE_OP(drop));
 
 #include "core_fs.h"
-  preprocess((char *) core_fs);
-  eval(forth_dict, (char *) core_fs);
+  preprocess((char *) core_compressed_fs);
+  eval(forth_dict, (char *) core_compressed_fs);
 }

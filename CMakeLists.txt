@@ -17,9 +17,14 @@ set(SOURCE_FILES
   )
 
 add_custom_target(FORTH_CORE
-  COMMAND xxd -i core.fs | awk '{ if (/_len/) {$$5=$$5+1\"\;\"} ;if (/[0-9a-f]$$/) { print $$0 \", 0x00\" } else print ; }' > core_fs.h
+  COMMAND  perl -pe 's|^\\\\.*\$$||\;s|\\n| |\;s|\\x28.*?\\x29||\;s|\\x20+| |' core.fs > core_compressed.fs && xxd -i core_compressed.fs | awk '{ if (/_len/) {$$5=$$5+1\"\;\"} ;if (/[0-9a-f]$$/) { print $$0 \", 0x00\" } else print ; }' > core_fs.h
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src
   SOURCES ${CMAKE_SOURCE_DIR}/src/core.fs)
+
+set_directory_properties(PROPERTIES
+  ADDITIONAL_MAKE_CLEAN_FILES
+  "${CMAKE_SOURCE_DIR}/src/core_fs.h;${CMAKE_SOURCE_DIR}/src/core_compressed.fs"
+  )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS On)
 
@@ -37,13 +42,15 @@ macro(create_test name files)
     ${${name}_TEST_FILES}
     )
 
+  add_dependencies(${name}_test FORTH_CORE)
+
   target_link_libraries(
     ${name}_test
     ${CHECK_LIBRARIES}
     ${AUX_LIBS}
     )
 
-  add_test(${name} ${name}_test DEPENDS FORTH_CORE)
+  add_test(${name} ${name}_test)
 endmacro(create_test)
 
 include(ConfigSafeGuards)
