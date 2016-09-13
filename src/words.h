@@ -14,6 +14,8 @@
 #endif
 #define _EMBED_DECORATE(FUNC) _PRE_DEC FUNC _POST_DEC;
 
+FORTH_TYPE _depth();
+
 #define _PRECOMPILED_WORDS
 
 _EMBED_DECORATE(void _push(void* data, size_t size))
@@ -76,6 +78,8 @@ _EMBED_DECORATE(void _drop(size_t size))
   _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ())
 
 #define _GENERIC_WORD(NAME) _TYPED_GENERIC_WORD(FORTH_TYPE, NAME)
+
+#define POP M_CONC(pop_, FORTH_TYPE) ();
 
 _GENERIC_WORD(emit)
 

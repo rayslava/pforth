@@ -158,8 +158,10 @@ int preprocess(char* line);
 
    \param dict the dictionary to use
    \param line the FORTH line
+   \param line_end the last byte to interpret, if NULL then function evaluates
+   ASCIIZ line
  */
-void eval(dict_t* dict, const char* line);
+void eval(dict_t* dict, const char* line, const char* line_end);
 
 void register_native(const char* op, word_function f);
 

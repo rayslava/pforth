@@ -14,11 +14,11 @@ END_TEST
 
 START_TEST(sum_tests)
 {
-  eval(forth_dict, "10 5 +");
+  eval(forth_dict, "10 5 +", NULL);
   int32_t r = pop_int32_t();
   ck_assert_int_eq(r, 15);
 
-  eval(forth_dict, "1 2 3 4 5 6 + + + + +");
+  eval(forth_dict, "1 2 3 4 5 6 + + + + +", NULL);
   r = pop_int32_t();
   ck_assert_int_eq(r, 21);
 }
@@ -26,19 +26,19 @@ END_TEST
 
 START_TEST(comparison_test)
 {
-  eval(forth_dict, "5 3 >");
+  eval(forth_dict, "5 3 >", NULL);
   ck_assert_int_eq(TRUE, 1);
 
-  eval(forth_dict, "3 5 >");
+  eval(forth_dict, "3 5 >", NULL);
   ck_assert_int_eq(TRUE, 0);
 
-  eval(forth_dict, "1 2 ==");
+  eval(forth_dict, "1 2 ==", NULL);
   ck_assert_int_eq(TRUE, 0);
 
-  eval(forth_dict, "1 2 >=");
+  eval(forth_dict, "1 2 >=", NULL);
   ck_assert_int_eq(TRUE, 0);
 
-  eval(forth_dict, "1 1 ==");
+  eval(forth_dict, "1 1 ==", NULL);
   ck_assert_int_eq(TRUE, 1);
 }
 END_TEST

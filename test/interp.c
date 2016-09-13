@@ -27,14 +27,14 @@ START_TEST(replace_test)
   word->function = &_gt_int32_t;
   dict_set(dict, ">", word);
 
-  eval(dict, "5 3 >");
+  eval(dict, "5 3 >", NULL);
   int32_t r = pop_int32_t();
   ck_assert_int_eq(r, -1);
 
   word->function = &_lt_int32_t;
   dict_set(dict, ">", word);
 
-  eval(dict, "5 3 >");
+  eval(dict, "5 3 >", NULL);
   r = pop_int32_t();
   ck_assert_int_eq(r, 0);
 
@@ -84,9 +84,9 @@ START_TEST(eval_empty)
 {
   dict_t* dict = dict_create(20);
 
-  eval(dict, "");
-  eval(dict, "\n\n");
-  eval(dict, "     ");
+  eval(dict, "",      NULL);
+  eval(dict, "\n\n",  NULL);
+  eval(dict, "     ", NULL);
   dict_free(dict, 20);
   free(dict);
 }
@@ -102,7 +102,7 @@ START_TEST(eval_add_test)
   push_int32_t(5);
   push_int32_t(10);
 
-  eval(dict, "add");
+  eval(dict, "ADD", NULL);
   int32_t r = pop_int32_t();
   ck_assert_int_eq(r, 15);
   dict_free(dict, 20);
@@ -117,7 +117,7 @@ START_TEST(eval_add2_test)
   word->function = &_add_int32_t;
   dict_set(dict, "+", word);
 
-  eval(dict, "5 10 20 + +");
+  eval(dict, "5 10 20 + +", NULL);
   int32_t r = pop_int32_t();
   ck_assert_int_eq(r, 35);
   dict_free(dict, 20);
@@ -137,7 +137,7 @@ START_TEST(eval_recursion_test)
   numbers_word->text_code = word_numbers;
   dict_set(dict, "NUMS", numbers_word);
 
-  eval(dict, "nums + +");
+  eval(dict, "NUMS + +", NULL);
   int32_t r = pop_int32_t();
   ck_assert_int_eq(r, 35);
   dict_free(dict, 20);
@@ -156,45 +156,17 @@ START_TEST(emit_test)
   dup2(out_pipe[1], STDOUT_FILENO);
   close(out_pipe[1]);
 
-  eval(forth_dict, "10 .");
+  eval(forth_dict, "10 .", NULL);
   fflush(stdout);
   int r = read(out_pipe[0], buffer, MAX_LEN);
-  ck_assert_str_eq(buffer, "10");
+  ck_assert_str_eq(buffer, "10 ");
 
-  eval(forth_dict, "48 EMIT 49 EMIT 50 EMIT");
+  eval(forth_dict, "48 EMIT 49 EMIT 50 EMIT", NULL);
   fflush(stdout);
   r = read(out_pipe[0], buffer, MAX_LEN);
   ck_assert_str_eq(buffer, "012");
 
   dup2(saved_stdout, STDOUT_FILENO);
-}
-END_TEST
-
-START_TEST(if_tests)
-{
-  eval(forth_dict, "0 1 2 > IF 1 THEN");
-  int32_t r = pop_int32_t();
-  ck_assert_int_eq(r, 0);
-
-  eval(forth_dict, "0 2 1 > IF 1 THEN");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 1);
-
-  eval(forth_dict, "2 1 > IF 1 ELSE 0 THEN");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 1);
-
-  eval(forth_dict, "1 2 > IF 1 ELSE 0 THEN");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 0);
-
-  eval(forth_dict, "0 1 2 > IF 1 then");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 0);
-
-  eval(forth_dict, "1 2 > IF 1 else 0 THEN");
-  r = pop_int32_t();
-  ck_assert_int_eq(r, 0);
 }
 END_TEST
 
@@ -217,7 +189,6 @@ Suite* interp_suite(void)
   tcase_add_test(tc_core, eval_add2_test);
   tcase_add_test(tc_core, eval_recursion_test);
   tcase_add_test(tc_core, emit_test);
-  tcase_add_test(tc_core, if_tests);
   suite_add_tcase(s, tc_core);
 
   return s;

@@ -64,28 +64,61 @@ int preprocess(char* line) {
   return 0;
 }
 
-static int if_depth;
+#define MAX_LOOP_DEPTH 3
 
-void eval(dict_t* dict, const char* line) {
-  DBG("Line:   %s\n", line);
+struct _loop_struct {
+  const char* body_start;       /**< Pointer to the space right after DO */
+  FORTH_TYPE value;             /**< Current value of the loop */
+  FORTH_TYPE stop_value;        /**< Loop exit condition */
+};
+static struct _loop_struct loops[MAX_LOOP_DEPTH];
+
+static FORTH_TYPE if_depth;
+static FORTH_TYPE loop_depth;
+
+void eval(dict_t* dict, const char* line, const char* line_end) {
+  DBG("Line:   %.*s\n", (int) (line_end ? line_end - line : strlen(line)), line);
   const char* begin = line;
 
-  while (begin && *begin) {
+  while (begin && *begin && (line_end ? begin < line_end : 1)) {
     char* token = NULL;
     const char* end = NULL;
-    while (*begin == ' ') {
+    while (*begin == ' ' && (line_end ? begin < line_end : 1)) {
       begin++;
-      if (!*begin)   /* Trailing whitespaces */
+      if (!*begin || (line_end ? begin > line_end : 0)) /* Trailing whitespaces */
         goto next;
     };
 
     /* Token start */
     end = begin;
-    while (*end && *end != ' ')
+    while (*end && *end != ' ' && (line_end ? end < line_end : 1))
       end++;
 
+    if (*begin == 'I' && end - begin == 1) {
+      if (loop_depth < 1)
+        goto error;
+      DBG("I: %d\n", loops[0].value);
+      push_int32_t(loops[0].value);
+      goto next;
+    }
+
+    if (*begin == 'J' && end - begin == 1) {
+      if (loop_depth < 2)
+        goto error;
+      DBG("J: %d\n", loops[1].value);
+      push_int32_t(loops[1].value);
+      goto next;
+    }
+
+    if (*begin == 'K' && end - begin == 1) {
+      if (loop_depth < 3)
+        goto error;
+      DBG("K: %d\n", loops[2].value);
+      push_int32_t(loops[2].value);
+      goto next;
+    }
+
     token = strndup(begin, end - begin);
-    upstring(token);
 
     if (strlen(token) == 0 && *end == '\n') {
       ++end;
@@ -139,6 +172,52 @@ void eval(dict_t* dict, const char* line) {
       goto next;
     }
 
+    /* DO LOOP */
+    if ((strcmp(token, DO_TOKEN)) == 0) {
+      if (loop_depth > MAX_LOOP_DEPTH - 1)
+        goto error;          /* Can only handle i,j,k for loops */
+
+      if (_depth() < 2)
+        goto error;
+
+      loop_depth++;
+      const int current_loop = loop_depth - 1;
+      loops[current_loop].stop_value = POP;
+      loops[current_loop].value = POP;
+      loops[current_loop].body_start = begin + sizeof(DO_TOKEN);
+      DBG("DO: from %d to %d\n", loops[current_loop].value, loops[current_loop].stop_value);
+      goto next;
+    }
+
+    /* DO LOOP */
+    if ((strcmp(token, LOOP_TOKEN)) == 0) {
+      struct _loop_struct* loop = &loops[loop_depth - 1];
+      if (loop->value != loop->stop_value) {
+        loop->value--;
+        end = loop->body_start;
+        goto next;
+      } else {
+        loop_depth--;
+        goto next;
+      }
+    }
+
+    /* DO +LOOP */
+    if ((strcmp(token, PLOOP_TOKEN)) == 0) {
+      if (_depth() < 1)
+        goto error;
+      FORTH_TYPE increment = POP;
+      struct _loop_struct* loop = &loops[loop_depth - 1];
+      if (loop->value != loop->stop_value) {
+        loop->value -= increment;
+        end = loop->body_start;
+        goto next;
+      } else {
+        loop_depth--;
+        goto next;
+      }
+    }
+
     /* New word definition */
     if (*begin == ':') {
       begin++;
@@ -176,7 +255,6 @@ void eval(dict_t* dict, const char* line) {
       end++;
       goto next;
     }
-
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
@@ -188,7 +266,7 @@ void eval(dict_t* dict, const char* line) {
       }
       else {
         DBG("Eval:   %s word from '%s'\n", token, word->text_code);
-        eval(dict, word->text_code);
+        eval(dict, word->text_code, NULL);
         goto next;
       }
     }
@@ -198,7 +276,7 @@ void eval(dict_t* dict, const char* line) {
     break;
   next:
     free(token);
-    if (*begin == 0)
+    if (*begin == 0 || (line_end ? begin > line_end : 0))
       break;
     begin = end;
   }

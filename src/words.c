@@ -26,6 +26,10 @@ FORTH_TYPE _top() {
   return result;
 }
 
+FORTH_TYPE _depth() {
+  return (data_stack_top - data_stack_bottom()) / sizeof(FORTH_TYPE);
+}
+
 /**
    Drops the size bytes data_stack.
 
@@ -194,7 +198,7 @@ _GENERIC_WORD(emit,                    \
 _GENERIC_WORD(dot,                           \
               _POP_NUM(number)               \
               DBG("PRINT %d\n", number);     \
-              PRINT("%d", number))
+              PRINT("%d ", number))
 
 _GENERIC_WORD(dup,                           \
               _POP_NUM(number)               \
@@ -252,10 +256,8 @@ _GENERIC_WORD(drop,                           \
               DBG("%s\n", "DROP"))
 
 _GENERIC_WORD(depth,                           \
-              const FORTH_TYPE d =                                      \
-                (data_stack_top - data_stack_bottom()) / sizeof(FORTH_TYPE); \
-              _PUSH_NUM(d) \
-              DBG("DEPTH: %d\n", d))
+              _PUSH_NUM(_depth())              \
+              DBG("DEPTH: %d\n", _depth()))
 
 void register_precompiled() {
 #include "generators_run.h"
@@ -272,5 +274,5 @@ void register_precompiled() {
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
-  eval(forth_dict, (char *) core_compressed_fs);
+  eval(forth_dict, (char *) core_compressed_fs, NULL);
 }
