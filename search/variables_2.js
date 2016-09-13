@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['data_5fstack_5ftop',['data_stack_top',['../pforth_8c.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c'],['../pforth_8h.html#a159fb3ba31844b2d551900969fd5d598',1,'data_stack_top():&#160;pforth.c']]]
+  ['core_5fcompressed_5ffs',['core_compressed_fs',['../core__fs_8h.html#a3be7472d6f09e2e43110e2765a965f16',1,'core_fs.h']]],
+  ['core_5fcompressed_5ffs_5flen',['core_compressed_fs_len',['../core__fs_8h.html#ab4e92b2ebbddea87bfbadb00d74a0181',1,'core_fs.h']]]
 ];

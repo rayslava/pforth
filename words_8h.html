@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">cc15b989e63df58439a4961ea63979e0816130b3</span>
+   &#160;<span id="projectnumber">b6c91dcb0f5d7392cc64e724815de611b1e54796</span>
    </div>
   </td>
  </tr>
@@ -181,9 +181,13 @@ Macros</h2></td></tr>
 <tr class="separator:a0506d09f1a278f28bb6b6a88bbc9d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8f9e60b27801eef7901849c59494280"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#af8f9e60b27801eef7901849c59494280">_GENERIC_WORD</a>(NAME)&#160;&#160;&#160;<a class="el" href="words_8h.html#a0506d09f1a278f28bb6b6a88bbc9d68d">_TYPED_GENERIC_WORD</a>(<a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>, NAME)</td></tr>
 <tr class="separator:af8f9e60b27801eef7901849c59494280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b06d6d6f5a540a62659a417de0ad69d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0b06d6d6f5a540a62659a417de0ad69d">POP</a>&#160;&#160;&#160;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(pop_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>) ();</td></tr>
+<tr class="separator:a0b06d6d6f5a540a62659a417de0ad69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac6c1fb611a05e4f0b5712870e47b7096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ac6c1fb611a05e4f0b5712870e47b7096">_depth</a> ()</td></tr>
+<tr class="separator:ac6c1fb611a05e4f0b5712870e47b7096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd4be76e5d12a66b0dae6c7c43b78b96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#abd4be76e5d12a66b0dae6c7c43b78b96">register_precompiled</a> ()</td></tr>
 <tr class="separator:abd4be76e5d12a66b0dae6c7c43b78b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -233,7 +237,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE, gt,     &gt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, lt,   &lt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, ge,  &gt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, le,  &lt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, eq,  ==)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, neq, !=)</div><div class="ttc" id="words_8h_html_a2ad68d84344e9c2f40f662d440ea8f5a"><div class="ttname"><a href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a></div><div class="ttdeci">#define _COMPARE_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:39</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE, gt,     &gt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, lt,   &lt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, ge,  &gt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, le,  &lt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, eq,  ==)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, neq, !=)</div><div class="ttc" id="words_8h_html_a2ad68d84344e9c2f40f662d440ea8f5a"><div class="ttname"><a href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a></div><div class="ttdeci">#define _COMPARE_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:41</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -266,7 +270,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE, add, +)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, sub, -)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mul, *)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, div, /)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mod, %)</div><div class="ttc" id="words_8h_html_a48f91adc47113e6a1ca729243a73f380"><div class="ttname"><a href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a></div><div class="ttdeci">#define _MATH_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:29</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE, add, +)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, sub, -)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mul, *)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, div, /)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mod, %)</div><div class="ttc" id="words_8h_html_a48f91adc47113e6a1ca729243a73f380"><div class="ttname"><a href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a></div><div class="ttdeci">#define _MATH_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:31</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -774,6 +778,18 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a0b06d6d6f5a540a62659a417de0ad69d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POP&#160;&#160;&#160;<a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(pop_, <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>) ();</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab342b67c65f5a29670e8bbb5b5e3ca16"></a>
 <div class="memitem">
 <div class="memproto">
@@ -839,6 +855,21 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ac6c1fb611a05e4f0b5712870e47b7096"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> _depth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="abd4be76e5d12a66b0dae6c7c43b78b96"></a>
 <div class="memitem">
 <div class="memproto">
@@ -860,7 +891,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="words_8h.html">words.h</a></li>
-    <li class="footer">Generated on Mon Sep 12 2016 13:55:16 for pforth by
+    <li class="footer">Generated on Tue Sep 13 2016 08:32:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

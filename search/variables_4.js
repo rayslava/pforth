@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['if_5fdepth',['if_depth',['../interp_8c.html#a3a3c20b22c6592743aa7f8e16d4b484c',1,'interp.c']]]
+  ['forth_5fdict',['forth_dict',['../pforth_8c.html#a5116d76b336a8bf6e1c0ca87ac2a5930',1,'forth_dict():&#160;pforth.c'],['../pforth_8h.html#a5116d76b336a8bf6e1c0ca87ac2a5930',1,'forth_dict():&#160;pforth.c']]],
+  ['function',['function',['../struct__pforth__word.html#ad5d18e24e03c8a3608e6d59fe40360d4',1,'_pforth_word']]]
 ];

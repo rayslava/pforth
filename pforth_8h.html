@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">cc15b989e63df58439a4961ea63979e0816130b3</span>
+   &#160;<span id="projectnumber">b6c91dcb0f5d7392cc64e724815de611b1e54796</span>
    </div>
   </td>
  </tr>
@@ -191,8 +191,8 @@ Functions</h2></td></tr>
 <tr class="separator:a8086e2c87824b9b855151abbb2b0b528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf132a9afa87c83c30d74a5002ab72e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#adf132a9afa87c83c30d74a5002ab72e2">preprocess</a> (char *line)</td></tr>
 <tr class="separator:adf132a9afa87c83c30d74a5002ab72e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line)</td></tr>
-<tr class="separator:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b391d8d1052b6e11be16a162bac0fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a1b391d8d1052b6e11be16a162bac0fa3">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line, const char *line_end)</td></tr>
+<tr class="separator:a1b391d8d1052b6e11be16a162bac0fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5eba54d00bcd589050e20c6153f4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">register_native</a> (const char *op, <a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> f)</td></tr>
 <tr class="separator:aab5eba54d00bcd589050e20c6153f4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -552,7 +552,7 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8fd84db5516a541e4fc17a3487f5bddc"></a>
+<a class="anchor" id="a1b391d8d1052b6e11be16a162bac0fa3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -566,7 +566,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>line_end</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -580,6 +586,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">dict</td><td>the dictionary to use </td></tr>
     <tr><td class="paramname">line</td><td>the FORTH line </td></tr>
+    <tr><td class="paramname">line_end</td><td>the last byte to interpret, if NULL then function evaluates ASCIIZ line </td></tr>
   </table>
   </dd>
 </dl>
@@ -741,7 +748,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Preprocess the FORTH line.</p>
-<p>The preprocessing is done in-place, comments and newlines are removed by replacing with space characters. There's no space compression pass - it's easier to do that right in <a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">eval()</a>.</p>
+<p>The preprocessing is done in-place, comments and newlines are removed by replacing with space characters. There's no space compression pass - it's easier to do that right in <a class="el" href="pforth_8h.html#a1b391d8d1052b6e11be16a162bac0fa3">eval()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>the line to be preprocessed. </td></tr>
@@ -836,7 +843,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8h.html">pforth.h</a></li>
-    <li class="footer">Generated on Mon Sep 12 2016 13:55:16 for pforth by
+    <li class="footer">Generated on Tue Sep 13 2016 08:32:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

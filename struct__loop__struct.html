@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>pforth: _pforth_word Struct Reference</title>
+<title>pforth: _loop_struct Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('struct__pforth__word.html','');});
+$(document).ready(function(){initNavTree('struct__loop__struct.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,103 +107,68 @@ $(document).ready(function(){initNavTree('struct__pforth__word.html','');});
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">_pforth_word Struct Reference</div>  </div>
+<div class="title">_loop_struct Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="pforth_8h_source.html">pforth.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a345a0ae00d24d1812bc14490185d9e6a"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__pforth__word.html#a345a0ae00d24d1812bc14490185d9e6a">text_code</a></td></tr>
-<tr class="separator:a345a0ae00d24d1812bc14490185d9e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e2cab29f920ec5ecf77580039823abc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__pforth__word.html#a1e2cab29f920ec5ecf77580039823abc">size</a></td></tr>
-<tr class="separator:a1e2cab29f920ec5ecf77580039823abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memItemLeft" >union {</td></tr>
-<tr class="memitem:af4dcf823640033f3da3ea9db1521f508"><td class="memItemLeft" >&#160;&#160;&#160;void *&#160;&#160;&#160;<a class="el" href="struct__pforth__word.html#aeed9d78bed7f358fe7b1b24955d06310">location</a></td></tr>
-<tr class="separator:af4dcf823640033f3da3ea9db1521f508"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091fc6adecdeed3c3b2cfb5a347a9073"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a>&#160;&#160;&#160;<a class="el" href="struct__pforth__word.html#ad5d18e24e03c8a3608e6d59fe40360d4">function</a></td></tr>
-<tr class="separator:a091fc6adecdeed3c3b2cfb5a347a9073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a0ed896bf329f9a8446e7181d8f0f4a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617f6a48a9b80288d771baccf62905c9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__loop__struct.html#a617f6a48a9b80288d771baccf62905c9">body_start</a></td></tr>
+<tr class="separator:a617f6a48a9b80288d771baccf62905c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05251101026ea663f92f575b5b3648c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__loop__struct.html#a05251101026ea663f92f575b5b3648c0">value</a></td></tr>
+<tr class="separator:a05251101026ea663f92f575b5b3648c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee0ac47429d081470d0ddba71af50a05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__loop__struct.html#aee0ac47429d081470d0ddba71af50a05">stop_value</a></td></tr>
+<tr class="separator:aee0ac47429d081470d0ddba71af50a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The single FORTH word description </p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="a0ed896bf329f9a8446e7181d8f0f4a34"></a>
+<h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="a617f6a48a9b80288d771baccf62905c9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">union { ... } </td>
+          <td class="memname">const char* _loop_struct::body_start</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to the space right after DO </p>
 
 </div>
 </div>
-<a class="anchor" id="ad5d18e24e03c8a3608e6d59fe40360d4"></a>
+<a class="anchor" id="aee0ac47429d081470d0ddba71af50a05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> _pforth_word::function</td>
+          <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> _loop_struct::stop_value</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Function to call when compiling the word </p>
+<p>Loop exit condition </p>
 
 </div>
 </div>
-<a class="anchor" id="aeed9d78bed7f358fe7b1b24955d06310"></a>
+<a class="anchor" id="a05251101026ea663f92f575b5b3648c0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* _pforth_word::location</td>
+          <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> _loop_struct::value</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Binary location to jump to. NULL if not compiled </p>
-
-</div>
-</div>
-<a class="anchor" id="a1e2cab29f920ec5ecf77580039823abc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t _pforth_word::size</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Code size (for binary code in <code>location/<code>function</code>)</code> </p>
-
-</div>
-</div>
-<a class="anchor" id="a345a0ae00d24d1812bc14490185d9e6a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* _pforth_word::text_code</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>ASCII representation of word.</p>
-<p>The actual program. <code>NULL</code> for native words. </p>
+<p>Current value of the loop </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/<a class="el" href="pforth_8h_source.html">pforth.h</a></li>
+<li>src/<a class="el" href="interp_8c.html">interp.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="struct__pforth__word.html">_pforth_word</a></li>
+    <li class="navelem"><a class="el" href="struct__loop__struct.html">_loop_struct</a></li>
     <li class="footer">Generated on Tue Sep 13 2016 08:32:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>

@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">cc15b989e63df58439a4961ea63979e0816130b3</span>
+   &#160;<span id="projectnumber">b6c91dcb0f5d7392cc64e724815de611b1e54796</span>
    </div>
   </td>
  </tr>
@@ -104,6 +104,8 @@ $(document).ready(function(){initNavTree('interp_8c.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -113,6 +115,16 @@ $(document).ready(function(){initNavTree('interp_8c.html','');});
 <div class="textblock"><code>#include &quot;<a class="el" href="pforth_8h_source.html">pforth.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="token_8h_source.html">token.h</a>&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__loop__struct.html">_loop_struct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8ee45907908d4ffdd6db55b05b611f14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a8ee45907908d4ffdd6db55b05b611f14">MAX_LOOP_DEPTH</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a8ee45907908d4ffdd6db55b05b611f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a192b3847a17275976b0c8cc154776f40"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a192b3847a17275976b0c8cc154776f40">strndup</a> (const char *src, size_t len)</td></tr>
@@ -125,16 +137,33 @@ Functions</h2></td></tr>
 <tr class="separator:a84b92abfb914c4fa41ef0588770439d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf132a9afa87c83c30d74a5002ab72e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#adf132a9afa87c83c30d74a5002ab72e2">preprocess</a> (char *line)</td></tr>
 <tr class="separator:adf132a9afa87c83c30d74a5002ab72e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a8fd84db5516a541e4fc17a3487f5bddc">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line)</td></tr>
-<tr class="separator:a8fd84db5516a541e4fc17a3487f5bddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b391d8d1052b6e11be16a162bac0fa3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a1b391d8d1052b6e11be16a162bac0fa3">eval</a> (<a class="el" href="pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583">dict_t</a> *dict, const char *line, const char *line_end)</td></tr>
+<tr class="separator:a1b391d8d1052b6e11be16a162bac0fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3a3c20b22c6592743aa7f8e16d4b484c"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a3a3c20b22c6592743aa7f8e16d4b484c">if_depth</a></td></tr>
-<tr class="separator:a3a3c20b22c6592743aa7f8e16d4b484c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cf5026da087338b853a40045c1a70ac"><td class="memItemLeft" align="right" valign="top">static struct <a class="el" href="struct__loop__struct.html">_loop_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#a0cf5026da087338b853a40045c1a70ac">loops</a> [<a class="el" href="interp_8c.html#a8ee45907908d4ffdd6db55b05b611f14">MAX_LOOP_DEPTH</a>]</td></tr>
+<tr class="separator:a0cf5026da087338b853a40045c1a70ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef857867ffccdc96b31070e82714a847"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#aef857867ffccdc96b31070e82714a847">if_depth</a></td></tr>
+<tr class="separator:aef857867ffccdc96b31070e82714a847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8d4b9a60d9de3ee6c5c1cf12611b5e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interp_8c.html#aaa8d4b9a60d9de3ee6c5c1cf12611b5e">loop_depth</a></td></tr>
+<tr class="separator:aaa8d4b9a60d9de3ee6c5c1cf12611b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a8ee45907908d4ffdd6db55b05b611f14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LOOP_DEPTH&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a8fd84db5516a541e4fc17a3487f5bddc"></a>
+<a class="anchor" id="a1b391d8d1052b6e11be16a162bac0fa3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -148,7 +177,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>line</em>&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>line_end</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -162,6 +197,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">dict</td><td>the dictionary to use </td></tr>
     <tr><td class="paramname">line</td><td>the FORTH line </td></tr>
+    <tr><td class="paramname">line_end</td><td>the last byte to interpret, if NULL then function evaluates ASCIIZ line </td></tr>
   </table>
   </dd>
 </dl>
@@ -198,7 +234,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Preprocess the FORTH line.</p>
-<p>The preprocessing is done in-place, comments and newlines are removed by replacing with space characters. There's no space compression pass - it's easier to do that right in <a class="el" href="pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc">eval()</a>.</p>
+<p>The preprocessing is done in-place, comments and newlines are removed by replacing with space characters. There's no space compression pass - it's easier to do that right in <a class="el" href="pforth_8h.html#a1b391d8d1052b6e11be16a162bac0fa3">eval()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">line</td><td>the line to be preprocessed. </td></tr>
@@ -267,7 +303,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a3a3c20b22c6592743aa7f8e16d4b484c"></a>
+<a class="anchor" id="aef857867ffccdc96b31070e82714a847"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -275,7 +311,47 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int if_depth</td>
+          <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> if_depth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaa8d4b9a60d9de3ee6c5c1cf12611b5e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> loop_depth</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0cf5026da087338b853a40045c1a70ac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="struct__loop__struct.html">_loop_struct</a> loops[<a class="el" href="interp_8c.html#a8ee45907908d4ffdd6db55b05b611f14">MAX_LOOP_DEPTH</a>]</td>
         </tr>
       </table>
   </td>
@@ -293,7 +369,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="interp_8c.html">interp.c</a></li>
-    <li class="footer">Generated on Mon Sep 12 2016 13:55:16 for pforth by
+    <li class="footer">Generated on Tue Sep 13 2016 08:32:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

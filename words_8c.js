@@ -16,6 +16,7 @@ var words_8c =
     [ "POP_WORD", "words_8c.html#ab342b67c65f5a29670e8bbb5b5e3ca16", null ],
     [ "PUSH_WORD", "words_8c.html#ae382a8ce948bac18616dd84f41fea71f", null ],
     [ "PUSH_WORD", "words_8c.html#ae382a8ce948bac18616dd84f41fea71f", null ],
+    [ "_depth", "words_8c.html#ac6c1fb611a05e4f0b5712870e47b7096", null ],
     [ "_drop", "words_8c.html#af9ce42616fdadcc4b4cf5214af81bedf", null ],
     [ "_drop", "words_8c.html#a78ebb1439398d858657f6d82f975934b", null ],
     [ "_GENERIC_WORD", "words_8c.html#aedd85513d2802c989a401ce96772ef6f", null ],

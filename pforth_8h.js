@@ -21,7 +21,7 @@ var pforth_8h =
     [ "dict_free", "pforth_8h.html#a39c3c5ba955f137f9d45f2b74ad71fb2", null ],
     [ "dict_get", "pforth_8h.html#a35bc11dcdb7f8313d4b9007d6f381e1a", null ],
     [ "dict_set", "pforth_8h.html#a3a9cde229ee27b6bdc6f56729126e801", null ],
-    [ "eval", "pforth_8h.html#a8fd84db5516a541e4fc17a3487f5bddc", null ],
+    [ "eval", "pforth_8h.html#a1b391d8d1052b6e11be16a162bac0fa3", null ],
     [ "pforth_deinit", "pforth_8h.html#abc79d748d687bdb5ce82b5fd9a784ea7", null ],
     [ "pforth_init", "pforth_8h.html#ab2872ba7ae4b9ec08684e10d5c7211b6", null ],
     [ "pforth_word_alloc", "pforth_8h.html#adb946f90e0ef5959a6b1f22c88a927ce", null ],

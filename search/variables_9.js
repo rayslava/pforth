@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size',['size',['../struct__pforth__word.html#a1e2cab29f920ec5ecf77580039823abc',1,'_pforth_word::size()'],['../structdict__s.html#a9aef29d0157ba1e37f74e945861acdf1',1,'dict_s::size()']]]
+  ['return_5fstack_5ftop',['return_stack_top',['../pforth_8c.html#a6bfabdfca73c31e4c5f0733c39eaf154',1,'return_stack_top():&#160;pforth.c'],['../pforth_8h.html#a6bfabdfca73c31e4c5f0733c39eaf154',1,'return_stack_top():&#160;pforth.c']]]
 ];
