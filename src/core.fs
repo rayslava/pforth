@@ -5,3 +5,5 @@
 
 : 2dup  ( a b -- a b a b ) over over ;
 : 2drop ( a b -- ) drop drop ;
+
+: CR 10 EMIT ;

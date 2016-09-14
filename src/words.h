@@ -101,6 +101,8 @@ _GENERIC_WORD(times_divide)
 
 _GENERIC_WORD(times_divide_mod)
 
+_GENERIC_WORD(key)
+
 #include "generators_run.h"
 
 void register_precompiled();

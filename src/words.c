@@ -276,6 +276,9 @@ _GENERIC_WORD(times_divide_mod,    \
               _PUSH_NUM(r / n3);   \
               )
 
+_GENERIC_WORD(key,                 \
+              _PUSH_NUM(fgetc(stdin)))
+
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -290,6 +293,7 @@ void register_precompiled() {
   register_native("DEPTH", &_DEF_TYPE_OP(depth));
   register_native("*/",	   &_DEF_TYPE_OP(times_divide));
   register_native("*/MOD", &_DEF_TYPE_OP(times_divide_mod));
+  register_native("KEY",   &_DEF_TYPE_OP(key));
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
