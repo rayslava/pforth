@@ -118,6 +118,19 @@ START_TEST(if_tests)
   eval(forth_dict, "1 2 > IF 1 ELSE 0 THEN", NULL);
   r = pop_int32_t();
   ck_assert_int_eq(r, 0);
+
+  eval(forth_dict, "1 2 > IF 1 ELSE 2 1 > IF 0 ELSE 1 THEN THEN", NULL);
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
+  eval(forth_dict, "1 2 > IF 1 ELSE 1 2 > IF 0 ELSE 1 THEN THEN", NULL);
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 1);
+
+  eval(forth_dict, "1 2 > IF 2 1 > IF 3 ELSE 4 THEN  ELSE 0 THEN", NULL);
+  r = pop_int32_t();
+  ck_assert_int_eq(r, 0);
+
 }
 END_TEST
 

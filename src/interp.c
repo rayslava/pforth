@@ -141,27 +141,37 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
     /* Conditional: IF */
     if ((strcmp(token, IF_TOKEN)) == 0) {
       if_depth++;
-      const char* then_pos = NULL;
-      const char* else_pos = NULL;
-      else_pos = strstr(end, ELSE_TOKEN);
-      if ((then_pos = strstr(end, THEN_TOKEN)) == NULL)
-        goto error;
 
-      if (!TRUE) {
-        /* Condition is false */
-        if (else_pos && else_pos < then_pos) {
-          /* Jump to else if there's one */
-          end = else_pos + strlen(ELSE_TOKEN);
-          goto next;
-        } else {
-          /* Jump to then */
-          end = then_pos + strlen(THEN_TOKEN);
+      /* Condition is true - continue execution */
+      if (TRUE)
+        goto next;
+
+      /* Condition is false - look for either ELSE or THEN */
+      const char* pos = begin + strlen(IF_TOKEN);
+      int if_nest_depth = 0;
+      while (*pos && *pos++ == ' ') ;
+
+      while (*pos) {
+        /* Check inside the condition body */
+        if (strncmp(pos, IF_TOKEN, strlen(IF_TOKEN)) == 0) {
+          if_nest_depth++;            /* Found nested IF */
+        } else if (strncmp(pos, THEN_TOKEN, strlen(THEN_TOKEN)) == 0) {
+          if (!if_nest_depth) {       /* Found our THEN */
+            end = pos + strlen(THEN_TOKEN);
+            goto next;
+          } else {                    /* Found nested THEN */
+            if_nest_depth--;
+          }
+        } else if (strncmp(pos, ELSE_TOKEN, strlen(ELSE_TOKEN)) == 0 &&
+                   !if_nest_depth) {  /* Found our ELSE */
+          end = pos + strlen(ELSE_TOKEN);
           goto next;
         }
-      } else {
-        /* Condition is true */
-        goto next;
+        while (*pos && *pos++ != ' ') ; /* Skip the token */
+        while (*pos && *pos++ == ' ') ; /* Skip the spaces */
+        pos--;                          /* Set to beginning of the next token */
       }
+      goto error;
     }
 
     /* Conditional: THEN */
