@@ -24,6 +24,17 @@ START_TEST(sum_tests)
 }
 END_TEST
 
+START_TEST(arith_tests)
+{
+  eval(forth_dict, "10 3 5 */", NULL);
+  ck_assert_int_eq(pop_int32_t(), 6);
+
+  eval(forth_dict, "11 3 5 */MOD", NULL);
+  ck_assert_int_eq(pop_int32_t(), 6);
+  ck_assert_int_eq(pop_int32_t(), 3);
+}
+END_TEST
+
 START_TEST(comparison_test)
 {
   eval(forth_dict, "5 3 >", NULL);

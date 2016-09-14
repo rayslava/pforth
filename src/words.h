@@ -97,6 +97,10 @@ _GENERIC_WORD(dot)
 
 _GENERIC_WORD(depth)
 
+_GENERIC_WORD(times_divide)
+
+_GENERIC_WORD(times_divide_mod)
+
 #include "generators_run.h"
 
 void register_precompiled();

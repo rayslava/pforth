@@ -259,6 +259,23 @@ _GENERIC_WORD(depth,                           \
               _PUSH_NUM(_depth())              \
               DBG("DEPTH: %d\n", _depth()))
 
+_GENERIC_WORD(times_divide,        \
+              FORTH_TYPE n3 = POP; \
+              FORTH_TYPE n2 = POP; \
+              FORTH_TYPE n1 = POP; \
+              FORTH_TYPE r = n1 * n2; \
+              _PUSH_NUM(r / n3);   \
+              )
+
+_GENERIC_WORD(times_divide_mod,    \
+              FORTH_TYPE n3 = POP; \
+              FORTH_TYPE n2 = POP; \
+              FORTH_TYPE n1 = POP; \
+              FORTH_TYPE r = n1 * n2; \
+              _PUSH_NUM(r % n3);   \
+              _PUSH_NUM(r / n3);   \
+              )
+
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -271,6 +288,8 @@ void register_precompiled() {
   register_native("OVER",  &_DEF_TYPE_OP(over));
   register_native("DROP",  &_DEF_TYPE_OP(drop));
   register_native("DEPTH", &_DEF_TYPE_OP(depth));
+  register_native("*/",	   &_DEF_TYPE_OP(times_divide));
+  register_native("*/MOD", &_DEF_TYPE_OP(times_divide_mod));
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
