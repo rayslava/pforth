@@ -26,6 +26,15 @@ END_TEST
 
 START_TEST(arith_tests)
 {
+  eval(forth_dict, "10 5 /", NULL);
+  ck_assert_int_eq(pop_int32_t(), 2);
+
+  eval(forth_dict, "10 5 -", NULL);
+  ck_assert_int_eq(pop_int32_t(), 5);
+
+  eval(forth_dict, "10 5 *", NULL);
+  ck_assert_int_eq(pop_int32_t(), 50);
+
   eval(forth_dict, "10 3 5 */", NULL);
   ck_assert_int_eq(pop_int32_t(), 6);
 

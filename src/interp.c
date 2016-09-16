@@ -13,18 +13,6 @@ char upcase(char c) {
   return c;
 }
 
-char lowcase(char c) {
-  if (c >= 'A' && c <= 'Z')
-    c -= 'A' - 'a';
-  return c;
-}
-
-void upstring(char* line) {
-  char* c = line;
-  while ((*c = upcase(*c)))
-    c++;
-}
-
 int preprocess(char* line) {
   char* pos = line;
   while (*pos) {
@@ -64,17 +52,17 @@ int preprocess(char* line) {
   return 0;
 }
 
-#define MAX_LOOP_DEPTH 3
-
 struct _loop_struct {
   const char* body_start;       /**< Pointer to the space right after DO */
   FORTH_TYPE value;             /**< Current value of the loop */
   FORTH_TYPE stop_value;        /**< Loop exit condition */
 };
-static struct _loop_struct loops[MAX_LOOP_DEPTH];
+static struct _loop_struct loops[MAX_DO_LOOP_DEPTH];
+const char* begin_loops[MAX_BEGIN_LOOP_DEPTH];
 
 static FORTH_TYPE if_depth;
-static FORTH_TYPE loop_depth;
+static FORTH_TYPE do_loop_depth;
+static FORTH_TYPE begin_loop_depth;
 
 void eval(dict_t* dict, const char* line, const char* line_end) {
   DBG("Line:   %.*s\n", (int) (line_end ? line_end - line : strlen(line)), line);
@@ -95,7 +83,7 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
       end++;
 
     if (*begin == 'I' && end - begin == 1) {
-      if (loop_depth < 1)
+      if (do_loop_depth < 1)
         goto error;
       DBG("I: %d\n", loops[0].value);
       push_int32_t(loops[0].value);
@@ -103,7 +91,7 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
     }
 
     if (*begin == 'J' && end - begin == 1) {
-      if (loop_depth < 2)
+      if (do_loop_depth < 2)
         goto error;
       DBG("J: %d\n", loops[1].value);
       push_int32_t(loops[1].value);
@@ -111,7 +99,7 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
     }
 
     if (*begin == 'K' && end - begin == 1) {
-      if (loop_depth < 3)
+      if (do_loop_depth < 3)
         goto error;
       DBG("K: %d\n", loops[2].value);
       push_int32_t(loops[2].value);
@@ -184,14 +172,14 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
 
     /* DO LOOP */
     if ((strcmp(token, DO_TOKEN)) == 0) {
-      if (loop_depth > MAX_LOOP_DEPTH - 1)
+      if (do_loop_depth > MAX_DO_LOOP_DEPTH - 1)
         goto error;          /* Can only handle i,j,k for loops */
 
       if (_depth() < 2)
         goto error;
 
-      loop_depth++;
-      const int current_loop = loop_depth - 1;
+      do_loop_depth++;
+      const int current_loop = do_loop_depth - 1;
       loops[current_loop].stop_value = POP;
       loops[current_loop].value = POP;
       loops[current_loop].body_start = begin + sizeof(DO_TOKEN);
@@ -201,13 +189,13 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
 
     /* DO LOOP */
     if ((strcmp(token, LOOP_TOKEN)) == 0) {
-      struct _loop_struct* loop = &loops[loop_depth - 1];
+      struct _loop_struct* loop = &loops[do_loop_depth - 1];
       if (loop->value != loop->stop_value) {
         loop->value--;
         end = loop->body_start;
         goto next;
       } else {
-        loop_depth--;
+        do_loop_depth--;
         goto next;
       }
     }
@@ -217,15 +205,81 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
       if (_depth() < 1)
         goto error;
       FORTH_TYPE increment = POP;
-      struct _loop_struct* loop = &loops[loop_depth - 1];
+      struct _loop_struct* loop = &loops[do_loop_depth - 1];
       if (loop->value != loop->stop_value) {
         loop->value -= increment;
         end = loop->body_start;
         goto next;
       } else {
-        loop_depth--;
+        do_loop_depth--;
         goto next;
       }
+    }
+
+    /* BEGIN */
+    if ((strcmp(token, BEGIN_TOKEN)) == 0) {
+      if (begin_loop_depth >= MAX_BEGIN_LOOP_DEPTH)
+        goto error;
+      begin_loops[begin_loop_depth] = begin + sizeof(BEGIN_TOKEN);
+      begin_loop_depth++;
+      goto next;
+    }
+
+    /* UNTIL */
+    if ((strcmp(token, UNTIL_TOKEN)) == 0) {
+      if (begin_loop_depth < 1)
+        goto error;
+      if (TRUE) {
+        begin_loop_depth--;
+        goto next;
+      } else {
+        end = begin_loops[begin_loop_depth - 1];
+        DBG("UNTIL goes to %s", end);
+        goto next;
+      }
+    }
+
+    /* REPEAT */
+    if ((strcmp(token, REPEAT_TOKEN)) == 0) {
+      if (begin_loop_depth < 1)
+        goto error;
+      end = begin_loops[begin_loop_depth - 1];
+      DBG("REPEAT goes to %s\n", end);
+      goto next;
+    }
+
+    /* WHILE */
+    if ((strcmp(token, WHILE_TOKEN)) == 0) {
+      if (begin_loop_depth < 1)
+        goto error;
+
+      if (TRUE)
+        goto next;
+
+      /* Condition is false - look for correspoding REPEAT */
+      const char* pos = begin + strlen(WHILE_TOKEN);
+      int if_nest_depth = 0;
+      while (*pos && *pos++ == ' ') ;
+
+      while (*pos) {
+        /* Check inside the condition body */
+        if (strncmp(pos, BEGIN_TOKEN, strlen(BEGIN_TOKEN)) == 0) {
+          if_nest_depth++;            /* Found nested BEGIN */
+        } else if (strncmp(pos, REPEAT_TOKEN, strlen(REPEAT_TOKEN)) == 0) {
+          if (!if_nest_depth) {       /* Found our REPEAT */
+            end = pos + strlen(REPEAT_TOKEN);
+            DBG("WHILE goes to %s\n", end);
+            begin_loop_depth--;
+            goto next;
+          } else {                    /* Found nested REPEAT */
+            if_nest_depth--;
+          }
+        }
+        while (*pos && *pos++ != ' ') ; /* Skip the token */
+        while (*pos && *pos++ == ' ') ; /* Skip the spaces */
+        pos--;                          /* Set to beginning of the next token */
+      }
+      goto error;
     }
 
     /* New word definition */

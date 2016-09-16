@@ -69,6 +69,14 @@ pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_p
   return dest;
 }
 
+void dump_stack() {
+  FORTH_TYPE* p = (FORTH_TYPE *) data_stack_top - 1;
+  printf("Stach dump: ");
+  while (p >= (FORTH_TYPE *) data_stack_bottom())
+    printf("%4d ", *p--);
+  printf("%s", "\n");
+}
+
 void register_native(const char* op, word_function f) {
   pforth_word_ptr word = pforth_word_alloc();
   word->function = f;

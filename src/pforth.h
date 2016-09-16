@@ -23,6 +23,16 @@
 #define FORTH_DICT_SIZE 1000
 
 /**
+   Maximal DO loop nesting depth
+ */
+#define MAX_DO_LOOP_DEPTH 3
+
+/**
+   Maximal BEGIN loop nesting depth
+ */
+#define MAX_BEGIN_LOOP_DEPTH 5
+
+/**
    Default data stack type definition
  */
 #define FORTH_TYPE int32_t
@@ -164,5 +174,7 @@ int preprocess(char* line);
 void eval(dict_t* dict, const char* line, const char* line_end);
 
 void register_native(const char* op, word_function f);
+
+void dump_stack();
 
 #include "words.h"

@@ -110,8 +110,8 @@ void _drop(size_t size) {
  */
 #define _MATH_OP(TYPE, NAME, OP) \
   void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) () {                \
-    TYPE a = pop_ ## TYPE();     \
     TYPE b = pop_ ## TYPE();     \
+    TYPE a = pop_ ## TYPE();     \
     DBG("MATH_OP %d %s %d\n", a, #OP, b); \
     push_ ## TYPE(a OP b);       \
   }

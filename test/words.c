@@ -93,6 +93,28 @@ START_TEST(loop_tests)
 }
 END_TEST
 
+START_TEST(begin_tests)
+{
+  eval(forth_dict, "5 BEGIN DUP 1- DUP 0 == UNTIL", NULL);
+  for (int i = 0; i < 6; i++)
+    ck_assert_int_eq(pop_int32_t(), i);
+
+  eval(forth_dict, "3 BEGIN 1 BEGIN DUP 1- DUP 0 == UNTIL ROT 1- DUP 0 == UNTIL DROP", NULL);
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 2; j++)
+      ck_assert_int_eq(pop_int32_t(), j);
+
+  eval(forth_dict, "5 BEGIN 1- DUP 0 > WHILE DUP REPEAT", NULL);
+  for (int i = 0; i < 5; i++)
+    ck_assert_int_eq(pop_int32_t(), i);
+
+  eval(forth_dict, "5 BEGIN 1- DUP 0 > WHILE DUP BEGIN 0 1 == WHILE 42 EMIT REPEAT REPEAT", NULL);
+  dump_stack();
+  for (int i = 0; i < 5; i++)
+    ck_assert_int_eq(pop_int32_t(), i);
+}
+END_TEST
+
 START_TEST(if_tests)
 {
   eval(forth_dict, "0 1 2 > IF 1 THEN", NULL);
@@ -134,7 +156,6 @@ START_TEST(if_tests)
 }
 END_TEST
 
-
 Suite* words_suite(void)
 {
   Suite* s;
@@ -152,6 +173,7 @@ Suite* words_suite(void)
   tcase_add_test(tc_core, depth_tests);
   tcase_add_test(tc_core, if_tests);
   tcase_add_test(tc_core, loop_tests);
+  tcase_add_test(tc_core, begin_tests);
   tcase_set_timeout(tc_core, 50);
   suite_add_tcase(s, tc_core);
   return s;
