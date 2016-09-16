@@ -7,3 +7,7 @@
 : 2drop ( a b -- ) drop drop ;
 
 : CR 10 EMIT ;
+
+: 1+ 1 + ;
+: 1- 1 - ;
+: = == ;
