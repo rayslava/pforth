@@ -1,6 +1,7 @@
 var pforth_8c =
 [
     [ "data_stack_bottom", "pforth_8c.html#ae3f644d57ff428ee14152f10d2cd6256", null ],
+    [ "dump_stack", "pforth_8c.html#a823a7d8c3aee6c8897cbe24311a59d54", null ],
     [ "pforth_deinit", "pforth_8c.html#abc79d748d687bdb5ce82b5fd9a784ea7", null ],
     [ "pforth_init", "pforth_8c.html#ab2872ba7ae4b9ec08684e10d5c7211b6", null ],
     [ "pforth_word_alloc", "pforth_8c.html#adb946f90e0ef5959a6b1f22c88a927ce", null ],

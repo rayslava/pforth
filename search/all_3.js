@@ -12,5 +12,7 @@ var searchData=
   ['dict_5fs',['dict_s',['../structdict__s.html',1,'']]],
   ['dict_5fset',['dict_set',['../dict_8c.html#a3a9cde229ee27b6bdc6f56729126e801',1,'dict_set(dict_t *dict, const char *key, const pforth_word_ptr value):&#160;dict.c'],['../pforth_8h.html#a3a9cde229ee27b6bdc6f56729126e801',1,'dict_set(dict_t *dict, const char *key, const pforth_word_ptr value):&#160;dict.c']]],
   ['dict_5ft',['dict_t',['../pforth_8h.html#aff16e60253c51af06ab8c17f41fbf583',1,'pforth.h']]],
-  ['do_5ftoken',['DO_TOKEN',['../token_8h.html#afb359de0e0a5932b06615a84a8ff0ae9',1,'token.h']]]
+  ['do_5floop_5fdepth',['do_loop_depth',['../interp_8c.html#aca3fd02397c45144121de5c0b12d0e02',1,'interp.c']]],
+  ['do_5ftoken',['DO_TOKEN',['../token_8h.html#afb359de0e0a5932b06615a84a8ff0ae9',1,'token.h']]],
+  ['dump_5fstack',['dump_stack',['../pforth_8c.html#a823a7d8c3aee6c8897cbe24311a59d54',1,'dump_stack():&#160;pforth.c'],['../pforth_8h.html#a823a7d8c3aee6c8897cbe24311a59d54',1,'dump_stack():&#160;pforth.c']]]
 ];

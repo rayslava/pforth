@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">7f27338bc7a59dd34df16c2e197dfad79b083fca</span>
+   &#160;<span id="projectnumber">ba8445f3be8b21cf36b57f48db82f3219f79143f</span>
    </div>
   </td>
  </tr>
@@ -143,6 +143,10 @@ Macros</h2></td></tr>
 <tr class="separator:a464086719dcbec3a5447a3e76dd2e935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d66a9c79d916ee0036d9971f1a60894"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a2d66a9c79d916ee0036d9971f1a60894">FORTH_DICT_SIZE</a>&#160;&#160;&#160;1000</td></tr>
 <tr class="separator:a2d66a9c79d916ee0036d9971f1a60894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a2d3e3447a077e15fcdb84a7fe0f3b4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a5a2d3e3447a077e15fcdb84a7fe0f3b4">MAX_DO_LOOP_DEPTH</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a5a2d3e3447a077e15fcdb84a7fe0f3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9e2ad42c6c3396eb32ed4b8ebef448a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#af9e2ad42c6c3396eb32ed4b8ebef448a">MAX_BEGIN_LOOP_DEPTH</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af9e2ad42c6c3396eb32ed4b8ebef448a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c37343a5533f01ba6e940f6ace28c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;&#160;&#160;int32_t</td></tr>
 <tr class="separator:a04c37343a5533f01ba6e940f6ace28c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1621834236723fc94ccec48a1e527dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>&#160;&#160;&#160;<a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a></td></tr>
@@ -195,6 +199,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1b391d8d1052b6e11be16a162bac0fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab5eba54d00bcd589050e20c6153f4e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#aab5eba54d00bcd589050e20c6153f4e1">register_native</a> (const char *op, <a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> f)</td></tr>
 <tr class="separator:aab5eba54d00bcd589050e20c6153f4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823a7d8c3aee6c8897cbe24311a59d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a823a7d8c3aee6c8897cbe24311a59d54">dump_stack</a> ()</td></tr>
+<tr class="separator:a823a7d8c3aee6c8897cbe24311a59d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -300,6 +306,32 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af9e2ad42c6c3396eb32ed4b8ebef448a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_BEGIN_LOOP_DEPTH&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximal BEGIN loop nesting depth </p>
+
+</div>
+</div>
+<a class="anchor" id="a5a2d3e3447a077e15fcdb84a7fe0f3b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_DO_LOOP_DEPTH&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximal DO loop nesting depth </p>
 
 </div>
 </div>
@@ -549,6 +581,21 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the newly created word </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a823a7d8c3aee6c8897cbe24311a59d54"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dump_stack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -843,7 +890,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8h.html">pforth.h</a></li>
-    <li class="footer">Generated on Wed Sep 14 2016 08:56:42 for pforth by
+    <li class="footer">Generated on Fri Sep 16 2016 13:27:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

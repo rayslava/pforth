@@ -13,5 +13,6 @@ var searchData=
   ['map_5fnext0',['MAP_NEXT0',['../words_8h.html#afa1264bba0d36dc1e20fca832c854616',1,'words.h']]],
   ['map_5fnext1',['MAP_NEXT1',['../words_8h.html#aad6050e33797501cd20e3fc121b854a0',1,'words.h']]],
   ['map_5fout',['MAP_OUT',['../words_8h.html#abee0bfcde972b92f02e78b14cca4fa15',1,'words.h']]],
-  ['max_5floop_5fdepth',['MAX_LOOP_DEPTH',['../interp_8c.html#a8ee45907908d4ffdd6db55b05b611f14',1,'interp.c']]]
+  ['max_5fbegin_5floop_5fdepth',['MAX_BEGIN_LOOP_DEPTH',['../pforth_8h.html#af9e2ad42c6c3396eb32ed4b8ebef448a',1,'pforth.h']]],
+  ['max_5fdo_5floop_5fdepth',['MAX_DO_LOOP_DEPTH',['../pforth_8h.html#a5a2d3e3447a077e15fcdb84a7fe0f3b4',1,'pforth.h']]]
 ];

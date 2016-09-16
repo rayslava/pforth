@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">7f27338bc7a59dd34df16c2e197dfad79b083fca</span>
+   &#160;<span id="projectnumber">ba8445f3be8b21cf36b57f48db82f3219f79143f</span>
    </div>
   </td>
  </tr>
@@ -329,7 +329,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    TYPE a = pop_ ## TYPE();     \</div><div class="line">    TYPE b = pop_ ## TYPE();     \</div><div class="line">    DBG(<span class="stringliteral">&quot;MATH_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b);       \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:74</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="code" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) () {                \</div><div class="line">    TYPE b = pop_ ## TYPE();     \</div><div class="line">    TYPE a = pop_ ## TYPE();     \</div><div class="line">    DBG(<span class="stringliteral">&quot;MATH_OP %d %s %d\n&quot;</span>, a, #OP, b); \</div><div class="line">    push_ ## TYPE(a OP b);       \</div><div class="line">  }</div><div class="ttc" id="words_8h_html_ac5459b1069a7a247192aed6c893587ba"><div class="ttname"><a href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a></div><div class="ttdeci">#define M_CONC(A, B)</div><div class="ttdef"><b>Definition:</b> words.h:74</div></div>
 </div><!-- fragment --><p>Generator for native math words</p>
 <p>Creates function named NAME for operation OP with arguments of TYPE The result for <code>int32_t</code>, <code>add</code>, <code>+</code> will be </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;void _add_int32_t() {</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  int32_t a = pop_int32();</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  int32_t b = pop_int32();</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  push_int32_t (a &gt;= b ? -1 : 0);</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}</div></div><!-- fragment --><p>The resulting function will use push_TYPE for data placement</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -819,7 +819,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="words_8c.html">words.c</a></li>
-    <li class="footer">Generated on Wed Sep 14 2016 08:56:42 for pforth by
+    <li class="footer">Generated on Fri Sep 16 2016 13:27:56 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>
