@@ -103,6 +103,10 @@ _GENERIC_WORD(times_divide_mod)
 
 _GENERIC_WORD(key)
 
+_GENERIC_WORD(max)
+
+_GENERIC_WORD(min)
+
 #include "generators_run.h"
 
 void register_precompiled();

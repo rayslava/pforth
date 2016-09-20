@@ -156,6 +156,16 @@ START_TEST(if_tests)
 }
 END_TEST
 
+START_TEST(minmax_tests)
+{
+  eval(forth_dict, "1 2 MAX", NULL);
+  ck_assert_int_eq(pop_int32_t(), 2);
+  eval(forth_dict, "1 2 MIN", NULL);
+  ck_assert_int_eq(pop_int32_t(), 1);
+}
+END_TEST
+
+
 Suite* words_suite(void)
 {
   Suite* s;
@@ -174,6 +184,7 @@ Suite* words_suite(void)
   tcase_add_test(tc_core, if_tests);
   tcase_add_test(tc_core, loop_tests);
   tcase_add_test(tc_core, begin_tests);
+  tcase_add_test(tc_core, minmax_tests);
   tcase_set_timeout(tc_core, 50);
   suite_add_tcase(s, tc_core);
   return s;

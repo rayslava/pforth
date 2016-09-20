@@ -279,6 +279,16 @@ _GENERIC_WORD(times_divide_mod,    \
 _GENERIC_WORD(key,                 \
               _PUSH_NUM(fgetc(stdin)))
 
+_GENERIC_WORD(max,                 \
+              _POP_NUM(n2)         \
+              _POP_NUM(n1)         \
+              _PUSH_NUM(n1 > n2 ? n1 : n2))
+
+_GENERIC_WORD(min,                 \
+              _POP_NUM(n2)         \
+              _POP_NUM(n1)         \
+              _PUSH_NUM(n1 < n2 ? n1 : n2))
+
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -294,6 +304,8 @@ void register_precompiled() {
   register_native("*/",	   &_DEF_TYPE_OP(times_divide));
   register_native("*/MOD", &_DEF_TYPE_OP(times_divide_mod));
   register_native("KEY",   &_DEF_TYPE_OP(key));
+  register_native("MAX",   &_DEF_TYPE_OP(max));
+  register_native("MIN",   &_DEF_TYPE_OP(min));
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
