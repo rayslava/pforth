@@ -108,7 +108,7 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
 
     token = strndup(begin, end - begin);
 
-    if (strlen(token) == 0 && *end == '\n') {
+    if (strlen(token) == 0) {
       ++end;
       goto next;
     }
