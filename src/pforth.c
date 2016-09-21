@@ -71,7 +71,7 @@ pforth_word_ptr pforth_word_copy(const pforth_word_ptr dest, const pforth_word_p
 
 void dump_stack() {
   FORTH_TYPE* p = (FORTH_TYPE *) data_stack_bottom() + 1;
-  printf("Data stack [@%p] dump: ", data_stack_bottom());
+  printf("Data stack [@%p] dump: ", (void *) data_stack_bottom());
   while (p < (FORTH_TYPE *) data_stack_top)
     printf("%4d ", *p++);
   printf(" <- top is here (as in comments) %s", "\n");
