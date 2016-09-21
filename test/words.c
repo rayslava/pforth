@@ -69,6 +69,16 @@ START_TEST(depth_tests)
 }
 END_TEST
 
+START_TEST(pick_tests)
+{
+  eval(forth_dict, "1 0 PICK", NULL);
+  ck_assert_int_eq(pop_int32_t(), 1);
+  eval(forth_dict, "2 1 1 PICK", NULL);
+  ck_assert_int_eq(pop_int32_t(), 2);
+  eval(forth_dict, "3 2 1 2 PICK", NULL);
+  ck_assert_int_eq(pop_int32_t(), 3);
+}
+END_TEST
 
 START_TEST(loop_tests)
 {
@@ -185,6 +195,7 @@ Suite* words_suite(void)
   tcase_add_test(tc_core, loop_tests);
   tcase_add_test(tc_core, begin_tests);
   tcase_add_test(tc_core, minmax_tests);
+  tcase_add_test(tc_core, pick_tests);
   tcase_set_timeout(tc_core, 50);
   suite_add_tcase(s, tc_core);
   return s;

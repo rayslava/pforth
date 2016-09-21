@@ -289,6 +289,14 @@ _GENERIC_WORD(min,                 \
               _POP_NUM(n1)         \
               _PUSH_NUM(n1 < n2 ? n1 : n2))
 
+_GENERIC_WORD(pick,                \
+              _POP_NUM(depth)      \
+              FORTH_TYPE * ptr = (FORTH_TYPE *) data_stack_top - depth - 1; \
+              if (ptr < (FORTH_TYPE *) data_stack_bottom())            \
+                return;            \
+              _PUSH_NUM(*ptr))
+
+
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -306,6 +314,7 @@ void register_precompiled() {
   register_native("KEY",   &_DEF_TYPE_OP(key));
   register_native("MAX",   &_DEF_TYPE_OP(max));
   register_native("MIN",   &_DEF_TYPE_OP(min));
+  register_native("PICK",  &_DEF_TYPE_OP(pick));
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);

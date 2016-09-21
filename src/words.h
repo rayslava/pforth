@@ -107,6 +107,8 @@ _GENERIC_WORD(max)
 
 _GENERIC_WORD(min)
 
+_GENERIC_WORD(pick)
+
 #include "generators_run.h"
 
 void register_precompiled();
