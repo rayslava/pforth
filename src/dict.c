@@ -183,5 +183,4 @@ pforth_word_ptr dict_get(dict_t* dict, const char* key) {
   } else {
     return pair->word;
   }
-
 }

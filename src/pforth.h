@@ -93,6 +93,9 @@ void dict_free(dict_t* dict, uint32_t size);
 pforth_word_ptr dict_set(dict_t* dict, const char* key, const pforth_word_ptr value);
 pforth_word_ptr dict_get(dict_t* dict, const char* key);
 
+/**
+   Storage for the FORTH words
+ */
 extern dict_t* forth_dict;
 
 /**
@@ -173,8 +176,17 @@ int preprocess(char* line);
  */
 void eval(dict_t* dict, const char* line, const char* line_end);
 
+/**
+   Register native (compile-time) word
+
+   \param op The FORTH word to add
+   \param f Function to call
+ */
 void register_native(const char* op, word_function f);
 
+/**
+   Debug printer for the whole data stack
+ */
 void dump_stack();
 
 #include "words.h"
