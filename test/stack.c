@@ -28,7 +28,8 @@ Suite* stack_suite(void)
   /* Core test case */
   tc_core = tcase_create("Core");
 
-  tcase_add_test(tc_core, test_push_pop);
+  tcase_add_test(tc_core,	test_push_pop);
+  tcase_add_test(tc_core, test_new_empty_word);
   suite_add_tcase(s, tc_core);
 
   return s;

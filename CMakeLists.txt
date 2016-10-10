@@ -81,7 +81,7 @@ if (SANITIZED)
   set(CMAKE_C_FLAGS         "${CMAKE_C_FLAGS} -fsanitize=address")
 endif()
 
-set(CMAKE_C_FLAGS_DEBUG   "-O0 -ggdb -DDEBUG ${STANDARD}")
+set(CMAKE_C_FLAGS_DEBUG   "-O0 -ggdb -g3 -DDEBUG ${STANDARD}")
 set(CMAKE_C_FLAGS_RELEASE "-Ofast ${STANDARD}")
 
 if ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")

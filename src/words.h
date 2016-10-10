@@ -16,6 +16,8 @@
 
 FORTH_TYPE _depth();
 
+void _push(void* data, size_t size);
+
 #define _PRECOMPILED_WORDS
 
 _EMBED_DECORATE(void _push(void* data, size_t size))
@@ -112,3 +114,7 @@ _GENERIC_WORD(pick)
 #include "generators_run.h"
 
 void register_precompiled();
+
+_EMBED_DECORATE(pforth_word_ptr create_variable(const char* name))
+
+/* Variable management */

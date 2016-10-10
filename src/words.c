@@ -296,7 +296,6 @@ _GENERIC_WORD(pick,                \
                 return;            \
               _PUSH_NUM(*ptr))
 
-
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -319,4 +318,12 @@ void register_precompiled() {
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
   eval(forth_dict, (char *) core_compressed_fs, NULL);
+}
+
+pforth_word_ptr create_variable(const char* name) {
+  pforth_word_ptr var = dict_set(forth_dict, name, NULL);
+  var->text_code = malloc(2);
+  var->text_code[0] = 0x01;
+  DBG("Created variable @%p", (void *) &var->location);
+  return var;
 }

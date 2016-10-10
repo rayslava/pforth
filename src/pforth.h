@@ -38,6 +38,11 @@
 #define FORTH_TYPE int32_t
 
 /**
+   Pointer type definition
+ */
+#define POINTER_TYPE uintptr_t
+
+/**
    Comma separated list of types to generate math operations for
  */
 #define INT_TYPE_LIST FORTH_TYPE
@@ -56,6 +61,17 @@ struct _pforth_word {
 
      The actual program.
      \p NULL for native words.
+
+     If \p text_code[0] is 0x01 the word is variable.
+     In this case:
+     \p text_code[1] is flag register:
+   |76543210|
+   |      AC|
+
+     C - Constant. The data can not change.
+     A - Array. The data is pointer to actual array.
+
+     \p location is the value (or memory region if Array bit is set)
    */
   char* text_code;
   uint8_t size;               /**< Code size (for binary code in \p location/\p function) */
@@ -67,6 +83,10 @@ struct _pforth_word {
 
 typedef struct _pforth_word pforth_word;
 typedef pforth_word * pforth_word_ptr;
+
+#define WORD_IS_VARIABLE (w) (w.text_code[0] == 0x01)
+#define WORD_IS_CONSTANT (w) (w.text_code[1] & 0x01)
+#define WORD_IS_ARRAY (w) (w.text_code[1] & 0x02)
 
 extern uint8_t* data_stack_top;
 extern void* return_stack_top;

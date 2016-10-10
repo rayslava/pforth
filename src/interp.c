@@ -322,6 +322,11 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
+      if (word->text_code[0] == 0x01) {
+        DBG("Variable:   %p\n", word->location);
+        _push((void *) &word->location, sizeof(POINTER_TYPE));
+        goto next;
+      }
       DBG("Word:   %s\n", token);
       if (word->location) {
         DBG("Exec:   %s word from %p\n", token, word->location);
@@ -334,8 +339,21 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
         goto next;
       }
     }
+    /* VARIABLE */
+    if ((strcmp(token, VARIABLE_TOKEN)) == 0) {
+      DBG("Variable token! %d\n", 0);
+      const char* pos = begin + strlen(VARIABLE_TOKEN);
+      while (*pos && *pos++ == ' ') ;
+      const char* name_start = --pos;
+      while (*pos && *pos++ != ' ') ; /* Skip the token */
+      const char* name = strndup(name_start, pos - name_start);
+      create_variable(name);
+      free((void *) name);
+      end = pos;
+      goto next;
+    }
   error:
-    DBG("Cant parse:   %s!\n", token);
+    DBG("Can't parse:   %s!\n", token);
     free(token);
     break;
   next:
