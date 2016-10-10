@@ -10,6 +10,14 @@ START_TEST(test_push_pop)
 }
 END_TEST
 
+START_TEST(test_new_empty_word)
+{
+  pforth_word_ptr nw = dict_set(forth_dict, "test_word", NULL);
+  /* Try to address the pointer and not get SIGSEGV */
+  ck_assert_int_eq(nw->size, 0);
+}
+END_TEST
+
 Suite* stack_suite(void)
 {
   Suite* s;

@@ -99,7 +99,10 @@ dict_entry* dict_newkv(const char* key, const pforth_word_ptr value) {
     return NULL;
   }
 
-  pforth_word_copy(newpair->word, value);
+  if (value)
+    pforth_word_copy(newpair->word, value);
+  else
+    newpair->word = pforth_word_alloc();
 
   newpair->next = NULL;
 
