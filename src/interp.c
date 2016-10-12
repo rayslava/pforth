@@ -322,9 +322,10 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
     /* Try to call the word */
     pforth_word_ptr word;
     if ((word = dict_get(dict, token)) != NULL) {
-      if (word->text_code[0] == 0x01) {
-        DBG("Variable:   %p\n", word->location);
-        _push((void *) &word->location, sizeof(POINTER_TYPE));
+      if (word->text_code && word->text_code[0] == 0x01) {
+        POINTER_TYPE location = &word->location;
+        DBG("Variable:   %p\n", location);
+        _push(&location, sizeof(POINTER_TYPE));
         goto next;
       }
       DBG("Word:   %s\n", token);
@@ -346,7 +347,7 @@ void eval(dict_t* dict, const char* line, const char* line_end) {
       while (*pos && *pos++ == ' ') ;
       const char* name_start = --pos;
       while (*pos && *pos++ != ' ') ; /* Skip the token */
-      const char* name = strndup(name_start, pos - name_start);
+      const char* name = strndup(name_start, pos - name_start - 1);
       create_variable(name);
       free((void *) name);
       end = pos;

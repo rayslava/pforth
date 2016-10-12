@@ -136,7 +136,7 @@ void _drop(size_t size) {
    \param OP operation to compile into function
  */
 #define _COMPARE_OP(TYPE, NAME, OP) \
-  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ())     \
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ());    \
   void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) () {                    \
     TYPE b = pop_ ## TYPE();        \
     TYPE a = pop_ ## TYPE();        \
@@ -296,6 +296,21 @@ _GENERIC_WORD(pick,                \
                 return;            \
               _PUSH_NUM(*ptr))
 
+void _EMBED_DECORATE(get_variable_value()) {
+  FORTH_TYPE* val;
+  memcpy(&val, data_stack_top - sizeof(POINTER_TYPE), sizeof(POINTER_TYPE));
+  _drop(sizeof(POINTER_TYPE));
+  _PUSH_NUM(*val);
+}
+
+void _EMBED_DECORATE(set_variable_value()) {
+  POINTER_TYPE addr;
+  memcpy(&addr, data_stack_top - sizeof(POINTER_TYPE), sizeof(POINTER_TYPE));
+  _drop(sizeof(POINTER_TYPE));
+  _POP_NUM(val);
+  memcpy((void *) addr, &val, sizeof(FORTH_TYPE));
+}
+
 void register_precompiled() {
 #include "generators_run.h"
   register_native("EMIT",  &_DEF_TYPE_OP(emit));
@@ -314,6 +329,8 @@ void register_precompiled() {
   register_native("MAX",   &_DEF_TYPE_OP(max));
   register_native("MIN",   &_DEF_TYPE_OP(min));
   register_native("PICK",  &_DEF_TYPE_OP(pick));
+  register_native("@",	   &get_variable_value);
+  register_native("!",	   &set_variable_value);
 
 #include "core_fs.h"
   preprocess((char *) core_compressed_fs);
@@ -324,6 +341,6 @@ pforth_word_ptr create_variable(const char* name) {
   pforth_word_ptr var = dict_set(forth_dict, name, NULL);
   var->text_code = malloc(2);
   var->text_code[0] = 0x01;
-  DBG("Created variable @%p", (void *) &var->location);
+  DBG("Created variable %s @%p", name, (void *) &var->location);
   return var;
 }

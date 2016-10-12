@@ -21,7 +21,7 @@ pforth_word_ptr pforth_word_alloc() {
 }
 
 void pforth_word_free(const pforth_word_ptr word) {
-  if (word->location && word->text_code != NULL)
+  if (word->location && word->text_code != NULL && word->text_code[0] != 0x01)
     free(word->location);
   free(word->text_code);
   free(word);

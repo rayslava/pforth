@@ -12,7 +12,7 @@
 #define _PRE_DEC
 #define _POST_DEC
 #endif
-#define _EMBED_DECORATE(FUNC) _PRE_DEC FUNC _POST_DEC;
+#define _EMBED_DECORATE(FUNC) _PRE_DEC FUNC _POST_DEC
 
 FORTH_TYPE _depth();
 
@@ -20,18 +20,18 @@ void _push(void* data, size_t size);
 
 #define _PRECOMPILED_WORDS
 
-_EMBED_DECORATE(void _push(void* data, size_t size))
+_EMBED_DECORATE(void _push(void* data, size_t size));
 
-_EMBED_DECORATE(void _drop(size_t size))
+_EMBED_DECORATE(void _drop(size_t size));
 
 #define POP_WORD(TYPE) \
-  _EMBED_DECORATE(TYPE pop_ ## TYPE())
+  _EMBED_DECORATE(TYPE pop_ ## TYPE());
 
 #define PUSH_WORD(TYPE) \
-  _EMBED_DECORATE(void push_ ## TYPE(TYPE value))
+  _EMBED_DECORATE(void push_ ## TYPE(TYPE value));
 
 #define _MATH_OP(TYPE, NAME, OP) \
-  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ())
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ());
 
 #define _FIVE_MATH_OPS(TYPE) \
   _MATH_OP(TYPE, add, +)     \
@@ -41,7 +41,7 @@ _EMBED_DECORATE(void _drop(size_t size))
   _MATH_OP(TYPE, mod, %)
 
 #define _COMPARE_OP(TYPE, NAME, OP) \
-  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ())
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ());
 
 #define _COMPARISON_OPS(TYPE) \
   _COMPARE_OP(TYPE, gt,	  >)   \
@@ -52,7 +52,7 @@ _EMBED_DECORATE(void _drop(size_t size))
   _COMPARE_OP(TYPE, neq, !=)
 
 #define _TRUE_OP(TYPE) \
-  _EMBED_DECORATE(int M_CONC(_, M_CONC(true, M_CONC(_, TYPE))) ())
+  _EMBED_DECORATE(int M_CONC(_, M_CONC(true, M_CONC(_, TYPE))) ());
 
 #define PUSH_POP_WORD(TYPE) PUSH_WORD(TYPE) POP_WORD(TYPE)
 #define PUSH_POP_WORDS(...) PUSH_POP_WORD(__VA_ARGS__)
@@ -77,7 +77,7 @@ _EMBED_DECORATE(void _drop(size_t size))
 #define M_CONC_(A, B) A ## B
 
 #define _TYPED_GENERIC_WORD(TYPE, NAME) \
-  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ())
+  _EMBED_DECORATE(void M_CONC(_, M_CONC(NAME, M_CONC(_, TYPE))) ());
 
 #define _GENERIC_WORD(NAME) _TYPED_GENERIC_WORD(FORTH_TYPE, NAME)
 
@@ -115,6 +115,6 @@ _GENERIC_WORD(pick)
 
 void register_precompiled();
 
-_EMBED_DECORATE(pforth_word_ptr create_variable(const char* name))
+pforth_word_ptr create_variable(const char* name);
 
 /* Variable management */

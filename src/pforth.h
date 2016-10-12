@@ -40,7 +40,7 @@
 /**
    Pointer type definition
  */
-#define POINTER_TYPE uintptr_t
+#define POINTER_TYPE void *
 
 /**
    Comma separated list of types to generate math operations for

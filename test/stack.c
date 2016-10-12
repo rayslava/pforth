@@ -18,6 +18,13 @@ START_TEST(test_new_empty_word)
 }
 END_TEST
 
+START_TEST(test_variables)
+{
+  eval(forth_dict, "VARIABLE A 50 A ! 10 A @", NULL);
+  ck_assert_int_eq(pop_int32_t(), 50);
+}
+END_TEST
+
 Suite* stack_suite(void)
 {
   Suite* s;
@@ -30,6 +37,7 @@ Suite* stack_suite(void)
 
   tcase_add_test(tc_core,	test_push_pop);
   tcase_add_test(tc_core, test_new_empty_word);
+  tcase_add_test(tc_core,      test_variables);
   suite_add_tcase(s, tc_core);
 
   return s;
