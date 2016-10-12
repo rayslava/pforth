@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">316f48ac1ad32422da73a70a91432981e59a1b71</span>
+   &#160;<span id="projectnumber">0943e5e71114f286dbb2474d55aabf91df02d104</span>
    </div>
   </td>
  </tr>
@@ -191,7 +191,10 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>ASCII representation of word.</p>
-<p>The actual program. <code>NULL</code> for native words. </p>
+<p>The actual program. <code>NULL</code> for native words.</p>
+<p>If <code>text_code</code>[0] is 0x01 the word is variable. In this case: <code>text_code</code>[1] is flag register: |76543210| | AC|</p>
+<p>C - Constant. The data can not change. A - Array. The data is pointer to actual array.</p>
+<p><code>location</code> is the value (or memory region if Array bit is set) </p>
 
 </div>
 </div>
@@ -204,7 +207,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct__pforth__word.html">_pforth_word</a></li>
-    <li class="footer">Generated on Wed Sep 21 2016 10:20:55 for pforth by
+    <li class="footer">Generated on Wed Oct 12 2016 15:27:19 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

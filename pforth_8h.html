@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">316f48ac1ad32422da73a70a91432981e59a1b71</span>
+   &#160;<span id="projectnumber">0943e5e71114f286dbb2474d55aabf91df02d104</span>
    </div>
   </td>
  </tr>
@@ -149,8 +149,16 @@ Macros</h2></td></tr>
 <tr class="separator:af9e2ad42c6c3396eb32ed4b8ebef448a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c37343a5533f01ba6e940f6ace28c0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;&#160;&#160;int32_t</td></tr>
 <tr class="separator:a04c37343a5533f01ba6e940f6ace28c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10fa77e5d9a10eaf592675ef49560ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#ab10fa77e5d9a10eaf592675ef49560ba">POINTER_TYPE</a>&#160;&#160;&#160;void *</td></tr>
+<tr class="separator:ab10fa77e5d9a10eaf592675ef49560ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1621834236723fc94ccec48a1e527dab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a1621834236723fc94ccec48a1e527dab">INT_TYPE_LIST</a>&#160;&#160;&#160;<a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a></td></tr>
 <tr class="separator:a1621834236723fc94ccec48a1e527dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2adb7bfd72ef1b9880e45934b7fbc399"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a2adb7bfd72ef1b9880e45934b7fbc399">WORD_IS_VARIABLE</a>&#160;&#160;&#160;(w) (w.text_code[0] == 0x01)</td></tr>
+<tr class="separator:a2adb7bfd72ef1b9880e45934b7fbc399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3aa6dcb95cc0a47f555693266a76f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a4d3aa6dcb95cc0a47f555693266a76f6">WORD_IS_CONSTANT</a>&#160;&#160;&#160;(w) (w.text_code[1] &amp; 0x01)</td></tr>
+<tr class="separator:a4d3aa6dcb95cc0a47f555693266a76f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcb036e472e96b41eaa7e70ef471de45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#afcb036e472e96b41eaa7e70ef471de45">WORD_IS_ARRAY</a>&#160;&#160;&#160;(w) (w.text_code[1] &amp; 0x02)</td></tr>
+<tr class="separator:afcb036e472e96b41eaa7e70ef471de45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18b586ef5d87a09c4306f2ead631b60a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pforth_8h.html#a18b586ef5d87a09c4306f2ead631b60a">PFORTH_WORD_RUN</a>(w)&#160;&#160;&#160;{ <a class="el" href="pforth_8h.html#a22efcf974dbcb87b7732ff5aec867506">word_function</a> f = *(word-&gt;function); f(); }</td></tr>
 <tr class="separator:a18b586ef5d87a09c4306f2ead631b60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -352,6 +360,19 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ab10fa77e5d9a10eaf592675ef49560ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define POINTER_TYPE&#160;&#160;&#160;void *</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer type definition </p>
+
+</div>
+</div>
 <a class="anchor" id="ab854488bd762fe2fd3293666ae7253ee"></a>
 <div class="memitem">
 <div class="memproto">
@@ -372,6 +393,42 @@ Variables</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td>&#160;&#160;&#160;fprintf(stdout, fmt, __VA_ARGS__);</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afcb036e472e96b41eaa7e70ef471de45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WORD_IS_ARRAY&#160;&#160;&#160;(w) (w.text_code[1] &amp; 0x02)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4d3aa6dcb95cc0a47f555693266a76f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WORD_IS_CONSTANT&#160;&#160;&#160;(w) (w.text_code[1] &amp; 0x01)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2adb7bfd72ef1b9880e45934b7fbc399"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WORD_IS_VARIABLE&#160;&#160;&#160;(w) (w.text_code[0] == 0x01)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -596,6 +653,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Debug printer for the whole data stack </p>
 
 </div>
 </div>
@@ -828,6 +886,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Register native (compile-time) word</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">op</td><td>The FORTH word to add </td></tr>
+    <tr><td class="paramname">f</td><td>Function to call </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -869,6 +935,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Storage for the FORTH words </p>
 
 </div>
 </div>
@@ -890,7 +957,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="pforth_8h.html">pforth.h</a></li>
-    <li class="footer">Generated on Wed Sep 21 2016 10:20:55 for pforth by
+    <li class="footer">Generated on Wed Oct 12 2016 15:27:19 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

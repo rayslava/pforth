@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['upcase',['upcase',['../interp_8c.html#ab3fde9000cf2dd4f798ad52473d77a52',1,'interp.c']]]
+  ['strndup',['strndup',['../interp_8c.html#a192b3847a17275976b0c8cc154776f40',1,'interp.c']]]
 ];

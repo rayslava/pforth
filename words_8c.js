@@ -19,10 +19,13 @@ var words_8c =
     [ "_depth", "words_8c.html#ac6c1fb611a05e4f0b5712870e47b7096", null ],
     [ "_drop", "words_8c.html#af9ce42616fdadcc4b4cf5214af81bedf", null ],
     [ "_drop", "words_8c.html#a78ebb1439398d858657f6d82f975934b", null ],
+    [ "_EMBED_DECORATE", "words_8c.html#a7dff5f9c4f50144a2cb9bf82b69eb06b", null ],
     [ "_GENERIC_WORD", "words_8c.html#aedd85513d2802c989a401ce96772ef6f", null ],
     [ "_GENERIC_WORD", "words_8c.html#af3575f89e23a08cab6a6d0d3830e802d", null ],
     [ "_POP_NUM", "words_8c.html#a5669adf19f24d3b1fc5c0db3dfab0009", null ],
     [ "_push", "words_8c.html#a50088bb9c54c8a2469dabde72dee7006", null ],
     [ "_top", "words_8c.html#adc24a4ca79188ef47d6e62903bc5e38d", null ],
-    [ "DBG", "words_8c.html#a6f93d4620a23ddda4bc714b449447a31", null ]
+    [ "create_variable", "words_8c.html#a0e9f894f7cdd074f266ea10bf3d70051", null ],
+    [ "DBG", "words_8c.html#a6f93d4620a23ddda4bc714b449447a31", null ],
+    [ "register_precompiled", "words_8c.html#abd4be76e5d12a66b0dae6c7c43b78b96", null ]
 ];

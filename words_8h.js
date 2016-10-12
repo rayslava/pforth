@@ -34,5 +34,9 @@ var words_8h =
     [ "PUSH_POP_WORDS", "words_8h.html#aa913a4d4e4bed493af4e9faf320c13e0", null ],
     [ "PUSH_WORD", "words_8h.html#ae382a8ce948bac18616dd84f41fea71f", null ],
     [ "_depth", "words_8h.html#ac6c1fb611a05e4f0b5712870e47b7096", null ],
+    [ "_EMBED_DECORATE", "words_8h.html#af95a1915a14fe654e42521c3631da931", null ],
+    [ "_EMBED_DECORATE", "words_8h.html#a7c38966c6e424a8b163cc1509b5f486d", null ],
+    [ "_push", "words_8h.html#a50088bb9c54c8a2469dabde72dee7006", null ],
+    [ "create_variable", "words_8h.html#a0e9f894f7cdd074f266ea10bf3d70051", null ],
     [ "register_precompiled", "words_8h.html#abd4be76e5d12a66b0dae6c7c43b78b96", null ]
 ];

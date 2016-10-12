@@ -9,5 +9,6 @@ var token_8h =
     [ "REPEAT_TOKEN", "token_8h.html#a2bf5ef23121bd9284e13bde5bb5ffd94", null ],
     [ "THEN_TOKEN", "token_8h.html#ac49f861ab2140d026e33c9356e5d8288", null ],
     [ "UNTIL_TOKEN", "token_8h.html#a2618cb73f55f6b3f509c5b152381d58b", null ],
+    [ "VARIABLE_TOKEN", "token_8h.html#ace0330d774c0f8bf1923dee73daba9b2", null ],
     [ "WHILE_TOKEN", "token_8h.html#aac2a3d5195092e6090bfe0a6bd3f557d", null ]
 ];

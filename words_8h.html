@@ -32,7 +32,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">pforth
-   &#160;<span id="projectnumber">316f48ac1ad32422da73a70a91432981e59a1b71</span>
+   &#160;<span id="projectnumber">0943e5e71114f286dbb2474d55aabf91df02d104</span>
    </div>
   </td>
  </tr>
@@ -121,23 +121,23 @@ Macros</h2></td></tr>
 <tr class="separator:a523d98bd807957519cbb55a90265c4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ced905dd685eb6d9c0214796019d673"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">_POST_DEC</a></td></tr>
 <tr class="separator:a2ced905dd685eb6d9c0214796019d673"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9836b0e8e3e009f31c6fdcb3d1dde161"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(FUNC)&#160;&#160;&#160;<a class="el" href="words_8h.html#a523d98bd807957519cbb55a90265c4ff">_PRE_DEC</a> FUNC <a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">_POST_DEC</a>;</td></tr>
+<tr class="memitem:a9836b0e8e3e009f31c6fdcb3d1dde161"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(FUNC)&#160;&#160;&#160;<a class="el" href="words_8h.html#a523d98bd807957519cbb55a90265c4ff">_PRE_DEC</a> FUNC <a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">_POST_DEC</a></td></tr>
 <tr class="separator:a9836b0e8e3e009f31c6fdcb3d1dde161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4f9245ce4a82cbb86043719be527ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0d4f9245ce4a82cbb86043719be527ca">_PRECOMPILED_WORDS</a></td></tr>
 <tr class="separator:a0d4f9245ce4a82cbb86043719be527ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab342b67c65f5a29670e8bbb5b5e3ca16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ab342b67c65f5a29670e8bbb5b5e3ca16">POP_WORD</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(TYPE pop_ ## TYPE())</td></tr>
+<tr class="memitem:ab342b67c65f5a29670e8bbb5b5e3ca16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ab342b67c65f5a29670e8bbb5b5e3ca16">POP_WORD</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(TYPE pop_ ## TYPE());</td></tr>
 <tr class="separator:ab342b67c65f5a29670e8bbb5b5e3ca16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae382a8ce948bac18616dd84f41fea71f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ae382a8ce948bac18616dd84f41fea71f">PUSH_WORD</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void push_ ## TYPE(TYPE value))</td></tr>
+<tr class="memitem:ae382a8ce948bac18616dd84f41fea71f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ae382a8ce948bac18616dd84f41fea71f">PUSH_WORD</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void push_ ## TYPE(TYPE value));</td></tr>
 <tr class="separator:ae382a8ce948bac18616dd84f41fea71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48f91adc47113e6a1ca729243a73f380"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE,  NAME,  OP)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td></tr>
+<tr class="memitem:a48f91adc47113e6a1ca729243a73f380"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE,  NAME,  OP)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td></tr>
 <tr class="separator:a48f91adc47113e6a1ca729243a73f380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0abd1b91e2df49e34685c6cbfb98f643"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0abd1b91e2df49e34685c6cbfb98f643">_FIVE_MATH_OPS</a>(TYPE)</td></tr>
 <tr class="separator:a0abd1b91e2df49e34685c6cbfb98f643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ad68d84344e9c2f40f662d440ea8f5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE,  NAME,  OP)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td></tr>
+<tr class="memitem:a2ad68d84344e9c2f40f662d440ea8f5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE,  NAME,  OP)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td></tr>
 <tr class="separator:a2ad68d84344e9c2f40f662d440ea8f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada46dee9081e0067bfa8d6fd88f337fb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ada46dee9081e0067bfa8d6fd88f337fb">_COMPARISON_OPS</a>(TYPE)</td></tr>
 <tr class="separator:ada46dee9081e0067bfa8d6fd88f337fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d020a431adbc6061f03e733ed09555"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(int <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(true, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td></tr>
+<tr class="memitem:a39d020a431adbc6061f03e733ed09555"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a39d020a431adbc6061f03e733ed09555">_TRUE_OP</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(int <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(true, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td></tr>
 <tr class="separator:a39d020a431adbc6061f03e733ed09555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52b6119642378b1ee55848397f6fcec5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a52b6119642378b1ee55848397f6fcec5">PUSH_POP_WORD</a>(TYPE)&#160;&#160;&#160;<a class="el" href="words_8h.html#ae382a8ce948bac18616dd84f41fea71f">PUSH_WORD</a>(TYPE) <a class="el" href="words_8h.html#ab342b67c65f5a29670e8bbb5b5e3ca16">POP_WORD</a>(TYPE)</td></tr>
 <tr class="separator:a52b6119642378b1ee55848397f6fcec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,7 +177,7 @@ Macros</h2></td></tr>
 <tr class="separator:ac5459b1069a7a247192aed6c893587ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4fef82e3553809bea94254b556c1428"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ab4fef82e3553809bea94254b556c1428">M_CONC_</a>(A,  B)&#160;&#160;&#160;A ## B</td></tr>
 <tr class="separator:ab4fef82e3553809bea94254b556c1428"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0506d09f1a278f28bb6b6a88bbc9d68d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0506d09f1a278f28bb6b6a88bbc9d68d">_TYPED_GENERIC_WORD</a>(TYPE,  NAME)&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td></tr>
+<tr class="memitem:a0506d09f1a278f28bb6b6a88bbc9d68d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0506d09f1a278f28bb6b6a88bbc9d68d">_TYPED_GENERIC_WORD</a>(TYPE,  NAME)&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td></tr>
 <tr class="separator:a0506d09f1a278f28bb6b6a88bbc9d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8f9e60b27801eef7901849c59494280"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#af8f9e60b27801eef7901849c59494280">_GENERIC_WORD</a>(NAME)&#160;&#160;&#160;<a class="el" href="words_8h.html#a0506d09f1a278f28bb6b6a88bbc9d68d">_TYPED_GENERIC_WORD</a>(<a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>, NAME)</td></tr>
 <tr class="separator:af8f9e60b27801eef7901849c59494280"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,8 +188,16 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ac6c1fb611a05e4f0b5712870e47b7096"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#ac6c1fb611a05e4f0b5712870e47b7096">_depth</a> ()</td></tr>
 <tr class="separator:ac6c1fb611a05e4f0b5712870e47b7096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50088bb9c54c8a2469dabde72dee7006"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a50088bb9c54c8a2469dabde72dee7006">_push</a> (void *data, size_t size)</td></tr>
+<tr class="separator:a50088bb9c54c8a2469dabde72dee7006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95a1915a14fe654e42521c3631da931"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#af95a1915a14fe654e42521c3631da931">_EMBED_DECORATE</a> (void <a class="el" href="words_8h.html#a50088bb9c54c8a2469dabde72dee7006">_push</a>(void *data, size_t size))</td></tr>
+<tr class="separator:af95a1915a14fe654e42521c3631da931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c38966c6e424a8b163cc1509b5f486d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a> (void <a class="el" href="words_8c.html#a78ebb1439398d858657f6d82f975934b">_drop</a>(size_t size))</td></tr>
+<tr class="separator:a7c38966c6e424a8b163cc1509b5f486d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd4be76e5d12a66b0dae6c7c43b78b96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#abd4be76e5d12a66b0dae6c7c43b78b96">register_precompiled</a> ()</td></tr>
 <tr class="separator:abd4be76e5d12a66b0dae6c7c43b78b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e9f894f7cdd074f266ea10bf3d70051"><td class="memItemLeft" align="right" valign="top"><a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth_word_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="words_8h.html#a0e9f894f7cdd074f266ea10bf3d70051">create_variable</a> (const char *name)</td></tr>
+<tr class="separator:a0e9f894f7cdd074f266ea10bf3d70051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a2ad68d84344e9c2f40f662d440ea8f5a"></a>
@@ -217,7 +225,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -237,7 +245,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE, gt,     &gt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, lt,   &lt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, ge,  &gt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, le,  &lt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, eq,  ==)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, neq, !=)</div><div class="ttc" id="words_8h_html_a2ad68d84344e9c2f40f662d440ea8f5a"><div class="ttname"><a href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a></div><div class="ttdeci">#define _COMPARE_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:41</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a>(TYPE, gt,     &gt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, lt,   &lt;)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, ge,  &gt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, le,  &lt;=)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, eq,  ==)   <a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">\</a></div><div class="line"><a class="code" href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">  _COMPARE_OP</a>(TYPE, neq, !=)</div><div class="ttc" id="words_8h_html_a2ad68d84344e9c2f40f662d440ea8f5a"><div class="ttname"><a href="words_8h.html#a2ad68d84344e9c2f40f662d440ea8f5a">_COMPARE_OP</a></div><div class="ttdeci">#define _COMPARE_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:43</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -249,8 +257,8 @@ Functions</h2></td></tr>
           <td class="memname">#define _EMBED_DECORATE</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">FUNC</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a523d98bd807957519cbb55a90265c4ff">_PRE_DEC</a> FUNC <a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">_POST_DEC</a>;</td>
+          <td class="paramname">FUNC  </td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a523d98bd807957519cbb55a90265c4ff">_PRE_DEC</a> FUNC <a class="el" href="words_8h.html#a2ced905dd685eb6d9c0214796019d673">_POST_DEC</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -270,7 +278,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE, add, +)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, sub, -)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mul, *)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, div, /)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mod, %)</div><div class="ttc" id="words_8h_html_a48f91adc47113e6a1ca729243a73f380"><div class="ttname"><a href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a></div><div class="ttdeci">#define _MATH_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:31</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a>(TYPE, add, +)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, sub, -)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mul, *)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, div, /)     <a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">\</a></div><div class="line"><a class="code" href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">  _MATH_OP</a>(TYPE, mod, %)</div><div class="ttc" id="words_8h_html_a48f91adc47113e6a1ca729243a73f380"><div class="ttname"><a href="words_8h.html#a48f91adc47113e6a1ca729243a73f380">_MATH_OP</a></div><div class="ttdeci">#define _MATH_OP(TYPE, NAME, OP)</div><div class="ttdef"><b>Definition:</b> words.h:33</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,7 +323,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -368,7 +376,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">TYPE</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(int <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(true, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td>
+          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(int <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(true, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -394,7 +402,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ())</td>
+          <td></td><td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(NAME, <a class="el" href="words_8h.html#ac5459b1069a7a247192aed6c893587ba">M_CONC</a>(_, TYPE))) ());</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -799,7 +807,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">TYPE</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(TYPE pop_ ## TYPE())</td>
+          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(TYPE pop_ ## TYPE());</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -847,7 +855,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">TYPE</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a9836b0e8e3e009f31c6fdcb3d1dde161">_EMBED_DECORATE</a>(void push_ ## TYPE(TYPE value))</td>
+          <td>&#160;&#160;&#160;<a class="el" href="words_8h.html#a7c38966c6e424a8b163cc1509b5f486d">_EMBED_DECORATE</a>(void push_ ## TYPE(TYPE value));</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -863,6 +871,89 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="pforth_8h.html#a04c37343a5533f01ba6e940f6ace28c0">FORTH_TYPE</a> _depth </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af95a1915a14fe654e42521c3631da931"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_EMBED_DECORATE </td>
+          <td>(</td>
+          <td class="paramtype">void &#160;</td>
+          <td class="paramname"><em>_push</em>void *data, size_t size</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7c38966c6e424a8b163cc1509b5f486d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_EMBED_DECORATE </td>
+          <td>(</td>
+          <td class="paramtype">void &#160;</td>
+          <td class="paramname"><em>_drop</em>size_t size</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a50088bb9c54c8a2469dabde72dee7006"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void _push </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Push the data to global data stack and move the <a class="el" href="pforth_8h.html#a159fb3ba31844b2d551900969fd5d598">data_stack_top</a> forward</p>
+<p>The data must be valid pointer with at least size bytes inside</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>data to push </td></tr>
+    <tr><td class="paramname">size</td><td>size of data in bytes </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0e9f894f7cdd074f266ea10bf3d70051"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198">pforth_word_ptr</a> create_variable </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -891,7 +982,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="words_8h.html">words.h</a></li>
-    <li class="footer">Generated on Wed Sep 21 2016 10:20:55 for pforth by
+    <li class="footer">Generated on Wed Oct 12 2016 15:27:19 for pforth by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
   </ul>

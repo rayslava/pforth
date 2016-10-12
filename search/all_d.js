@@ -12,6 +12,7 @@ var searchData=
   ['pforth_5fword_5fptr',['pforth_word_ptr',['../pforth_8h.html#ad24b10fc2df1b1858cd7c8cc61340198',1,'pforth.h']]],
   ['pforth_5fword_5frun',['PFORTH_WORD_RUN',['../pforth_8h.html#a18b586ef5d87a09c4306f2ead631b60a',1,'pforth.h']]],
   ['ploop_5ftoken',['PLOOP_TOKEN',['../token_8h.html#adceacdb403f4460b17ea15f7d9a17a0b',1,'token.h']]],
+  ['pointer_5ftype',['POINTER_TYPE',['../pforth_8h.html#ab10fa77e5d9a10eaf592675ef49560ba',1,'pforth.h']]],
   ['pop',['POP',['../words_8h.html#a0b06d6d6f5a540a62659a417de0ad69d',1,'words.h']]],
   ['pop_5fword',['POP_WORD',['../words_8c.html#ab342b67c65f5a29670e8bbb5b5e3ca16',1,'POP_WORD():&#160;words.c'],['../words_8c.html#ab342b67c65f5a29670e8bbb5b5e3ca16',1,'POP_WORD():&#160;words.c'],['../words_8h.html#ab342b67c65f5a29670e8bbb5b5e3ca16',1,'POP_WORD():&#160;words.h']]],
   ['preprocess',['preprocess',['../interp_8c.html#adf132a9afa87c83c30d74a5002ab72e2',1,'preprocess(char *line):&#160;interp.c'],['../pforth_8h.html#adf132a9afa87c83c30d74a5002ab72e2',1,'preprocess(char *line):&#160;interp.c']]],
